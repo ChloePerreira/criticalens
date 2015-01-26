@@ -36,3 +36,17 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'omniauth'
+gem 'omniauth-flickr'
+gem 'dotenv-rails', :groups => [:development, :test]
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+# for infinite scroll
+# http://www.sitepoint.com/infinite-scrolling-rails-basics/
+gem 'will_paginate', '~> 3.0.5'
+gem 'betterlorem', '~> 0.1.2'
+gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
