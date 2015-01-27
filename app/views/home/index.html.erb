@@ -1,5 +1,7 @@
-<%= "Login with Flickr", "/auth/flickr" %>
+<%= link_to "Login with Flickr", "/auth/flickr" %>
 
-<% if session[:id] %>
-  <%= "Session: " session[:id] %>
+<% if session[:user_id]  %>
+  <%= "Session: " %>
+  <%= session[:user_id] %>
+  <%= link_to "Logout", destroy_session_path %>
 <% end %>

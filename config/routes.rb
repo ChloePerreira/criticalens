@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index", as: :root
 
-  get "/auth/flickr/callback", to: "sessions#create", as: :connect
+  get "/auth/flickr/callback", to: "session#create", as: :connect
+  
+  get "/logout", to: "session#destroy", as: :destroy_session
 
 
   # The priority is based upon order of creation: first created -> highest priority.
