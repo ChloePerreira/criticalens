@@ -19,7 +19,7 @@ server '54.149.232.51',
   user: 'ubuntu', 
   roles: %w{web app}, 
   ssh_options: {
-    keys: %w(/Users/crystal/.ssh/ec2-ada-2.pem),
+    keys: %w(/Users/crystal/.ssh/ec2-ada.pem),
     forward_agent: false,
     auth_methods: %w(publickey)
   }

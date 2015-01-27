@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: criticalens_production
-  username: criticalens
+  username: ubuntu
   password: <%= ENV['CRITICALENS_DATABASE_PASSWORD'] %>
