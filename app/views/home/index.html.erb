@@ -1,4 +1,8 @@
 <%= link_to "Login with Flickr", "/auth/flickr" %>
+<% x = ENV['FLICKR_SECRET'] %>
+<% y = ENV['FLICKR_KEY'] %>
+
+<% raise %>
 
 <% if session[:user_id]  %>
   <%= "Session: " %>
