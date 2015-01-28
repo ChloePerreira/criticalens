@@ -1,4 +1,5 @@
 require 'httparty'
+require 'active_support/all'
 class Flickr
 
   def self.get_photos(fid)
