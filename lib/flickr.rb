@@ -2,8 +2,15 @@ require 'httparty'
 require 'active_support/all'
 class Flickr
 
-  def self.photo_hash(args)
-
+  def self.photo_hash(flickr_id)
+    id_hash_array = self.get_photos(flickr_id)
+    complete_hash_array = []
+    id_hash_array[0..10].each do |hash| #LIMITED - change this later
+      url_hash = self.get_urls(hash[:id])
+      combined = hash.merge(url_hash)
+      complete_hash_array.push(combined)
+    end
+    complete_hash_array
   end
 
   def self.get_photos(fid)
@@ -16,7 +23,7 @@ class Flickr
     photo_array
   end
 
-  def self.get_url(fid)
+  def self.get_urls(fid)
     response = self.response("flickr.photos.getSizes", "photo_id", fid)
     response = response['rsp']['sizes']['size']
     url_hash = {}
