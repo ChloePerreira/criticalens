@@ -1,7 +1,11 @@
+Home
+<br>This stuff needs to go in layout
+<br>
 <%= link_to "Login with Flickr", "/auth/flickr" %>
 
 <% if session[:user_id]  %>
   <%= "Session: " %>
   <%= session[:user_id] %>
   <%= link_to "Logout", destroy_session_path %>
+  <%= link_to "Dashboard", dashboard_path %>
 <% end %>

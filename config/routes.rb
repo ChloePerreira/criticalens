@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index", as: :root
 
+  get "/dashboard", to: "home#dashboard", as: :dashboard
+
   get "/auth/flickr/callback", to: "session#create", as: :connect
   
   get "/logout", to: "session#destroy", as: :destroy_session
