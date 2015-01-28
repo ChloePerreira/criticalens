@@ -3,4 +3,5 @@ Dashboard
 
 <% if session[:user_id] %>
   <%= Flickr.photo_hash(current_user.fid) %>
+  <%= Flickr.get_exif("9118211781") %> 
 <% end %>
