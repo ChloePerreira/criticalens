@@ -1,9 +1,45 @@
 Dashboard
 <br>Put something here so that if session is nil, an error message shows up
 <!-- no permission test photo = 15387008027 -->
-<% if session[:user_id] %>
-  <%= Flickr.photo_hash(current_user.fid) %>
-  <% if Flickr.get_exif("8487007766")  %> 
-    <%= "blah" %>
-  <% end %>
-<% end %>
+<br>
+<div class = "container">
+  <div class = "row show-grid">
+    <div class = "col-md-2">
+    </div>
+    <div class = "col-md-8">
+
+
+        <% if session[:user_id] %>
+          <% i = 3 %>
+          <% photo_hash = Flickr.photo_hash(current_user.fid) %>
+          <% last = photo_hash.last %>
+          
+          <% photo_hash.each do |hash_element| %>
+            <% if i>3 && i%3 == 0 %>
+              </div>
+            <% end %>
+            <% if i%3 == 0 %>
+              <div class="row show-grid">
+            <% end %>
+
+            <div class="col-md-3">
+              <div class = "photo">
+              <%= image_tag hash_element[:large_square] %>
+              </div>
+            </div>
+            
+            <% if hash_element == last && i%3 !=0%>
+              </div>
+            <% end %>
+            <% i += 1%>
+          <% end %>
+        <% end %>
+
+
+  </div>
+    <div class = "col-md-2">
+    </div>
+
+  </div>
+</div>
+
