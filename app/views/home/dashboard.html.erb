@@ -2,5 +2,5 @@ Dashboard
 <br>Put something here so that if session is nil, an error message shows up
 
 <% if session[:user_id] %>
-  <%= Flickr.photo_hash(User.find(session[:user_id]).fid) %>
+  <%= Flickr.photo_hash(current_user.fid) %>
 <% end %>
