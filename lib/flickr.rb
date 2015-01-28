@@ -2,6 +2,10 @@ require 'httparty'
 require 'active_support/all'
 class Flickr
 
+  def self.photo_hash(args)
+
+  end
+
   def self.get_photos(fid)
     response = self.response("flickr.people.getPublicPhotos", "user_id", fid)
     photos = response['rsp']['photos']['photo']
@@ -14,12 +18,15 @@ class Flickr
 
   def self.get_url(fid)
     response = self.response("flickr.photos.getSizes", "photo_id", fid)
-    x = response['rsp']['sizes']['size']
+    response = response['rsp']['sizes']['size']
     url_hash = {}
-    x.each do |hash_element|
-      url_hash[hash_element["label"]] = hash_element['source']
+    response.each do |hash_element|
+      url_hash[hash_element["label"].downcase.gsub(/\s+/, "_").to_sym] = hash_element['source']
     end
-    url_hash
+    url_hash.slice(:large_square, :small, :small_320, :medium_640, :medium_800)
+  end
+
+  def self.get_exif(fid)
   end
 
   def self.response(method, id_type, id)
