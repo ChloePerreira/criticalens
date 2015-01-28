@@ -35,21 +35,25 @@ class Flickr
 
   def self.get_exif(fid)
     response = self.response("flickr.photos.getExif", "photo_id", fid)
-    exif = response['rsp']['photo']['exif']
-    exif_hash = {}
-    exif.each do |hash_element|
-      exif_hash[hash_element['tag'].to_sym] = hash_element['raw']
+    if response["rsp"]["stat"] == "fail"
+      return false
+    else
+      exif = response['rsp']['photo']['exif']
+      exif_hash = {}
+      exif.each do |hash_element|
+        exif_hash[hash_element['tag'].to_sym] = hash_element['raw']
+      end
+      exif_hash.slice(
+        :Model, 
+        :Lens, 
+        :FocalLength, 
+        :MaxApertureValue, 
+        :ExposureTime, 
+        :ISO, 
+        :WhiteBalance,
+        :FNumber, 
+        :Flash)
     end
-    exif_hash.slice(
-      :Model, 
-      :Lens, 
-      :FocalLength, 
-      :MaxApertureValue, 
-      :ExposureTime, 
-      :ISO, 
-      :WhiteBalance,
-      :FNumber, 
-      :Flash)
   end
 
   def self.response(method, id_type, id)

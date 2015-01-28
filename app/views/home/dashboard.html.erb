@@ -1,7 +1,9 @@
 Dashboard
 <br>Put something here so that if session is nil, an error message shows up
-
+<!-- no permission test photo = 15387008027 -->
 <% if session[:user_id] %>
   <%= Flickr.photo_hash(current_user.fid) %>
-  <%= Flickr.get_exif("9118211781") %> 
+  <% if Flickr.get_exif("8487007766")  %> 
+    <%= "blah" %>
+  <% end %>
 <% end %>
