@@ -43,6 +43,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
+gem 'httparty'
 
 # for infinite scroll
 # http://www.sitepoint.com/infinite-scrolling-rails-basics/

@@ -2,4 +2,6 @@ Dashboard
 <br>Put something here so that if session is nil, an error message shows up
 
 <% if session[:user_id] %>
+  <%= Flickr.get_photos(User.find(session[:user_id]).fid) %>
+  <%= Flickr.get_url("9118211781") %>
 <% end %>
