@@ -2,9 +2,7 @@ require 'httparty'
 class Flickr
 
   def self.get_photos(fid)
-    url = "https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=#{ENV['FLICKR_KEY']}&user_id=#{fid}"
-    response = HTTParty.get(url)
-    response = response.parsed_response
+    response = self.response("flickr.people.getPublicPhotos", "user_id", fid)
     photos = response['rsp']['photos']['photo']
     photo_array = []
     photos.each do |hash_element|
@@ -14,15 +12,19 @@ class Flickr
   end
 
   def self.get_url(fid)
-    url = "https://api.flickr.com/services/rest/?&method=flickr.photos.getSizes&api_key=#{ENV['FLICKR_KEY']}&photo_id=#{fid}"
-    response = HTTParty.get(url)
-    response = response.parsed_response
+    response = self.response("flickr.photos.getSizes", "photo_id", fid)
     x = response['rsp']['sizes']['size']
     url_hash = {}
     x.each do |hash_element|
       url_hash[hash_element["label"]] = hash_element['source']
     end
     url_hash
+  end
+
+  def self.response(method, id_type, id)
+    url = "https://api.flickr.com/services/rest/?&method=#{method}&api_key=#{ENV['FLICKR_KEY']}&#{id_type}=#{id}"
+    response = HTTParty.get(url)
+    response = response.parsed_response
   end
 
 end
