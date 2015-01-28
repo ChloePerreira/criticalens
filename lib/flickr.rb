@@ -11,7 +11,7 @@ class Flickr
     photos = response['rsp']['photos']['photo']
     photo_array = []
     photos.each do |hash_element|
-      photo_array.push(hash_element["id"])
+      photo_array.push({:id =>hash_element["id"]})
     end
     photo_array
   end
