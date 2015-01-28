@@ -19,10 +19,8 @@ class Flickr
     response = response.parsed_response
     x = response['rsp']['sizes']['size']
     url_hash = {}
-    test = []
     x.each do |hash_element|
-      url_hash[hash_element["label"]] = hash_element['url']
-      test.push(hash_element)
+      url_hash[hash_element["label"]] = hash_element['source']
     end
     url_hash
   end
