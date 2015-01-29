@@ -13,8 +13,30 @@ class Flickr
     complete_hash_array
   end
 
+  def self.test(fid)
+    extras = "&extras=url_q,url_m,url_n,url_z,url_c"
+    response = self.response("flickr.people.getPublicPhotos", "user_id", fid, extras)
+    photos = response['rsp']['photos']['photo']
+    photo_array = []
+    photos.each do |hash_element|
+      photo_array.push(
+        {
+          :id => hash_element["id"], 
+          :large_square => hash_element["url_q"], 
+          :small => hash_element["url_m"], 
+          :small_320 => hash_element["url_n"], 
+          :medium_640 => hash_element["url_z"], 
+          :medium_800  => hash_element["url_c"] 
+        }
+      )
+    end
+    photo_array
+    photos
+  end
+
+
   def self.get_photos(fid)
-    response = self.response("flickr.people.getPublicPhotos", "user_id", fid)
+    response = self.response("flickr.people.getPublicPhotos", "user_id", fid, nil)
     photos = response['rsp']['photos']['photo']
     photo_array = []
     photos.each do |hash_element|
@@ -24,7 +46,7 @@ class Flickr
   end
 
   def self.get_urls(fid)
-    response = self.response("flickr.photos.getSizes", "photo_id", fid)
+    response = self.response("flickr.photos.getSizes", "photo_id", fid, nil)
     response = response['rsp']['sizes']['size']
     url_hash = {}
     response.each do |hash_element|
@@ -34,7 +56,7 @@ class Flickr
   end
 
   def self.get_exif(fid)
-    response = self.response("flickr.photos.getExif", "photo_id", fid)
+    response = self.response("flickr.photos.getExif", "photo_id", fid, nil)
     if response["rsp"]["stat"] == "fail"
       return false
     else
@@ -56,8 +78,8 @@ class Flickr
     end
   end
 
-  def self.response(method, id_type, id)
-    url = "https://api.flickr.com/services/rest/?&method=#{method}&api_key=#{ENV['FLICKR_KEY']}&#{id_type}=#{id}"
+  def self.response(method, id_type, id, extras)
+    url = "https://api.flickr.com/services/rest/?&method=#{method}&api_key=#{ENV['FLICKR_KEY']}&#{id_type}=#{id}#{extras}"
     response = HTTParty.get(url)
     response = response.parsed_response
   end
