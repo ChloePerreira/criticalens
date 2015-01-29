@@ -2,18 +2,6 @@ require 'httparty'
 require 'active_support/all'
 class Flickr
 
-  def self.photo_hash(flickr_id)
-    id_hash_array = self.get_photos(flickr_id)
-    #complete_hash_array = []
-    #id_hash_array[0..11].each do |hash| #LIMITED - change this later
-      #url_hash = self.get_urls(hash[:id])
-      #combined = hash.merge(url_hash)
-      #complete_hash_array.push(combined)
-    #end
-    #complete_hash_array
-    id_hash_array
-  end
-
   def self.get_photos(fid)
     extras = "&extras=url_q,url_m,url_n,url_z,url_c"
     response = self.response("flickr.people.getPublicPhotos", "user_id", fid, extras)
@@ -62,6 +50,18 @@ class Flickr
     response = HTTParty.get(url)
     response = response.parsed_response
   end
+
+  #def self.photo_hash(flickr_id)
+    #id_hash_array = self.get_photos(flickr_id)
+    #complete_hash_array = []
+    #id_hash_array[0..11].each do |hash| #LIMITED - change this later
+      #url_hash = self.get_urls(hash[:id])
+      #combined = hash.merge(url_hash)
+      #complete_hash_array.push(combined)
+    #end
+    #complete_hash_array
+    #id_hash_array
+  #end
 
   #def self.get_photos(fid)
   #  response = self.response("flickr.people.getPublicPhotos", "user_id", fid, nil)

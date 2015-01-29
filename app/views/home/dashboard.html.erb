@@ -12,7 +12,7 @@ Dashboard
 
         <% if session[:user_id] %>
           <% i = 3 %>
-          <% photo_hash = Flickr.photo_hash(current_user.fid) %>
+          <% photo_hash = Flickr.get_photos(current_user.fid) %>
           <% last = photo_hash.last %>
           
           <% photo_hash.each do |hash_element| %>
