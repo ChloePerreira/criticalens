@@ -4,13 +4,14 @@ class Flickr
 
   def self.photo_hash(flickr_id)
     id_hash_array = self.get_photos(flickr_id)
-    complete_hash_array = []
-    id_hash_array[0..11].each do |hash| #LIMITED - change this later
-      url_hash = self.get_urls(hash[:id])
-      combined = hash.merge(url_hash)
-      complete_hash_array.push(combined)
-    end
-    complete_hash_array
+    #complete_hash_array = []
+    #id_hash_array[0..11].each do |hash| #LIMITED - change this later
+      #url_hash = self.get_urls(hash[:id])
+      #combined = hash.merge(url_hash)
+      #complete_hash_array.push(combined)
+    #end
+    #complete_hash_array
+    id_hash_array
   end
 
   def self.get_photos(fid)
@@ -31,16 +32,6 @@ class Flickr
       )
     end
     photo_array
-  end
-
-  def self.get_urls(fid)
-    response = self.response("flickr.photos.getSizes", "photo_id", fid, nil)
-    response = response['rsp']['sizes']['size']
-    url_hash = {}
-    response.each do |hash_element|
-      url_hash[hash_element["label"].downcase.gsub(/\s+/, "_").to_sym] = hash_element['source']
-    end
-    url_hash.slice(:large_square, :small, :small_320, :medium_640, :medium_800)
   end
 
   def self.get_exif(fid)
@@ -82,4 +73,13 @@ class Flickr
   #  photo_array
   #end
 
+  #def self.get_urls(fid)
+  #  response = self.response("flickr.photos.getSizes", "photo_id", fid, nil)
+  #  response = response['rsp']['sizes']['size']
+  #  url_hash = {}
+  #  response.each do |hash_element|
+  #    url_hash[hash_element["label"].downcase.gsub(/\s+/, "_").to_sym] = hash_element['source']
+  #  end
+  #  url_hash.slice(:large_square, :small, :small_320, :medium_640, :medium_800)
+  #end
 end
