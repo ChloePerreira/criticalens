@@ -23,9 +23,7 @@ Dashboard
             <% end %>
 
             <div class="col-md-3">
-              <div class = "photo">
-              <%= image_tag hash_element[:large_square] %>
-              </div>
+              <%= image_tag hash_element[:large_square], class: "photo" %>
             </div>
             
             <% if hash_element == last && i%3 !=0%>
