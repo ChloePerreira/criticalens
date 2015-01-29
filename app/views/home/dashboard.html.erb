@@ -9,7 +9,6 @@ Dashboard
     </div>
     <div class = "col-md-8">
 
-
         <% if session[:user_id] %>
           <% i = 3 %>
           <% photo_hash = Flickr.get_photos(current_user.fid) %>
@@ -35,8 +34,8 @@ Dashboard
           <% end %>
         <% end %>
 
+    </div>
 
-  </div>
     <div class = "col-md-2">
     </div>
 
