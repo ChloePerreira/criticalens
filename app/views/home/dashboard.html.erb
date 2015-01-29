@@ -25,7 +25,7 @@ Dashboard
 
             <div class="col-md-3">
               <%= image_tag hash_element[:large_square], class: "photo" %>
-              <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :blah => hash_element.to_json  } %>
+              <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :info => hash_element.to_json  } %>
             </div>
             
             <% if hash_element == last && i%3 !=0%>

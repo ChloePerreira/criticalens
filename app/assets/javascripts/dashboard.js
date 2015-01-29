@@ -11,7 +11,7 @@ $(function () {
     alert("blah");
     $.ajax("/test", {
       type: "POST",
-      data: {hash: $(this).attr("blah")},
+      data: {hash: $(this).attr("info")},
       success: function (data) {
       }
     });
