@@ -13,7 +13,8 @@ Dashboard
           <% i = 3 %>
           <% photo_hash = Flickr.get_photos(current_user.fid) %>
           <% last = photo_hash.last %>
-          
+         
+ 
           <% photo_hash.each do |hash_element| %>
             <% if i>3 && i%3 == 0 %>
               </div>
@@ -24,7 +25,7 @@ Dashboard
 
             <div class="col-md-3">
               <%= image_tag hash_element[:large_square], class: "photo" %>
-              <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo'} %>
+              <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :blah => hash_element.to_json  } %>
             </div>
             
             <% if hash_element == last && i%3 !=0%>
