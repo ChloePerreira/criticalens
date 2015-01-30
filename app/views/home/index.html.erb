@@ -1,1 +1,7 @@
-
+<div class = "container">
+  <div class = "row show-grid">
+      <div class = "col-md-
+<% Photo.all.each do |photo_object| %>
+  <%= image_tag photo_object[:medium_640] %>
+  <br>
+<% end %>
