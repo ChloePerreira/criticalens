@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   get "/logout", to: "session#destroy", as: :destroy_session
 
-  post "/test", to: "photos#submit_photo"
+  post "/test", to: "photos#submit_photo", as: :test
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
