@@ -13,7 +13,7 @@ $(function () {
     
       /*stat equals ok if exif avail otherwise equals fail*/
       if (api_response_json.stat === "ok") {
-        onSuccess();
+        onSuccess;
       } else {
         onError();
       }
@@ -37,12 +37,16 @@ $(function () {
     var photo_data = $(this).attr('info');
     var photo_id = JSON.parse(photo_data).id;
 
-
-    function postToTestOnSuccess () {    
+    function postToTestOnSuccess (button) {    
       $.ajax("/test", {
         type: "POST",
         data: {hash: photo_data},
         success: function (data) {
+          console.log(button); 
+          button.removeClass("submit-photo");
+          button.addClass("submitted");
+          button.val("Submitted");
+          console.log(button);
         }
       });
     }
@@ -51,7 +55,7 @@ $(function () {
       alert("Please make sure Exif data is publicly available");
     }
 
-    check_is_exif_avail(photo_id, postToTestOnSuccess, complainOnError);
+    check_is_exif_avail(photo_id, postToTestOnSuccess($(this)), complainOnError);
   });
 
 
