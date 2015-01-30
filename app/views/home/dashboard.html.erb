@@ -31,7 +31,13 @@ Dashboard
 
             <div class="col-md-3">
               <%= image_tag hash_element[:large_square], class: "photo" %>
-              <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :info => hash_element.to_json  } %>
+              <% if !Photo.exists?(fid: hash_element[:id]) %>
+                <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :info => hash_element.to_json  } %>
+              <% else %>
+                <div class = 'btn btn-default submitted'>
+                  Submitted!
+                </div>
+              <% end %>
             </div>
             
             <% if hash_element == last && i%3 !=0%>
