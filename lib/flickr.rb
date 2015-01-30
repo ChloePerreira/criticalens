@@ -3,9 +3,13 @@ require 'active_support/all'
 class Flickr
 
   def self.get_photos(fid)
+    # append to endpoint to get urls of the photos
     extras = "&extras=url_q,url_m,url_n,url_z,url_c"
+    # get users public photos
     response = self.response("flickr.people.getPublicPhotos", "user_id", fid, extras)
+    # photos are buried in hash
     photos = response['rsp']['photos']['photo']
+    # will be an array of hashes containing photo data
     photo_array = []
     photos.each do |hash_element|
       photo_array.push(
@@ -23,26 +27,25 @@ class Flickr
   end
 
   def self.get_exif(fid)
+    # get Exif data
     response = self.response("flickr.photos.getExif", "photo_id", fid, nil)
-    if response["rsp"]["stat"] == "fail"
-      return false
-    else
-      exif = response['rsp']['photo']['exif']
-      exif_hash = {}
-      exif.each do |hash_element|
-        exif_hash[hash_element['tag'].to_sym] = hash_element['raw']
-      end
-      exif_hash.slice(
-        :Model, 
-        :Lens, 
-        :FocalLength, 
-        :MaxApertureValue, 
-        :ExposureTime, 
-        :ISO, 
-        :WhiteBalance,
-        :FNumber, 
-        :Flash)
+    # get actual data out of horrible flickr hash
+    exif = response['rsp']['photo']['exif']
+    # fill this new hash with the data that you want
+    exif_hash = {}
+    exif.each do |hash_element|
+      exif_hash[hash_element['tag'].to_sym] = hash_element['raw']
     end
+    exif_hash.slice(
+      :Model, 
+      :Lens, 
+      :FocalLength, 
+      :MaxApertureValue, 
+      :ExposureTime, 
+      :ISO, 
+      :WhiteBalance,
+      :FNumber, 
+      :Flash)
   end
 
   def self.response(method, id_type, id, extras)

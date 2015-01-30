@@ -2,7 +2,10 @@ class PhotosController < ApplicationController
   require 'httparty'
 
   def submit_photo
+    # hash of photo details (id, urls) from params
+    # keys are strings
     str_hash = JSON.parse(params[:hash])
+    # now fetch the exif data
     exif_hash = Flickr.get_exif(str_hash['id'])
     @photo = Photo.create(
       user_id: session[:user_id],
@@ -22,6 +25,7 @@ class PhotosController < ApplicationController
       f_number: exif_hash[:FNumber],
       flash: exif_hash[:Flash]
     )     
+    # make it so app doesn't search for a view bc using ajax
     render :nothing => true
   end
 
