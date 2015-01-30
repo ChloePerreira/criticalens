@@ -3,6 +3,10 @@
       <div class="photo-home-container">
         <% Photo.all.each do |photo_object| %>
           <div class = "row show-grid">
+            <div class = "col-md-12">Flag</div>
+          </div>
+
+          <div class = "row show-grid">
 
             <div class="col-md-6">
               <%= image_tag photo_object[:medium_640], class: "photo-home" %>
@@ -12,18 +16,18 @@
               <div class = "row show-grid">
                 <div class = "col-md-3 img-col">
                   <div class = "col-md-12">Aperture</div>
-                  <div class = "col-md-12">Shutter Speed</div>
+                  <div class = "col-md-12">Shutter</div>
                   <div class = "col-md-12">ISO</div>
-                  <div class = "col-md-12">EV</div>
-                  <div class = "col-md-12">White Balance</div>
+                  <div class = "col-md-12">White Bal</div>
+                  <div class = "col-md-12">Flash</div>
                 </div>
 
                 <div class = "col-md-4 settings-col">
-                  <div class = "col-md-12"><%=photo_object[:fid]%></div>
-                  <div class = "col-md-12">photo_object[:exposure_time]</div>
-                  <div class = "col-md-12">photo_object[:iso]</div>
-                  <div class = "col-md-12">photo_object[:]</div>
-                  <div class = "col-md-12">photo_object[:f_number]</div>
+                  <div class = "col-md-12"><%=photo_object[:f_number]%></div>
+                  <div class = "col-md-12"><%=photo_object[:exposure_time]%></div>
+                  <div class = "col-md-12"><%=photo_object[:iso]%></div>
+                  <div class = "col-md-12"><%=photo_object[:white_balance]%></div>
+                  <div class = "col-md-12"><%=photo_object[:flash]%></div>
                 </div>
 
                 <div class = "col-md-6 sugg-settings-col">
