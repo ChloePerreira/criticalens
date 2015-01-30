@@ -8,3 +8,7 @@
   text-align: center;
   width: inherit;
 }
+
+.temp-home input{
+  width: 100px;
+}
