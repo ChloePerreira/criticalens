@@ -1,37 +1,30 @@
 <div class = "container">
-  <div class = "row show-grid">
-      <div class = "col-md-6">
-      
+
       <div class="photo-home-container">
         <% Photo.all.each do |photo_object| %>
-          <%= image_tag photo_object[:medium_640], class: "photo-home" %>
-          <br>
+          <div class = "row show-grid">
+
+            <div class="col-md-6">
+              <%= image_tag photo_object[:medium_640], class: "photo-home" %>
+            </div>
+
+            <div class="col-md-6">
+              <form action='events/new' method='POST' role='form'>
+                <label for='eventtitle'>EVENT TITLE</label>
+                <input type='text' name='event[title]' class='form-control' placeholder="What's it called?" id='eventtitle'/>
+              <br>
+                <label for='eventdescription'>DESCRIPTION</label>
+                <input type='text' name='event[description]' class='form-control' placeholder='Details please!' id='eventdescription'/>
+              <br> 
+                <label for='eventdate'>DATE</label>
+                <input type="text" name='event[date]' id="datepicker" class='form-control' placeholder='When?' id='eventdate'>
+              <br>
+                <input type='submit' value='Add to calendar' class='btn btn-primary'/> 
+              </form>
+            </div>
+
+          </div>
         <% end %>
       </div>
 
-      </div>
-      
-      <div class="col-md-6">
-        <form action='events/new' method='POST' role='form'>
-            <label for='eventtitle'>EVENT TITLE</label>
-            <input type='text' name='event[title]' class='form-control' placeholder="What's it called?" id='eventtitle'/>
-          
-              <br>
-        
-            <label for='eventdescription'>DESCRIPTION</label>
-            <input type='text' name='event[description]' class='form-control' placeholder='Details please!' id='eventdescription'/>
- 
-
-              <br> 
-      
-            <label for='eventdate'>DATE</label>
-            <input type="text" name='event[date]' id="datepicker" class='form-control' placeholder='When?' id='eventdate'>
-
-              <br>
-
-            <input type='submit' value='Add to calendar' class='btn btn-primary'/> 
-         </form>
-      </div>
-
-  </div>  
 </div>
