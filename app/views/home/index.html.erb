@@ -9,6 +9,31 @@
             </div>
 
             <div class="col-md-6">
+              <div class = "row show-grid">
+                <div class = "col-md-3 img-col">
+                  <div class = "col-md-12">Aperture</div>
+                  <div class = "col-md-12">Shutter Speed</div>
+                  <div class = "col-md-12">ISO</div>
+                  <div class = "col-md-12">EV</div>
+                  <div class = "col-md-12">White Balance</div>
+                </div>
+
+                <div class = "col-md-4 settings-col">
+                  <div class = "col-md-12"><%=photo_object[:fid]%></div>
+                  <div class = "col-md-12">photo_object[:exposure_time]</div>
+                  <div class = "col-md-12">photo_object[:iso]</div>
+                  <div class = "col-md-12">photo_object[:]</div>
+                  <div class = "col-md-12">photo_object[:f_number]</div>
+                </div>
+
+                <div class = "col-md-6 sugg-settings-col">
+                  <form action=root_path method='get' role='form'>
+                  </form>
+                </div>              
+              
+              </div>
+            </div>
+ 
               <form action='events/new' method='POST' role='form'>
                 <label for='eventtitle'>EVENT TITLE</label>
                 <input type='text' name='event[title]' class='form-control' placeholder="What's it called?" id='eventtitle'/>
@@ -21,9 +46,8 @@
               <br>
                 <input type='submit' value='Add to calendar' class='btn btn-primary'/> 
               </form>
-            </div>
 
-          </div>
+
         <% end %>
       </div>
 

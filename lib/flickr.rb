@@ -45,6 +45,7 @@ class Flickr
       :ISO, 
       :WhiteBalance,
       :FNumber, 
+      :ExposureCompensation,
       :Flash)
   end
 
