@@ -23,7 +23,8 @@ class PhotosController < ApplicationController
       iso: exif_hash[:ISO],
       white_balance: exif_hash[:WhiteBalance],
       f_number: exif_hash[:FNumber],
-      flash: exif_hash[:Flash]
+      flash: exif_hash[:Flash],
+      ev: exif_hash[:ExposureCompensation]
     )     
     # make it so app doesn't search for a view bc using ajax
     render :nothing => true
