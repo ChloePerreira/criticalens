@@ -3,10 +3,8 @@ class PhotosController < ApplicationController
 
   def submit_photo
     str_hash = JSON.parse(params[:hash])
-    x = Flickr.get_exif('15387008027')
-    if x==false
-      flash[:notice] = "testing this stuff"
-    end
+    exif_hash = Flickr.get_exif(str_hash['id'])
+    puts exif_hash
     render :nothing => true
   end
 
