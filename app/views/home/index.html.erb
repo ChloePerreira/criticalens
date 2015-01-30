@@ -15,6 +15,7 @@
             <div class="col-md-6">
               <div class = "row show-grid">
                 <div class = "col-md-3 img-col">
+                  <div class = "col-md-12">Blah</div>
                   <div class = "col-md-12">Aperture</div>
                   <div class = "col-md-12">Shutter</div>
                   <div class = "col-md-12">ISO</div>
@@ -23,6 +24,7 @@
                 </div>
 
                 <div class = "col-md-4 settings-col">
+                  <div class = "col-md-12">Used</div>
                   <div class = "col-md-12"><%=photo_object[:f_number]%></div>
                   <div class = "col-md-12"><%=photo_object[:exposure_time]%></div>
                   <div class = "col-md-12"><%=photo_object[:iso]%></div>
@@ -31,27 +33,40 @@
                 </div>
 
                 <div class = "col-md-6 sugg-settings-col">
+                  <div class = "col-md-12">Critique</div>
                   <form action=root_path method='get' role='form'>
+                    <div class = "col-md-12">
+                      <label for='aperture-crit'>Aperture</label>
+                      <input type='text' name='event[title]' class='form-control' placeholder="Slider, bound with max aperture" id='eventtitle'/>
+                    </div>
+
+                    <div class = "col-md-12">
+                      <label for='aperture-crit'>Shutter Speed</label>
+                      <input type='text' name='event[title]' class='form-control' placeholder="Slider" id='eventtitle'/>
+                    </div>
+
+                    <div class = "col-md-12">
+                      <label for='aperture-crit'>ISO</label>
+                      <input type='text' name='event[title]' class='form-control' placeholder="Slider" id='eventtitle'/>
+                    </div>
+
+                    <div class = "col-md-12">
+                      <label for='aperture-crit'>White Balance</label>
+                      <input type='text' name='event[title]' class='form-control' placeholder="Dropdown" id='eventtitle'/>
+                    </div>
+
+                    <div class = "col-md-12">
+                      <label for='aperture-crit'>Flash</label>
+                      <input type='text' name='event[title]' class='form-control' placeholder="Dropdown(change options depending on if used)" id='eventtitle'/>
+                    </div>
+                    
+                    <input type='submit' value='Add to calendar' class='btn btn-primary'/> 
                   </form>
                 </div>              
               
               </div>
             </div>
  
-              <form action='events/new' method='POST' role='form'>
-                <label for='eventtitle'>EVENT TITLE</label>
-                <input type='text' name='event[title]' class='form-control' placeholder="What's it called?" id='eventtitle'/>
-              <br>
-                <label for='eventdescription'>DESCRIPTION</label>
-                <input type='text' name='event[description]' class='form-control' placeholder='Details please!' id='eventdescription'/>
-              <br> 
-                <label for='eventdate'>DATE</label>
-                <input type="text" name='event[date]' id="datepicker" class='form-control' placeholder='When?' id='eventdate'>
-              <br>
-                <input type='submit' value='Add to calendar' class='btn btn-primary'/> 
-              </form>
-
-
         <% end %>
       </div>
 
