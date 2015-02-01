@@ -12,3 +12,14 @@
 .temp-home input{
   width: 100px;
 }
+
+.whole-form {
+  display: table-cell;
+  vertical-align: middle;
+}
+  
+.outer-form {
+  display: table;
+  height: 100%;
+  width: 100%;
+}

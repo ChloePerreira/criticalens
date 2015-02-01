@@ -3,7 +3,7 @@ $(function () {
 
 
   function check_is_exif_avail (photo_id, onSuccess, onError) {
-
+/*check if exif makes sense - eg camera phones */
     function process_exif_data (flickr_api_response) {
       /*get rid of flickr junk*/
       var fixed = flickr_api_response.replace('jsonFlickrApi(', '');

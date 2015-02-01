@@ -6,16 +6,16 @@
             <div class = "col-md-12">Flag</div>
           </div>
 
-          <div class = "row show-grid">
+          <div class = "row show-grid outer-form">
 
             <div class="col-md-6">
               <%= image_tag photo_object[:medium_640], class: "photo-home" %>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 whole-form">
               <div class = "row show-grid">
                 <div class = "col-md-2 img-col">
-                  <div class = "col-md-12">Blah</div>
+                  <div class = "col-md-12">Images here?</div>
                   <div class = "col-md-12">Aperture</div>
                   <div class = "col-md-12">Shutter</div>
                   <div class = "col-md-12">ISO</div>
@@ -35,27 +35,27 @@
                 <div class = "col-md-7 sugg-settings-col">
                   <div class = "col-md-12">Critique</div>
                   <form action=root_path method='get' role='form'>
-                    <div class = "col-md-6">
+                    <div class = "col-md-12">
                       <label for='aperture-crit'>Aperture</label>
                       <input type='text' name='event[title]' class='form-control temp-form' placeholder="Slider, bound with max aperture" id='eventtitle'/>
                     </div>
 
-                    <div class = "col-md-6">
+                    <div class = "col-md-12">
                       <label for='aperture-crit'>Shutter Speed</label>
                       <input type='text' name='event[title]' class='form-control temp-form' placeholder="Slider" id='eventtitle'/>
                     </div>
 
-                    <div class = "col-md-6">
+                    <div class = "col-md-12">
                       <label for='aperture-crit'>ISO</label>
                       <input type='text' name='event[title]' class='form-control temp-form' placeholder="Slider" id='eventtitle'/>
                     </div>
 
-                    <div class = "col-md-6">
+                    <div class = "col-md-12">
                       <label for='aperture-crit'>White Balance</label>
                       <input type='text' name='event[title]' class='form-control temp-form' placeholder="Dropdown" id='eventtitle'/>
                     </div>
 
-                    <div class = "col-md-6">
+                    <div class = "col-md-12">
                       <label for='aperture-crit'>Flash</label>
                       <input type='text' name='event[title]' class='form-control temp-form' placeholder="Dropdown(change options depending on if used)" id='eventtitle'/>
                     </div>
