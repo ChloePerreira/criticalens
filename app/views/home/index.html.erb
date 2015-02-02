@@ -35,6 +35,14 @@
 
                 <div class = "col-md-7 sugg-settings-col">
                   <div class = "col-md-12">Critique</div>
+                    <div class = "test-slider" id = <%=photo_object.fid%> 
+                    maxAp = <%=photo_object.max_aperture_value%>>
+                      
+
+
+                    </div>
+
+
                   <form action=root_path method='get' role='form'>
                     <div class = "col-md-12">
                       <label for='aperture-crit'>Aperture</label>
@@ -71,6 +79,6 @@
         <% end %>
       </div>
 
-<div class='ap-test'></div>
 <div id='hint'></div>
+<div class='ap-test'></div>
 </div>
