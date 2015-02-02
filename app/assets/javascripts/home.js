@@ -10,7 +10,11 @@ $(function () {
   ];
 
   $(function() {
-    $(".ap-test").slider({
+
+    var form_divs = $(".test-slider")
+
+    for(var i = 0; i<form_divs.length; i++){
+      $(".test-slider").slider({
         value: 1,
         min: 0,
         max: 4,
@@ -18,9 +22,12 @@ $(function () {
         slide: function(event, ui) {
             $("#hint").html(steps[ui.value]);
         } 
-    });
-    $("#hint").val(steps[$(".ap-test").slider("value")]);
+      });
+      $("#hint").val(steps[$(".test-slider").slider("value")]);
+    };
+
   });
+
 
   function find_nearest (array, val) {
     var nearest = -1
