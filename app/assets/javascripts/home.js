@@ -1,7 +1,7 @@
 $(function () {
 
 
-
+var match = $.inArray(htmlthing, steps);
 
 var steps = [
     "very sad",
