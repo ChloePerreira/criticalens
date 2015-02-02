@@ -1,4 +1,5 @@
 $(function () {
-  $('ap-slider').slider();
+
+  $('.ap-test').slider();
 
 });
