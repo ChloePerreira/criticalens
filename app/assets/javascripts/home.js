@@ -23,7 +23,12 @@ $(document).ready(function () {
           $("#"+$(this).attr("fid")+"-"+name_of_slider_divs+"-hint").html(steps[ui.value])
         }
       }); 
-      
+      //
+      console.log(steps[
+        $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
+      ]);
+      console.log(find_nearest(steps_as_floats, parseFloat(setting_used)));
+      //
       $("#"+id+"-"+name_of_slider_divs+"-hint").html(steps[
         $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
       ]);
@@ -69,6 +74,15 @@ $(document).ready(function () {
 
   generate_slider ("aperture", aperture_steps, "maxAp", "apUsed") 
 
+  var exposure_steps = [
+    "1/15", "1/20", "1/25", "1/30", "1/40",
+    "1/50", "1/60", "1/80", "1/100", "1/125",
+    "1/160", "1/200", "1/250", "1/320", "1/400", 
+    "1/800", "1/1000", "1/1250", "1/1600", "1/2000", 
+    "1/2500", "1/3200", "1/4000", "1/5000", "1/8000"
+    ];
+
+  generate_slider ("exposure", exposure_steps, "maxExp", "expUsed") 
 });
 
 

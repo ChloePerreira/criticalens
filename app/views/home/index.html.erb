@@ -35,16 +35,28 @@
 
                 <div class = "col-md-7 sugg-settings-col">
                   <div class = "col-md-12">Critique</div>
+
+                  <div class = "col-md-12">
                     <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
                     fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
                     apUsed = <%=photo_object.f_number%>>
                     </div>
                     <div id =  <%=photo_object.fid+"-aperture-hint"%>></div> 
+                  </div>
+
+                  <div class = "col-md-12">
+                    <div class = "exposure-slider" id = <%=photo_object.fid+"-exposure-slider"%>  
+                    fid = <%=photo_object.fid%> expUsed = <%=photo_object.exposure_time%>
+                    maxExp = "1/15">
+                    </div>
+                    <div id =  <%=photo_object.fid+"-exposure-hint"%>></div> 
+                  </div>
                 </div>
-                </div>              
+
+              </div>              
               
-              </div>
             </div>
+          </div>
  
         <% end %>
       </div>
