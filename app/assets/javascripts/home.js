@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
 
   //var match = $.inArray(htmlthing, steps);
 
@@ -12,19 +12,25 @@ $(function () {
       "13", "14", "16", "18", "20", "22"
     ];
 
+    var stuff = ["this", "doesn't", "work", "right", "why?"];
+
     var form_divs = $(".test-slider")
 
     for(var i = 0; i<form_divs.length; i++){
+      var id = form_divs[i].id
+      var hint_thing = $("#"+$(".test-slider").id+"-hint")
+      console.log(id)
+      console.log($("#" + id + "-hint")[0].html)
       $(".test-slider").slider({
         value: 1,
         min: 0,
         max: 4,
         step: 1,
         slide: function(event, ui) {
-            $("#"+$(".test-slider").id+"-hint").html(steps[ui.value]);
-        } 
-      });
-      $("#hint").val(steps[$(".test-slider").slider("value")]);
+          $("#test").html(stuff[ui.value]);
+        }
+      }); 
+      $("#test").html(stuff[$(".test-slider").slider("value")]);
     };
 
   });
