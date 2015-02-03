@@ -35,10 +35,10 @@
 
                 <div class = "col-md-7 sugg-settings-col">
                   <div class = "col-md-12">Critique</div>
-                    <div class = "test-slider" id = <%=photo_object.fid%> 
-                    maxAp = <%=photo_object.max_aperture_value%>>
+                    <div class = "test-slider" id = <%=photo_object.fid+"-slider"%>  
+                    fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>>
                     </div>
-                    <div id =  <%=photo_object.fid+"-hint"%>>blah</div> 
+                    <div id =  <%=photo_object.fid+"-hint"%>></div> 
                     <div id = "test"></div>
                 </div>
                 </div>              

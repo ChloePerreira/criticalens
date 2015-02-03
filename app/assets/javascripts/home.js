@@ -17,11 +17,11 @@ $(document).ready(function () {
     var form_divs = $(".test-slider")
 
     for(var i = 0; i<form_divs.length; i++){
-      var id = form_divs[i].id
-      var hint_thing = $("#"+$(".test-slider").id+"-hint")
-      console.log(id)
-      console.log($("#" + id + "-hint").html())
-      $(".test-slider").slider({
+      var id = $(form_divs[i]).attr('fid')
+      //var hint_thing = $("#"+$(".test-slider").id+"-hint")
+      //console.log(id)
+      //console.log($("#" + id + "-hint").html())
+      $("#"+id+"-slider").slider({
         value: 1,
         min: 0,
         max: 4,
@@ -30,7 +30,7 @@ $(document).ready(function () {
           $("#"+id+"-hint").html(stuff[ui.value]);
         }
       }); 
-      $("#"+id+"-hint").html(stuff[$(".test-slider").slider("value")]);
+      $("#"+id+"-hint").val(stuff[$("."+id+"-slider").slider("value")]);
     };
 
   });
