@@ -19,13 +19,11 @@ $(document).ready(function () {
     for(var i = 0; i<form_divs.length; i++){
       var id = $(form_divs[i]).attr('fid');
       var maxAp = $(form_divs[i]).attr('maxAp');
-      console.log("Maxap as string:"+maxAp+"as float:"+parseFloat(maxAp));
-      console.log("array of numbers:"+string_to_float(steps));
-      console.log("nearest:"+find_nearest(string_to_float(steps), 4));
-      console.log("The maxAp is:" + maxAp + "and the closest thing is" + steps[find_nearest(string_to_float(steps), parseFloat(maxAp))]);
+      var apUsed = $(form_divs[i]).attr('apUsed');
+      var steps_as_floats = string_to_float(steps);
       $("#"+id+"-slider").slider({
-        value: 1,
-        min: find_nearest(string_to_float(steps), parseFloat(maxAp)),
+        value: find_nearest(steps_as_floats, parseFloat(apUsed)),
+        min: find_nearest(steps_as_floats, parseFloat(maxAp)),
         max: 30,
         step: 1,
         slide: function(event, ui) {
@@ -34,7 +32,7 @@ $(document).ready(function () {
         }
       }); 
       
-      $("#"+id+"-hint").html(stuff[$("#"+id+"-slider").slider("value")]);
+      $("#"+id+"-hint").html(steps[$("#"+id+"-slider").slider("value")]);
     };
 
   });
