@@ -30,6 +30,7 @@ $(document).ready(function () {
           $("#"+id+"-hint").html(stuff[ui.value]);
         }
       }); 
+      //this stuff works when it's "#test" but not the other thing
       $("#"+id+"-hint").val(stuff[$("."+id+"-slider").slider("value")]);
     };
 
