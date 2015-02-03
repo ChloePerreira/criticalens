@@ -84,6 +84,16 @@ $(document).ready(function () {
     ];
 
   generate_slider ("exposure", exposure_steps, "maxExp", "expUsed") 
+
+  var iso_steps = [
+    "100", "125", "160", "200", "250", "320", 
+    "400", "500", "640", "800", "1000", "1250", 
+    "1600", "2000", "2500", "3200", "4000", "5000", 
+    "6400", "8000", "10000", "12500"
+  ];
+  
+  generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
+
 });
 
 
