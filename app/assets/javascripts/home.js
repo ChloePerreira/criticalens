@@ -20,17 +20,17 @@ $(document).ready(function () {
       var id = form_divs[i].id
       var hint_thing = $("#"+$(".test-slider").id+"-hint")
       console.log(id)
-      console.log($("#" + id + "-hint")[0].html)
+      console.log($("#" + id + "-hint").html())
       $(".test-slider").slider({
         value: 1,
         min: 0,
         max: 4,
         step: 1,
         slide: function(event, ui) {
-          $("#test").html(stuff[ui.value]);
+          $("#"+id+"-hint").html(stuff[ui.value]);
         }
       }); 
-      $("#test").html(stuff[$(".test-slider").slider("value")]);
+      $("#"+id+"-hint").html(stuff[$(".test-slider").slider("value")]);
     };
 
   });
