@@ -10,12 +10,12 @@ $(document).ready(function () {
       var id = $(form_divs[i]).attr('fid');
       var bound = $(form_divs[i]).attr(bound_attr);
       var setting_used = $(form_divs[i]).attr(default_value_attr);
-      var steps_as_floats = string_to_float(steps);
+      var steps_as_floats = eval(steps);
       var steps_size = (steps.length) - 1
       console.log("id:"+id+"bound:"+bound+"setting:"+setting_used+"size:"+steps_size);
       $("#"+id+"-"+name_of_slider_divs+"-slider").slider({
-        value: find_nearest(steps_as_floats, parseFloat(setting_used)),
-        min: find_nearest(steps_as_floats, parseFloat(bound)),
+        value: find_nearest(steps_as_floats, eval(setting_used)),
+        min: find_nearest(steps_as_floats, eval(bound)),
         max: steps_size,
         step: 1,
         slide: function(event, ui) {
@@ -27,7 +27,7 @@ $(document).ready(function () {
       console.log(steps[
         $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
       ]);
-      console.log(find_nearest(steps_as_floats, parseFloat(setting_used)));
+      console.log(find_nearest(steps_as_floats, eval(setting_used)));
       //
       $("#"+id+"-"+name_of_slider_divs+"-hint").html(steps[
         $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
@@ -45,18 +45,19 @@ $(document).ready(function () {
 
     function find_nearest (array, val) {
       var nearest = -1
-      var bestDist = 1000
-      var d = 1000
+      var bestDist = 1000.0
+      var d = 1000.0
       var index = 0
       for (var i = 0; i < array.length; i++){
-        if (array[i] === val) {
+        if (eval(array[i]) == val) {
           return i;}
         else {
-          d = Math.abs(val - array[i]);
+          d = Math.abs(val - eval(array[i]));
           if (d < bestDist) {
             nearest = array[i]
             var index = i;
             bestDist = d;
+            console.log(bestDist);
           }
         }
       }
