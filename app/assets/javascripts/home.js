@@ -20,20 +20,22 @@ $(document).ready(function () {
       var id = $(form_divs[i]).attr('fid')
       //var hint_thing = $("#"+$(".test-slider").id+"-hint")
       //console.log(id)
-      //console.log($("#" + id + "-hint").html())
+      console.log(id)
       $("#"+id+"-slider").slider({
         value: 1,
         min: 0,
         max: 4,
         step: 1,
         slide: function(event, ui) {
-          $("#"+id+"-hint").html(stuff[ui.value]);
+        console.log("I am:"+$(this).attr("fid")); 
+          $("#"+$(this).attr("fid")+"-hint").html(stuff[ui.value]);
         }
       }); 
-      //this stuff works when it's "#test" but not the other thing
-      $("#"+id+"-hint").val(stuff[$("."+id+"-slider").slider("value")]);
+      
+      $("#"+id+"-hint").html(stuff[$("#"+id+"-slider").slider("value")]);
     };
 
+    //$(".big-hint").each.val(stuff[$(this).prev().slider("value")]);
   });
 
 
