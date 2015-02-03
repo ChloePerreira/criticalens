@@ -4,7 +4,7 @@ $(document).ready(function () {
   function generate_slider (name_of_slider_divs, array_of_options, bound_attr, default_value_attr) {
     var steps = array_of_options
     var form_divs = $("."+name_of_slider_divs+"-slider")
-
+    //loop over all of the sliders
      for(var i = 0; i<form_divs.length; i++){
       //give every slider an fid attr
       var id = $(form_divs[i]).attr('fid');
@@ -23,18 +23,17 @@ $(document).ready(function () {
           $("#"+$(this).attr("fid")+"-"+name_of_slider_divs+"-hint").html(steps[ui.value])
         }
       }); 
-      //
-      console.log(steps[
+      //debugging
+      /*console.log(steps[
         $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
       ]);
-      console.log(find_nearest(steps_as_floats, eval(setting_used)));
-      //
+      console.log(find_nearest(steps_as_floats, eval(setting_used)));*/
       $("#"+id+"-"+name_of_slider_divs+"-hint").html(steps[
         $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
       ]);
     };
 
-
+    //use for converting array of strings to array of floats
     function string_to_float (array) {
       holder = [];
       for (var i = 0; i < array.length; i++){
@@ -42,7 +41,8 @@ $(document).ready(function () {
       }
       return holder;
     };
-
+    
+    //use for finding nearest match
     function find_nearest (array, val) {
       var nearest = -1
       var bestDist = 1000.0
@@ -57,7 +57,6 @@ $(document).ready(function () {
             nearest = array[i]
             var index = i;
             bestDist = d;
-            console.log(bestDist);
           }
         }
       }
