@@ -95,7 +95,6 @@ $(document).ready(function () {
   generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
 
   //deactivate wb buttons on click if active
-
   $('body').on('click', '.btn.wb.active', function(e){
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -110,6 +109,19 @@ $(document).ready(function () {
     var id = $(this).attr('fid');
     $(this).siblings().removeClass(id+"-wb");
     $(this).addClass(id+"-wb");
+  });
+
+  //on submit, print the values
+  $(".submit-critique").click(function(){
+    var id = $(this).attr('fid');
+    form = [
+      $("#"+id+"-aperture-hint").html(),
+      $("#"+id+"-exposure-hint").html(),
+      $("#"+id+"-iso-hint").html(),
+      $($("."+id+"-wb")[0]).attr("wb")
+    ];
+    console.log(form);
+    console.log(id);
   });
 
 });
