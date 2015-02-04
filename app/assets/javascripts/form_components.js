@@ -131,6 +131,24 @@ $(document).ready(function () {
     console.log(id);
   });
 
+  //submission of form, what happens when no wb?
+  function postCritique(button_clicked, id) {
+    $.ajax("/submit-critique", {
+      type: "POST",
+      data: {
+        fid: id,
+        author: button_clicked.attr('session'),
+        sugg_ap:  $("#"+id+"-aperture-hint").html(),  
+        sugg_sh:  $("#"+id+"-exposure-hint").html(),  
+        sugg_iso: $("#"+id+"-iso-hint").html(),
+        sugg_wb: $($("."+id+"-wb")[0]).attr("wb")
+      }
+      success: function (data) {
+        console.log(data);
+      }
+    });
+  };
+
 });
 
 

@@ -37,8 +37,8 @@ $(function () {
     var photo_data = $(this).attr('info');
     var photo_id = JSON.parse(photo_data).id;
 
-    function postToTestOnSuccess (button) {    
-      $.ajax("/test", {
+    function submitPhotoOnSuccess (button) {    
+      $.ajax("/submit-photo", {
         type: "POST",
         data: {hash: photo_data},
         success: function (data) {
@@ -55,7 +55,7 @@ $(function () {
       alert("Please make sure Exif data is publicly available");
     }
 
-    check_is_exif_avail(photo_id, postToTestOnSuccess($(this)), complainOnError);
+    check_is_exif_avail(photo_id, submitPhotoOnSuccess($(this)), complainOnError);
   });
 
 
