@@ -118,7 +118,7 @@ $(document).ready(function () {
   });
 
   //on submit, print the values
-  $(".submit-critique").click(function(){
+  /*$(".submit-critique").click(function(){
     var id = $(this).attr('fid');
     form = [
       $(this).attr('session'),
@@ -129,9 +129,9 @@ $(document).ready(function () {
     ];
     console.log(form);
     console.log(id);
-  });
+  });*/
 
-  //submission of form, what happens when no wb?
+  //submission of critique function, what happens when no wb?
   function postCritique(button_clicked, id) {
     $.ajax("/submit-critique", {
       type: "POST",
@@ -142,12 +142,16 @@ $(document).ready(function () {
         sugg_sh:  $("#"+id+"-exposure-hint").html(),  
         sugg_iso: $("#"+id+"-iso-hint").html(),
         sugg_wb: $($("."+id+"-wb")[0]).attr("wb")
-      }
+      },
       success: function (data) {
-        console.log(data);
+        console.log("blafjdk");
       }
     });
   };
+
+  $(".submit-critique").click(function(){
+    postCritique($(this), $(this).attr('fid'));
+  });
 
 });
 
