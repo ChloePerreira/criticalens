@@ -3,81 +3,80 @@
 
       <div class="photo-home-container">
         <% Photo.all.each do |photo_object| %>
-          <div class = "row show-grid">
-            <div class = "col-md-12">Flag</div>
-          </div>
 
           <div class = "row show-grid outer-form">
 
-            <div class="col-md-6">
+            <div class="col-md-6 photo-left-home">
               <%= image_tag photo_object[:medium_640], class: "photo-home" %>
             </div>
 
             <div class="col-md-6 whole-form">
               <div class = "row show-grid">
-                <div class = "col-md-2 img-col">
-                  <div class = "col-md-12">Images here?</div>
+
+                <div class = <%="col-md-12 "+photo_object[:fid]+"-sugg-settings-col"%>>
                   <div class = "col-md-12">Aperture</div>
-                  <div class = "col-md-12">Shutter</div>
+
+                  <div class = "col-md-12">
+                    <div class = "col-md-2"></div>
+                    <div class= "col-md-8">
+
+                      <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
+                      fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
+                      apUsed = <%=photo_object.f_number%>>
+                      </div>
+                      <div id =  <%=photo_object.fid+"-aperture-hint"%>></div> 
+                      <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div> 
+
+                    </div>
+
+                  </div>
+
+                  <div class = "col-md-12">Shutter speed</div>
+            
+                    <div class = "col-md-2"></div>
+                    <div class= "col-md-8">
+                      <div class = "col-md-12">
+                        <div class = "exposure-slider" id = <%=photo_object.fid+"-exposure-slider"%>  
+                        fid = <%=photo_object.fid%> expUsed = <%=photo_object.exposure_time%>
+                        maxExp = "1/15">
+                        </div>
+                        <div id =  <%=photo_object.fid+"-exposure-hint"%>></div> 
+                        <div id =  <%=photo_object.fid+"-exposure-dot"%> class="dots ui-state-default"></div> 
+                      </div>
+                  </div>
+                    
+
                   <div class = "col-md-12">ISO</div>
-                  <div class = "col-md-12">White Bal</div>
-                  <div class = "col-md-12">Flash</div>
-                </div>
-
-                <div class = "col-md-3 settings-col">
-                  <div class = "col-md-12">Used</div>
-                  <div class = "col-md-12"><%=photo_object[:f_number]%></div>
-                  <div class = "col-md-12"><%=photo_object[:exposure_time]%></div>
-                  <div class = "col-md-12"><%=photo_object[:iso]%></div>
-                  <div class = "col-md-12"><%=photo_object[:white_balance]%></div>
-                </div>
-
-                <div class = <%="col-md-7 "+photo_object[:fid]+"-sugg-settings-col"%>>
-                  <div class = "col-md-12">Critique</div>
-
-                  <div class = "col-md-12">
-                    <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
-                    fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
-                    apUsed = <%=photo_object.f_number%>>
+                    <div class = "col-md-2"></div>
+                    <div class= "col-md-8">
+                      <div class = "col-md-12">
+                        <div class = "iso-slider" id = <%=photo_object.fid+"-iso-slider"%>  
+                        fid = <%=photo_object.fid%> isoUsed = <%=photo_object.iso%>
+                        maxExp = "100">
+                        </div>
+                      <div id =  <%=photo_object.fid+"-iso-hint"%>></div> 
+                      <div id =  <%=photo_object.fid+"-iso-dot"%> class="dots ui-state-default"></div> 
                     </div>
-                    <div id =  <%=photo_object.fid+"-aperture-hint"%>></div> 
-                    <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div> 
                   </div>
 
-                  <div class = "col-md-12">
-                    <div class = "exposure-slider" id = <%=photo_object.fid+"-exposure-slider"%>  
-                    fid = <%=photo_object.fid%> expUsed = <%=photo_object.exposure_time%>
-                    maxExp = "1/15">
-                    </div>
-                    <div id =  <%=photo_object.fid+"-exposure-hint"%>></div> 
-                    <div id =  <%=photo_object.fid+"-exposure-dot"%> class="dots ui-state-default"></div> 
-                  </div>
-
-                  <div class = "col-md-12">
-                    <div class = "iso-slider" id = <%=photo_object.fid+"-iso-slider"%>  
-                    fid = <%=photo_object.fid%> isoUsed = <%=photo_object.iso%>
-                    maxExp = "100">
-                    </div>
-                    <div id =  <%=photo_object.fid+"-iso-hint"%>></div> 
-                    <div id =  <%=photo_object.fid+"-iso-dot"%> class="dots ui-state-default"></div> 
-                  </div>
+                  <div class = "col-md-12">White balance</div>
 
                   <div class = "col-md-12">
                     <div class="btn-group" data-toggle="buttons">
                       <label class="btn btn-primary wb" wb="tungsten" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt1"%> autocomplete="off">Tu
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt1"%> autocomplete="off">Tungsten
                       </label>
                       <label class="btn btn-primary wb" wb="fluorescent" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt2"%> autocomplete="off">Fl
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt2"%> autocomplete="off">Fluorescent
                       </label>
                       <label class="btn btn-primary wb" wb="sunlight" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt3"%> autocomplete="off">Su
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt3"%> autocomplete="off">Sunlight
                       </label>
                       <label class="btn btn-primary wb" wb="cloudy" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt4"%> autocomplete="off">Cl
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt4"%> autocomplete="off">Cloudy
                       </label>
                       <label class="btn btn-primary wb" wb="shade" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt5"%>autocomplete="off">Sh
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt5"%>autocomplete="off">Shade
                       </label>
                     </div>
                   </div>
