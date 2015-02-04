@@ -23,3 +23,14 @@
   height: 100%;
   width: 100%;
 }
+
+.dots{
+    width: 8px;
+    height: 8px;
+    background: blue !important;
+    /*border-radius: 5px;*/
+    display: block;
+    position: absolute;
+    top: 2px;
+    
+}

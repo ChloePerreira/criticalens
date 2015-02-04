@@ -32,6 +32,12 @@ $(document).ready(function () {
       $("#"+id+"-"+name_of_slider_divs+"-hint").html(steps[
         $("#"+id+"-"+name_of_slider_divs+"-slider").slider("value")
       ]);
+      
+      //make green dot appear at right position
+      $("#"+id+"-"+name_of_slider_divs+"-dot").attr('style', 
+        $("#"+id+"-"+name_of_slider_divs+"-slider").children().
+        attr('style'));
+
     };
 
     //use for converting array of strings to array of floats
