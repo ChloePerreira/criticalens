@@ -115,6 +115,7 @@ $(document).ready(function () {
   $(".submit-critique").click(function(){
     var id = $(this).attr('fid');
     form = [
+      $(this).attr('session'),
       $("#"+id+"-aperture-hint").html(),
       $("#"+id+"-exposure-hint").html(),
       $("#"+id+"-iso-hint").html(),
