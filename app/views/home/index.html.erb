@@ -80,7 +80,12 @@
                   </div>
                 
                   <div class = "col-md-12"> 
-                    <button type="button" class="btn btn-default submit-critique" fid=<%=photo_object.fid%>>Submit</button>
+                    <button type="button" class="btn btn-default submit-critique" 
+                      fid=<%=photo_object.fid%> 
+                      <%if session[:user_id]%>
+                        session=<%=session[:user_id]%>
+                      <%end%>>
+                    Submit</button>
                   </div>
                 </div>
 
