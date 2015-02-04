@@ -10,5 +10,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  def has_critiqued? (fid)
+    critiques_authored = Critique.where(author: session[:user_id])
+    if critiques_authored.where(fid: fid).size > 0
+      return true
+    else
+      return false
+    end
+  end
+
+  helper_method :current_user, :has_critiqued?
 end
