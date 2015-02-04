@@ -144,7 +144,9 @@ $(document).ready(function () {
         sugg_wb: $($("."+id+"-wb")[0]).attr("wb")
       },
       success: function (data) {
-        console.log("blafjdk");
+        console.log("wb is:"+ $($("."+id+"-wb")[0]).attr("wb"));
+
+        console.log("success");
       }
     });
   };
