@@ -55,7 +55,7 @@ $(document).ready(function () {
         else {
           d = Math.abs(val - eval(array[i]));
           if (d < bestDist) {
-            nearest = array[i]
+            nearest = array[i];
             var index = i;
             bestDist = d;
           }
@@ -65,6 +65,7 @@ $(document).ready(function () {
     };
   };
 
+  //build all the sliders
   var aperture_steps = [
     "0.7", "0.8", "0.9", "1.0", "1.1", "1.2", "1.4", "1.6",
     "1.8", "2", "2.2", "2.5", "2.8", "3.2", "3.5", "4",
@@ -92,6 +93,21 @@ $(document).ready(function () {
   ];
   
   generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
+
+  //deactivate wb buttons on click if active
+  /*$(".wb").click(function(e){
+    if($(this).hasClass("active")){
+    e.stopImmediatePropagation();
+      $(this).removeClass("active");
+    }
+  });*/
+
+  $('body').on('click', '.btn.active', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $(this).removeClass('active');
+    console.log("blah");
+  })
 
 });
 
