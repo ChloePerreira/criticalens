@@ -32,7 +32,7 @@
                   <div class = "col-md-12"><%=photo_object[:white_balance]%></div>
                 </div>
 
-                <div class = "col-md-7 sugg-settings-col">
+                <div class = <%="col-md-7 "+photo_object[:fid]+"-sugg-settings-col"%>>
                   <div class = "col-md-12">Critique</div>
 
                   <div class = "col-md-12">
@@ -60,26 +60,28 @@
                   </div>
 
                   <div class = "col-md-12">
-
                     <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-primary wb" wb="tungsten">
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt1"%> autocomplete="off">Tungsten
+                      <label class="btn btn-primary wb" wb="tungsten" fid=<%=photo_object.fid%>>
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt1"%> autocomplete="off">Tu
                       </label>
-                      <label class="btn btn-primary wb" wb="fluorescent">
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt2"%> autocomplete="off">Fluorescent
+                      <label class="btn btn-primary wb" wb="fluorescent" fid=<%=photo_object.fid%>>
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt2"%> autocomplete="off">Fl
                       </label>
-                      <label class="btn btn-primary wb" wb="sunlight">
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt3"%> autocomplete="off">Sunlight
+                      <label class="btn btn-primary wb" wb="sunlight" fid=<%=photo_object.fid%>>
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt3"%> autocomplete="off">Su
                       </label>
-                      <label class="btn btn-primary wb" wb="cloudy">
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt4"%> autocomplete="off">Cloudy
+                      <label class="btn btn-primary wb" wb="cloudy" fid=<%=photo_object.fid%>>
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt4"%> autocomplete="off">Cl
                       </label>
-                      <label class="btn btn-primary wb" wb="shade">
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt5"%>autocomplete="off">Shade
+                      <label class="btn btn-primary wb" wb="shade" fid=<%=photo_object.fid%>>
+                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt5"%>autocomplete="off">Sh
                       </label>
                     </div>
                   </div>
-
+                
+                  <div class = "col-md-12"> 
+                    <button type="button" class="btn btn-default submit-critique" id=<%=photo_object.fid%>>Submit</button>
+                  </div>
                 </div>
 
               </div>              

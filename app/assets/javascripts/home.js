@@ -95,19 +95,22 @@ $(document).ready(function () {
   generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
 
   //deactivate wb buttons on click if active
-  /*$(".wb").click(function(e){
-    if($(this).hasClass("active")){
-    e.stopImmediatePropagation();
-      $(this).removeClass("active");
-    }
-  });*/
 
-  $('body').on('click', '.btn.active', function(e){
+  $('body').on('click', '.btn.wb.active', function(e){
     e.preventDefault();
     e.stopImmediatePropagation();
+    var id = $(this).attr('fid');
     $(this).removeClass('active');
-    console.log("blah");
-  })
+    $(this).removeClass(id+"-wb");
+  });
+
+  //add special class with id-wb if active
+  $('body').on('click', '.btn.wb', function(e){
+    e.preventDefault();
+    var id = $(this).attr('fid');
+    $(this).siblings().removeClass(id+"-wb");
+    $(this).addClass(id+"-wb");
+  });
 
 });
 
