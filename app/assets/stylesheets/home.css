@@ -24,6 +24,7 @@
 .avatar {
   border-radius: 50%;
   padding: 0px;
+  max-height: 48px;
 }
 
 .navbar-nav li a {
@@ -76,4 +77,12 @@
     display: block;
     position: absolute;
     top: 2px;
+}
+
+.ap-symbol {
+  display: inline-block;
+}
+
+.ap-hint {
+  display: inline-block;
 }

@@ -13,6 +13,9 @@
 
               <!--button for collapsing-->
               <%if !has_critiqued?(photo_object.fid)%>
+                <div class="col-md-12">Settings used to take this photo:</div>
+                
+                <%= image_tag photo_object.user.avatar, class: "avatar"%>
                 <button class="btn btn-primary" id=<%="collapse-button-"+photo_object.fid%> type="button" data-toggle="collapse" data-target=<%="#collapse"+photo_object.fid%>
                  aria-expanded="false" aria-controls=<%="collapse"+photo_object.fid%>>
                  Button with data-target
@@ -35,7 +38,7 @@
                       fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
                       apUsed = <%=photo_object.f_number%>>
                     </div>
-                    <div id =  <%=photo_object.fid+"-aperture-hint"%>></div>
+                    <div class="ap-symbol">ƒ/</div><div class="ap-hint" id =  <%=photo_object.fid+"-aperture-hint"%>></div>
                     <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div>
                   </div>
                 </div>
