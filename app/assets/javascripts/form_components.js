@@ -145,8 +145,10 @@ $(document).ready(function () {
       },
       success: function (data) {
         console.log("wb is:"+ $($("."+id+"-wb")[0]).attr("wb"));
-
+        //replace the collapsing div with "You have critiqued this photo. Thanks!"
         console.log("success");
+        $("#collapse-button-"+id).replaceWith("You have critiqued this photo. Thanks!");
+        $("#collapse"+id).hide();
       }
     });
   };
@@ -154,6 +156,8 @@ $(document).ready(function () {
   $(".submit-critique").click(function(){
     postCritique($(this), $(this).attr('fid'));
   });
+
+  //hide the show form button onclick
 
 });
 

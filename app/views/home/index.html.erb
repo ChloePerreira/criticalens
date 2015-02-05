@@ -14,7 +14,7 @@
 
 <!--button for collapsing-->
 <%if !has_critiqued?(photo_object.fid)%>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target=<%="#collapse"+photo_object.fid%>
+<button class="btn btn-primary" id=<%="collapse-button-"+photo_object.fid%> type="button" data-toggle="collapse" data-target=<%="#collapse"+photo_object.fid%>
  aria-expanded="false" aria-controls=<%="collapse"+photo_object.fid%>>
   Button with data-target
 </button>
