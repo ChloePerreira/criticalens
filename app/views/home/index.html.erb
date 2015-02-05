@@ -11,10 +11,13 @@
             </div>
 
             <div class="col-md-6 whole-form">
+<!--button for collapsing-->
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target=<%="#collapse"+photo_object.fid%>
+ aria-expanded="false" aria-controls=<%="collapse"+photo_object.fid%>>
+  Button with data-target
+</button>
+<div class="collapse" id=<%="collapse"+photo_object.fid%>>
 
-<button id="button-for-form-show" class="ui-state-default ui-corner-all">Run Effect</button>
-<div class="toggler">
-<div id="clip" class="ui-widget-content ui-corner-all">
 
               <div class = "row show-grid whole-form-row">
 
@@ -89,8 +92,9 @@
                     Submit</button>
                   </div>
                 </div> <!--end row-->
-</div> <!--subtoggle-->
-</div> <!--toggle-->
+
+</div><!--end collapsing div-->
+
 
               </div> <!--end form column-->             
               
