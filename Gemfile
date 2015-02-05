@@ -62,3 +62,6 @@ end
 gem 'therubyracer', platforms: :ruby
 
 gem 'typhoeus'
+
+gem 'carrierwave'
+gem 'fog'

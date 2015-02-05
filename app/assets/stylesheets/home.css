@@ -1,7 +1,9 @@
 .photo-home {
-  padding-bottom: 50px;
-  padding-top: 50px;
   width: 100%;
+}
+
+.outer-form-and-photo {
+  padding-top: 50px;
 }
 
 .photo-home-container {
@@ -19,6 +21,36 @@
   display: inline-block;
 }
 
+.avatar {
+  border-radius: 50%;
+  padding: 0px;
+}
+
+.navbar-nav li a {
+  line-height: 50px;
+}
+
+.navbar-brand {
+  height: 80px !important;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.navbar a:hover {
+  color: #C0C0C0 !important;
+}
+
+.dropdown-menu li a{
+  color: black !important;
+  line-height: 26px !important;
+}
+
+/*don't chnage link colors in dropdown menu boxes*/
+.drop-menu a:hover {
+  color: black !important;
+}
 /*.whole-form {
   display: inline-block;
   vertical-align: middle;
