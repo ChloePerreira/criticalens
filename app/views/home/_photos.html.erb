@@ -14,7 +14,10 @@
               <!--button for collapsing-->
               <%if !has_critiqued?(photo_object.fid)%>
                 <div class="col-md-12">Settings used to take this photo:</div>
-                
+                <%= image_tag "aperture_symbol.png", class: "settings-img"%>
+                <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                <%= image_tag "wb_symbol.png", class: "settings-img"%>
                 <%= image_tag photo_object.user.avatar, class: "avatar"%>
                 <button class="btn btn-primary" id=<%="collapse-button-"+photo_object.fid%> type="button" data-toggle="collapse" data-target=<%="#collapse"+photo_object.fid%>
                  aria-expanded="false" aria-controls=<%="collapse"+photo_object.fid%>>

@@ -86,3 +86,7 @@
 .ap-hint {
   display: inline-block;
 }
+
+.settings-img {
+  max-height: 20px;
+}
