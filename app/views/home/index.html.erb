@@ -11,28 +11,28 @@
             </div>
 
             <div class="col-md-6 whole-form">
-              <div class = "row show-grid">
+
+<button id="button-for-form-show" class="ui-state-default ui-corner-all">Run Effect</button>
+<div class="toggler">
+<div id="clip" class="ui-widget-content ui-corner-all">
+
+              <div class = "row show-grid whole-form-row">
 
                 <div class = <%="col-md-12 "+photo_object[:fid]+"-sugg-settings-col"%>>
                   <div class = "col-md-12">Aperture</div>
-
                   <div class = "col-md-12">
                     <div class = "col-md-2"></div>
                     <div class= "col-md-8">
-
                       <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
                       fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
                       apUsed = <%=photo_object.f_number%>>
-                      </div>
-                      <div id =  <%=photo_object.fid+"-aperture-hint"%>></div> 
-                      <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div> 
-
                     </div>
-
+                    <div id =  <%=photo_object.fid+"-aperture-hint"%>></div> 
+                    <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div> 
                   </div>
+                </div>
 
                   <div class = "col-md-12">Shutter speed</div>
-            
                     <div class = "col-md-2"></div>
                     <div class= "col-md-8">
                       <div class = "col-md-12">
@@ -60,7 +60,6 @@
                   </div>
 
                   <div class = "col-md-12">White balance</div>
-
                   <div class = "col-md-12">
                     <div class="btn-group" data-toggle="buttons">
                       <label class="btn btn-primary wb" wb="tungsten" fid=<%=photo_object.fid%>>
@@ -89,9 +88,11 @@
                       <%end%>>
                     Submit</button>
                   </div>
-                </div>
+                </div> <!--end row-->
+</div> <!--subtoggle-->
+</div> <!--toggle-->
 
-              </div>              
+              </div> <!--end form column-->             
               
             </div>
           </div>

@@ -13,11 +13,17 @@
   width: 100px;
 }
 
-.whole-form {
+.whole-form-row {
+  top: 25%;
+  position: relative;
+  display: inline-block;
+}
+
+/*.whole-form {
   display: inline-block;
   vertical-align: middle;
   float: none;
-}
+}*/
 
 /*.whole-form {
   display: table-cell;
