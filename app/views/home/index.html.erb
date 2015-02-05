@@ -7,10 +7,10 @@
           <div class = "row show-grid outer-form-and-photo">
 
             <div class="col-md-6 photo-left-home">
-              <%= image_tag photo_object[:medium_640], class: "photo-home" %>
+              <%= image_tag photo_object[:medium_640], class: "photo-home", id: "photo-"+photo_object[:fid] %>
             </div>
 
-            <div class="col-md-6 whole-form">
+            <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>>
 
 <!--button for collapsing-->
 <%if !has_critiqued?(photo_object.fid)%>
