@@ -14,6 +14,12 @@
 }
 
 .whole-form {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+/*.whole-form {
   display: table-cell;
   vertical-align: middle;
 }
@@ -22,7 +28,7 @@
   display: table;
   height: 100%;
   width: 100%;
-}
+}*/
 
 .dots{
     width: 8px;
