@@ -30,4 +30,7 @@ class PhotosController < ApplicationController
     render :nothing => true
   end
 
+  def show
+    @photo = Photo.find(params[:id])
+  end
 end

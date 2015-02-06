@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+.camera-brand {
+  max-height: 90px;
+  padding: 15px;
+  padding-right: 20px;
+}
 .outer-form-and-photo {
   padding-top: 50px;
 }
@@ -89,4 +94,8 @@
 
 .settings-img {
   max-height: 20px;
+}
+
+.settings-text {
+  display: inline-block;
 }
