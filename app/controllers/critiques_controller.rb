@@ -19,4 +19,8 @@ class CritiquesController < ApplicationController
     end
     render :nothing => true
   end
+
+  def generate_chart_data (setting_type, setting_array)
+
+  end
 end
