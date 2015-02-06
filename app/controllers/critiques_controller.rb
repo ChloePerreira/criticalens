@@ -21,6 +21,14 @@ class CritiquesController < ApplicationController
   end
 
   def generate_chart_data (setting_type, setting_array)
-
+    # you need to do a tally - what proportion were too high? too low? just right?
+    # define your middle bucket
+      # find ne
+    # for a photo, get the value used
+    # walk through each critique for that photo (use get_critiques helper)
+    # increment appropriate bucket with each step
+    # middle bucket -> one above and one below
+    
   end
+
 end

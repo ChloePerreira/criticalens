@@ -56,17 +56,20 @@ class ApplicationController < ActionController::Base
     bestDist = 1000.0
     d = 1000.0
     index = 0
-    array.each_with_index |element, index|
-      if array[i].to_f == actual_val 
+    array.each_with_index do |element, i|
+      if element.to_f == actual_val 
+        puts i
         return i
       else
-        d = (actual_val-array[i]).abs
+        d = (actual_val-element.to_f).abs
         if d < bestDist
-          nearest = array[i]
+          nearest = element
           index = i
+          puts i
           bestDist = d
         end
       end
+    end
     return index
   end
 
