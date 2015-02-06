@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_user, :has_critiqued?
+  def get_critiques (photo)
+    Critique.where(fid: photo.fid)
+  end
+
+  helper_method :current_user, :has_critiqued?, :get_critiques
 end
