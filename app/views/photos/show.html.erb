@@ -9,8 +9,28 @@
         <% if get_critiques(@photo).size < 0 %>
           This photo has no critiques!
         <% else %>
-          <% get_critiques(@photo).each do %>
-          
+          <% get_critiques(@photo).each do |critique|%>
+            <%= image_tag User.find(critique.author).avatar, class: "avatar" %>
+            <br>
+            <%= User.find(critique.author).name %>
+            <br>
+            <%= image_tag "aperture_symbol.png", class: "settings-img"%>
+            <br>
+            <div class="settings-text">ƒ/<%=critique.sugg_ap%></div>
+            <br>
+            <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+            <br>
+            <div class="settings-text"><%=critique.sugg_sh%></div>
+            <br>
+            <%= image_tag "iso_symbol.png", class: "settings-img"%>
+            <br>
+            <div class="settings-text"><%=critique.sugg_iso%></div>
+            <br>
+            <%= image_tag "wb_symbol.png", class: "settings-img"%>
+            <br>
+            <div class="settings-text"><%=critique.sugg_wb%></div>
+            <hr>
+          <% end %> 
         <% end %> 
       </div>
     </div>
