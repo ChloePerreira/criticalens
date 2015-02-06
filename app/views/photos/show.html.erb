@@ -6,11 +6,11 @@
       </div>
 
       <div class="col-md-12">
-        <% if get_critiques(@photo).size < 0 %>
+        <% if !get_critiques(@photo).last %>
           This photo has no critiques!
         <% else %>
           <% get_critiques(@photo).each do |critique|%>
-            <%= image_tag User.find(critique.author).avatar, class: "avatar" %>
+            <a href=<%="/user/"+critique.author.to_s%>><%= image_tag User.find(critique.author).avatar, class: "avatar" %></a>
             <br>
             <%= User.find(critique.author).name %>
             <br>
