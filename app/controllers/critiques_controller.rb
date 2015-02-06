@@ -1,4 +1,7 @@
 class CritiquesController < ApplicationController
+
+  def index
+  end
   
   def submit_critique
     if Critique.where(fid: params[:fid], author: params[:author]).size < 1

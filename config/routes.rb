@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index", as: :root
 
+  get "/critique", to: "critiques#index", as: :critiques
+
   get "/user/:id", to: "users#show", as: :show_user
 
   get "/dashboard", to: "home#dashboard", as: :dashboard
