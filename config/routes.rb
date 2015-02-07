@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get "/test_api", to: "api#test_api"
 
+  get "/aperture_tally/:id", to: "api#aperture_tally"
+
   get "/critique", to: "critiques#index", as: :critiques
 
   get "/user/:id", to: "users#show", as: :show_user

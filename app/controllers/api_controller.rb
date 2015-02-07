@@ -5,7 +5,8 @@ class ApiController < ApplicationController
     render json: my_hash
   end
 
-  def aperture_tally(photo)
+  def aperture_tally
+    photo = Photo.find(params[:id])
     ap_used = photo.f_number.to_f
     h_ap = l_ap = r_ap = 0
     critiques = get_critiques(photo)
@@ -20,6 +21,7 @@ class ApiController < ApplicationController
       end
     end
     ap_tally = {too_wide: h_ap, too_narrow: l_ap, just_right: r_ap}
+    render json: ap_tally
   end
 
   

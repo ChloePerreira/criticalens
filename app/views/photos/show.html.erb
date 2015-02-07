@@ -9,6 +9,10 @@
         <% if !get_critiques(@photo).last %>
           This photo has no critiques!
         <% else %>
+          SHOW THE CHART
+          <br>
+          <div id="aperture_chart" photo_id=<%=@photo.id%>></div>
+
           <% get_critiques(@photo).each do |critique|%>
             <a href=<%="/user/"+critique.author.to_s%>><%= image_tag User.find(critique.author).avatar, class: "avatar" %></a>
             <br>
