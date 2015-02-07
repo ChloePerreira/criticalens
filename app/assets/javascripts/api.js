@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   var photo_id = $("#aperture_chart").attr("photo_id");
 
-  if (photo_id > 1) {
+  if (photo_id > 0) {
 
     google.load("visualization", "1", {packages:["corechart"]});
     google.setOnLoadCallback(drawChart);
