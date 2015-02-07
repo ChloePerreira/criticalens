@@ -20,7 +20,8 @@ class ApiController < ApplicationController
         l_ap += 1
       end
     end
-    ap_tally = {too_wide: h_ap, too_narrow: l_ap, just_right: r_ap}
+    sum = h_ap + l_ap + r_ap
+    ap_tally = {too_wide: percent(h_ap,sum), too_narrow: percent(l_ap,sum), just_right: percent(r_ap,sum)}
     render json: ap_tally
   end
 
