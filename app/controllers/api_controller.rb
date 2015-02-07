@@ -41,7 +41,22 @@ class ApiController < ApplicationController
   end
 
 
-    
+  def iso_tally(photo)
+    iso_used = photo.iso.to_i
+    h_iso = l_iso = r_iso = 0
+    critiques = get_critiques(photo)
+    critiques.each do |c|
+      sugg_iso = c.sugg_iso.to_i
+      if sugg_iso == iso_used
+        r_iso += 1
+      elsif sugg_iso > iso_used
+        h_iso += 1
+      else
+        l_iso += 1
+      end
+    end
+    iso_tally = {too_high: l_sh, too_low: h_sh, just_right: r_sh}
+  end 
 
   #trash this
   def generate_tally(photo)
