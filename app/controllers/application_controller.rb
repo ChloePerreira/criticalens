@@ -74,10 +74,5 @@ class ApplicationController < ActionController::Base
   end
 
 
-  helper_method 
-    :current_user, 
-    :has_critiqued?, 
-    :get_critiques, 
-    :setting_options, 
-    :find_nearest
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest
 end

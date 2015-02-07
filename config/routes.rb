@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get "/", to: "home#index", as: :root
 
-  get "/test_api", to: "home#test_api"
+  get "/test_api", to: "api#test_api"
 
   get "/critique", to: "critiques#index", as: :critiques
 
