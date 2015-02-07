@@ -19,9 +19,16 @@ class ApiController < ApplicationController
         l_ap += 1
       end
     end
-    ap_tally = {too_wide: l_ap, too_narrow: h_ap, just_right: r_ap}
+    ap_tally = {too_wide: h_ap, too_narrow: l_ap, just_right: r_ap}
   end
 
+  
+  def shutter_tally(photo)
+    sh_used = clean_shutter(photo.exposure_time)
+    h_sh = l_sh = r_sh = 0
+    
+  end
+    
 
   #trash this
   def generate_tally(photo)
