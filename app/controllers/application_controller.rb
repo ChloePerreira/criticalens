@@ -51,6 +51,11 @@ class ApplicationController < ActionController::Base
     return settings_array
   end
 
+  def clean_shutter(value)
+    value = value[2..-1].to_i
+    value
+  end
+
   def find_nearest (array, actual_val) #WILL NOT WORK WITH SHUTTER SPEED
     nearest = -1
     bestDist = 1000.0
@@ -74,5 +79,5 @@ class ApplicationController < ActionController::Base
   end
 
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter
 end

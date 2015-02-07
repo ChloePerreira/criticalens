@@ -6,13 +6,20 @@ class ApiController < ApplicationController
   end
 
   def aperture_tally(photo)
-    aperture = photo.f_number.to_f
+    ap_used = photo.f_number.to_f
     h_ap = l_ap = r_ap = 0
-    ap_tally = {too_wide: l_ap, too_narrow: h_ap, just_right: r_ap}
-    if
-    elsif
-    else
+    critiques = get_critiques(photo)
+    critiques.each do |c|
+      sugg_ap = c.sugg_ap.to_f
+      if sugg_ap == ap_used
+        r_ap += 1
+      elsif sugg_ap > ap_used
+        h_ap += 1
+      else
+        l_ap += 1
+      end
     end
+    ap_tally = {too_wide: l_ap, too_narrow: h_ap, just_right: r_ap}
   end
 
 
