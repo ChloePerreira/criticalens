@@ -78,6 +78,9 @@ class ApplicationController < ActionController::Base
     return index
   end
 
+  def percent(val, sum)
+    (val/sum)*100
+  end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent
 end
