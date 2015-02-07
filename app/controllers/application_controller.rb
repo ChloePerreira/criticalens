@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
     return settings_array
   end
 
-  def find_nearest (array, actual_val)
+  def find_nearest (array, actual_val) #WILL NOT WORK WITH SHUTTER SPEED
     nearest = -1
     bestDist = 1000.0
     d = 1000.0
