@@ -26,8 +26,21 @@ class ApiController < ApplicationController
   def shutter_tally(photo)
     sh_used = clean_shutter(photo.exposure_time)
     h_sh = l_sh = r_sh = 0
-    
+    critiques = get_critiques(photo)
+    critiques.each do |c|
+      sugg_sh = clean_shutter(c.sugg_sh)
+      if sugg_sh == shu_used
+        r_sh += 1
+      elsif sugg_sh > sh_used
+        h_sh += 1
+      else
+        l_ap += 1
+      end
+    end
+    sh_tally = {too_fast: l_sh, too_slow: h_sh, just_right: r_sh}
   end
+
+
     
 
   #trash this
