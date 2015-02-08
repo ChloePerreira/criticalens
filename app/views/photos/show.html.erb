@@ -36,21 +36,13 @@
       
           <% get_critiques(@photo).each do |critique|%>
             <a href=<%="/user/"+critique.author.to_s%>><%= image_tag User.find(critique.author).avatar, class: "avatar" %></a>
-            <br>
-            <%= User.find(critique.author).name %>
-            <br>
+            <%= User.find(critique.author).name %> thinks that these settings may have worked better:
             <%= image_tag "aperture_symbol.png", class: "settings-img"%>
-            <br>
             <div class="settings-text">ƒ/<%=critique.sugg_ap%></div>
-            <br>
             <%= image_tag "shutter_symbol.png", class: "settings-img"%>
-            <br>
             <div class="settings-text"><%=critique.sugg_sh%></div>
-            <br>
             <%= image_tag "iso_symbol.png", class: "settings-img"%>
-            <br>
             <div class="settings-text"><%=critique.sugg_iso%></div>
-            <br>
             <hr>
           <% end %> 
         <% end %> 

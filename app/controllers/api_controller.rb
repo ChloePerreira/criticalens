@@ -61,7 +61,7 @@ class ApiController < ApplicationController
         l_iso += 1
       end
     end
-    iso_tally = {too_high: l_sh, too_low: h_sh, just_right: r_sh}
+    iso_tally = {too_high: l_iso, too_low: h_iso, just_right: r_iso}
     render json: iso_tally
   end 
 

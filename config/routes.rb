@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/aperture_tally/:id", to: "api#aperture_tally"
 
   get "/shutter_tally/:id", to: "api#shutter_tally"
+  
+  get "/iso_tally/:id", to: "api#iso_tally"
 
   get "/critique", to: "critiques#index", as: :critiques
 

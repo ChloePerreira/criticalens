@@ -61,9 +61,9 @@ $(document).ready(function(){
     if (photo_id > 0) {
 
       google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
+      google.setOnLoadCallback(sh_drawChart);
 
-      function drawChart() {
+      function sh_drawChart() {
 
         var photo_id = $("#shutter_chart").attr("photo_id");
 
@@ -95,6 +95,56 @@ $(document).ready(function(){
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById("shutter_chart"));
+            chart.draw(data,options);
+          }
+        });
+      }
+    }
+  }
+
+  //same for iso
+
+  if ($("#iso_chart").length) {
+
+    var photo_id = $("#iso_chart").attr("photo_id");
+
+    if (photo_id > 0) {
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(iso_drawChart);
+
+      function iso_drawChart() {
+
+        var photo_id = $("#iso_chart").attr("photo_id");
+
+        $.ajax({
+        dataType: "json",
+        url: ("/iso_tally/"+photo_id),
+        success: function (response){
+            console.log(response);
+            var too_high = response.too_high
+            var too_low = response.too_low
+            var just_right = response.just_right
+
+            var data = google.visualization.arrayToDataTable([
+              ["Rank", "Critiques", { role: "style" } ],
+              ["Too low", too_low, "red"],
+              ["Just right", just_right, "blue"],
+              ["Too high", too_high, "green"]
+            ]);
+
+
+            var options = {
+              title: "Critiques on ISO",
+              width: 300,
+              height: 300,
+              bar: {groupWidth: "95%"},
+              legend: { position: "none" },
+              vAxis: {minValue: 100}
+            
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById("iso_chart"));
             chart.draw(data,options);
           }
         });
