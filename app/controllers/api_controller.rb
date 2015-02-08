@@ -26,13 +26,14 @@ class ApiController < ApplicationController
   end
 
   
-  def shutter_tally(photo)
+  def shutter_tally
+    photo = Photo.find(params[:id])
     sh_used = clean_shutter(photo.exposure_time)
     h_sh = l_sh = r_sh = 0
     critiques = get_critiques(photo)
     critiques.each do |c|
       sugg_sh = clean_shutter(c.sugg_sh)
-      if sugg_sh == shu_used
+      if sugg_sh == sh_used
         r_sh += 1
       elsif sugg_sh > sh_used
         h_sh += 1
@@ -41,10 +42,12 @@ class ApiController < ApplicationController
       end
     end
     sh_tally = {too_fast: l_sh, too_slow: h_sh, just_right: r_sh}
+    render json: sh_tally
   end
 
 
-  def iso_tally(photo)
+  def iso_tally
+    photo = Photo.find(params[:id])
     iso_used = photo.iso.to_i
     h_iso = l_iso = r_iso = 0
     critiques = get_critiques(photo)
@@ -59,6 +62,7 @@ class ApiController < ApplicationController
       end
     end
     iso_tally = {too_high: l_sh, too_low: h_sh, just_right: r_sh}
+    render json: iso_tally
   end 
 
   #trash this

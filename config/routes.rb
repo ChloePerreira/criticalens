@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "/aperture_tally/:id", to: "api#aperture_tally"
 
+  get "/shutter_tally/:id", to: "api#shutter_tally"
+
   get "/critique", to: "critiques#index", as: :critiques
 
   get "/user/:id", to: "users#show", as: :show_user
