@@ -2,18 +2,20 @@ $(document).ready(function(){
 
  // Get the aperture data
 
-  var photo_id = $("#aperture_chart").attr("photo_id");
+  if ($("#aperture_chart").length) {
 
-  if (photo_id > 0) {
+    var photo_id = $("#aperture_chart").attr("photo_id");
 
-    google.load("visualization", "1", {packages:["corechart"]});
-    google.setOnLoadCallback(drawChart);
+    if (photo_id > 0) {
 
-    function drawChart() {
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
 
-      var photo_id = $("#aperture_chart").attr("photo_id");
+      function drawChart() {
 
-      $.ajax({
+        var photo_id = $("#aperture_chart").attr("photo_id");
+
+        $.ajax({
         dataType: "json",
         url: ("/aperture_tally/"+photo_id),
         success: function (response){
@@ -24,9 +26,9 @@ $(document).ready(function(){
 
             var data = google.visualization.arrayToDataTable([
               ["Rank", "Critiques", { role: "style" } ],
-              ["Too narrow", too_narrow, "#b87333"],
-              ["Just right", too_wide, "gold"],
-              ["Too wide", just_right, "color: #e5e4e2"]
+              ["Too narrow", too_narrow, "red"],
+              ["Just right", too_wide, "blue"],
+              ["Too wide", just_right, "green"]
             ]);
 
 
@@ -43,7 +45,8 @@ $(document).ready(function(){
             var chart = new google.visualization.ColumnChart(document.getElementById("aperture_chart"));
             chart.draw(data,options);
           }
-      });
+        });
+      }
     }
   }
 });

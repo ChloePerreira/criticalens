@@ -23,8 +23,6 @@
                     <div class="settings-text"><%=photo_object.exposure_time%></div>
                     <%= image_tag "iso_symbol.png", class: "settings-img"%>
                     <div class="settings-text"><%=photo_object.iso%></div>
-                    <%= image_tag "wb_symbol.png", class: "settings-img"%>
-                    <div class="settings-text"><%=photo_object.white_balance%></div>
                   </div>
                 </div>
                 <div class="col-md-12">What settings would you have used?</div>
@@ -79,27 +77,6 @@
                         </div>
                       <div id =  <%=photo_object.fid+"-iso-hint"%>></div>
                       <div id =  <%=photo_object.fid+"-iso-dot"%> class="dots ui-state-default"></div>
-                    </div>
-                  </div>
-
-                  <div class = "col-md-12">White balance</div>
-                  <div class = "col-md-12">
-                    <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-primary wb" wb="tungsten" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt1"%> autocomplete="off">Tungsten
-                      </label>
-                      <label class="btn btn-primary wb" wb="fluorescent" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt2"%> autocomplete="off">Fluorescent
-                      </label>
-                      <label class="btn btn-primary wb" wb="sunlight" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt3"%> autocomplete="off">Sunlight
-                      </label>
-                      <label class="btn btn-primary wb" wb="cloudy" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt4"%> autocomplete="off">Cloudy
-                      </label>
-                      <label class="btn btn-primary wb" wb="shade" fid=<%=photo_object.fid%>>
-                        <input type="radio" name="options" id=<%=photo_object.fid+"-opt5"%>autocomplete="off">Shade
-                      </label>
                     </div>
                   </div>
 
