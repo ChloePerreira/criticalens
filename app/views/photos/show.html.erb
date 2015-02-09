@@ -2,7 +2,11 @@
   <div class = "photo-home-container">
     <div class="row show-grid outer-form-and-photo">
       <div class="col-md-12">
-        <%= image_tag @photo.medium_800 %>
+        <% if @photo.medium_800 %>
+          <%= image_tag @photo.medium_800 %>
+        <% else %>
+          <%= image_tag @photo.medium_640 %>
+        <% end %>
       </div>
 
       <div class = "col-md-12">

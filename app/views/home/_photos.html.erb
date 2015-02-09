@@ -13,11 +13,12 @@
 
               <!--button for collapsing-->
               <%if !has_critiqued?(photo_object.fid)%>
-                <div class="col-md-12"><a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a></div>
                 <div class=<%="settings-used-box settings-box-"+photo_object.fid%>>
-                  <div class="col-md-12">Shot by <%=photo_object.user.name%> with these settings:</div>
+                  <div class="col-md-12"> 
+                    <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
+                  </div>
                   <div class="col-md-12">
-                    <%= image_tag "aperture_symbol.png", class: "settings-img"%>
+                    <%= image_tag "aperture_symbol.png", class: "settings-img"%> 
                     <div class="settings-text">ƒ/<%=photo_object.f_number%></div>
                     <%= image_tag "shutter_symbol.png", class: "settings-img"%>
                     <div class="settings-text"><%=photo_object.exposure_time%></div>
