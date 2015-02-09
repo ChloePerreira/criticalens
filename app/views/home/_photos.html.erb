@@ -40,41 +40,42 @@
               <div class = "row show-grid whole-form-row">
 
                 <div class = <%="col-md-12 "+photo_object[:fid]+"-sugg-settings-col"%>>
+
                   <div class = "col-md-12">Aperture</div>
                   <div class = "col-md-12">
                     <div class = "col-md-2"></div>
-                    <div class= "col-md-8">
-                      <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
-                      fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
-                      apUsed = <%=photo_object.f_number%>>
+                    <div class= "col-md-8 dot-fixer">
+                        <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
+                          fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
+                          apUsed = <%=photo_object.f_number%>>
+                        </div>
+                        <div class="ap-symbol">ƒ/</div><div class="ap-hint" id =  <%=photo_object.fid+"-aperture-hint"%>></div>
+                        <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div>
                     </div>
-                    <div class="ap-symbol">ƒ/</div><div class="ap-hint" id =  <%=photo_object.fid+"-aperture-hint"%>></div>
-                    <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div>
                   </div>
-                </div>
 
                   <div class = "col-md-12">Shutter speed</div>
+                  <div class= "col-md-12">
                     <div class = "col-md-2"></div>
-                    <div class= "col-md-8">
-                      <div class = "col-md-12">
-                        <div class = "exposure-slider" id = <%=photo_object.fid+"-exposure-slider"%>  
+                    <div class= "col-md-8 dot-fixer">
+                      <div class = "exposure-slider" id = <%=photo_object.fid+"-exposure-slider"%>  
                         fid = <%=photo_object.fid%> expUsed = <%=photo_object.exposure_time%>
                         maxExp = "1/15">
-                        </div>
-                        <div id =  <%=photo_object.fid+"-exposure-hint"%>></div>
-                        <div id =  <%=photo_object.fid+"-exposure-dot"%> class="dots ui-state-default"></div>
                       </div>
+                      <div id =  <%=photo_object.fid+"-exposure-hint"%>></div>
+                      <div id =  <%=photo_object.fid+"-exposure-dot"%> class="dots ui-state-default"></div>
+                    </div>
                   </div>
 
 
                   <div class = "col-md-12">ISO</div>
-                    <div class = "col-md-2"></div>
-                    <div class= "col-md-8">
-                      <div class = "col-md-12">
-                        <div class = "iso-slider" id = <%=photo_object.fid+"-iso-slider"%>  
+                  <div class = "col-md-12">
+                    <div class= "col-md-2"></div>
+                    <div class = "col-md-8 dot-fixer">
+                      <div class = "iso-slider" id = <%=photo_object.fid+"-iso-slider"%>  
                         fid = <%=photo_object.fid%> isoUsed = <%=photo_object.iso%>
                         maxExp = "100">
-                        </div>
+                      </div>
                       <div id =  <%=photo_object.fid+"-iso-hint"%>></div>
                       <div id =  <%=photo_object.fid+"-iso-dot"%> class="dots ui-state-default"></div>
                     </div>
