@@ -25,7 +25,7 @@ $(document).ready(function(){
             var just_right = response.just_right
 
             var data = google.visualization.arrayToDataTable([
-              ["Rank", "Critiques", { role: "style" } ],
+              ["Critiques", "Percentage", { role: "style" } ],
               ["Too narrow", too_narrow, "red"],
               ["Just right", just_right, "green"],
               ["Too wide", too_wide, "blue"]
@@ -77,7 +77,7 @@ $(document).ready(function(){
             var just_right = response.just_right
 
             var data = google.visualization.arrayToDataTable([
-              ["Rank", "Critiques", { role: "style" } ],
+              ["Critiques", "Percentage", { role: "style" } ],
               ["Too slow", too_slow, "red"],
               ["Just right", just_right, "green"],
               ["Too fast", too_fast, "blue"]
@@ -127,7 +127,7 @@ $(document).ready(function(){
             var just_right = response.just_right
 
             var data = google.visualization.arrayToDataTable([
-              ["Rank", "Critiques", { role: "style" } ],
+              ["Critiques", "Percentage", { role: "style" } ],
               ["Too low", too_low, "red"],
               ["Just right", just_right, "green"],
               ["Too high", too_high, "blue"]

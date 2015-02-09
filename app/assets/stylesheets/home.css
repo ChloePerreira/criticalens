@@ -77,7 +77,7 @@
 .dots{
     width: 8px;
     height: 8px;
-    background: black !important;
+    background: #504A4B !important;
     /*border-radius: 5px;*/
     display: block;
     position: absolute;
