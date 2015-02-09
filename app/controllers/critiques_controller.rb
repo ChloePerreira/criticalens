@@ -1,6 +1,7 @@
 class CritiquesController < ApplicationController
 
   def index
+    @photos = Photo.all
   end
   
   def submit_critique
