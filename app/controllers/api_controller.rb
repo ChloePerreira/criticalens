@@ -41,7 +41,8 @@ class ApiController < ApplicationController
         l_ap += 1
       end
     end
-    sh_tally = {too_fast: l_sh, too_slow: h_sh, just_right: r_sh}
+    sum = l_sh + h_sh + r_sh
+    sh_tally = {too_fast: percent(l_sh, sum), too_slow: percent(h_sh, sum), just_right: percent(r_sh, sum)}
     render json: sh_tally
   end
 
@@ -61,7 +62,8 @@ class ApiController < ApplicationController
         l_iso += 1
       end
     end
-    iso_tally = {too_high: l_iso, too_low: h_iso, just_right: r_iso}
+    sum = l_iso + h_iso + r_iso
+    iso_tally = {too_high: percent(l_iso, sum), too_low: percent(h_iso, sum), just_right: percent(r_iso, sum)}
     render json: iso_tally
   end 
 
