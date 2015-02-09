@@ -79,8 +79,8 @@ $(document).ready(function(){
             var data = google.visualization.arrayToDataTable([
               ["Rank", "Critiques", { role: "style" } ],
               ["Too slow", too_slow, "red"],
-              ["Just right", just_right, "blue"],
-              ["Too fast", too_fast, "green"]
+              ["Just right", just_right, "green"],
+              ["Too fast", too_fast, "blue"]
             ]);
 
 
@@ -129,8 +129,8 @@ $(document).ready(function(){
             var data = google.visualization.arrayToDataTable([
               ["Rank", "Critiques", { role: "style" } ],
               ["Too low", too_low, "red"],
-              ["Just right", just_right, "blue"],
-              ["Too high", too_high, "green"]
+              ["Just right", just_right, "green"],
+              ["Too high", too_high, "blue"]
             ]);
 
 
