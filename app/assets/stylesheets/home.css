@@ -77,11 +77,12 @@
 .dots{
     width: 8px;
     height: 8px;
-    background: blue !important;
+    background: black !important;
     /*border-radius: 5px;*/
     display: block;
     position: absolute;
     top: 2px;
+    border-radius: 50%;
 }
 
 .ap-symbol {
@@ -98,4 +99,9 @@
 
 .settings-text {
   display: inline-block;
+}
+
+.dot-fixer {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
