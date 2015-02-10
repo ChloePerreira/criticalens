@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "/", to: "home#index", as: :root
 
   get "/test_api", to: "api#test_api"
+  
+  get "/all_photos", to: "users#all_test", as: :test_render_partial
 
   get "/aperture_tally/:id", to: "api#aperture_tally"
 
