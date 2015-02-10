@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
   require './lib/flickr'
+  require 'active_support/core_ext'
+  require 'date'
 
   helper :all
 

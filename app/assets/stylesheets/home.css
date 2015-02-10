@@ -57,22 +57,6 @@
 .drop-menu a:hover {
   color: black !important;
 }
-/*.whole-form {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
-}*/
-
-/*.whole-form {
-  display: table-cell;
-  vertical-align: middle;
-}
-  
-.outer-form {
-  display: table;
-  height: 100%;
-  width: 100%;
-}*/
 
 .dots{
     width: 8px;
@@ -110,5 +94,3 @@
   text-align: center;
 }
 
-.shutter_chart {
-  width

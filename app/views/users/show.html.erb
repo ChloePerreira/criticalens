@@ -1,7 +1,16 @@
 <div class = "container">
-<%= image_tag @user.avatar, class: "avatar" %>
-<br>
-<%= @user.name %>
-<br>
-Member since: <%= @user.created_at %>
+  <div class = "outer-form-and-photo">
+    <div class = "row show-grid">
+      <div class = "col-md-12">
+        <%= image_tag @user.avatar, class: "avatar" %>
+        <br>
+        <%= @user.name %>
+        <br>
+        Member since: <%= @user.created_at.to_date.strftime("%B %d, %Y")%>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div id = 'test-filter'><%=render '/home/photos', :photos => @photos %></div>
+<div id="test-click">Test</div>

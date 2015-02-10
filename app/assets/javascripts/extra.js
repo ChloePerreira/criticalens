@@ -16,5 +16,8 @@ $(document).ready(function(){
 
   });
 
+  $('#test-click').click(function() {
+    $('#test-filter').html('<%= escape_javascript(render "/home/photos", :photos => @photos1) %>')
+  });
 });
 

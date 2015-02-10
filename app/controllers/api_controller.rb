@@ -5,6 +5,13 @@ class ApiController < ApplicationController
     render json: my_hash
   end
 
+  def critiqued_photos
+    # get the users photos size 
+    # get the users photos have been critiqued and that size
+    # spit out the numbers in a json 
+    
+  end
+
   def aperture_tally
     photo = Photo.find(params[:id])
     ap_used = photo.f_number.to_f
