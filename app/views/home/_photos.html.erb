@@ -13,7 +13,8 @@
 
               <!--button for collapsing-->
               <%if !has_critiqued?(photo_object.fid)%>
-                <div class=<%="settings-used-box settings-box-"+photo_object.fid%>>
+              <!--show settings used and suggest critique with button-->
+                <div class="pre-critique-box" id=<%= "pre-critique-box-"+photo_object.fid%> fid=<%=photo_object.fid%>>
                   <div class="col-md-12"> 
                     <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
                   </div>
@@ -32,11 +33,16 @@
                  Critique this photo
                 </button></div>
               <%else%>
-                You have critiqued this photo. Thanks!
+                <div class = "post-critique-box" id=<%=" post-critique-box-"+photo_object.fid %> fid = <%=photo_object.fid%>>
+                  <div class = "col-md-12">
+                    You have critiqued this photo. Thanks!
+                  </div>
+                </div>
               <%end%>
-              <!--collapsing div-->
-              <div class="collapse" id=<%="collapse"+photo_object.fid%>>
 
+              <!--div containing critique form that is collapsible-->
+              <div class="collapse critique-box" id=<%="collapse"+photo_object.fid%>>
+              <div class = "critique-box" id=<%="critique-box"+photo_object.fid%> fid=<%=photo_object.fid%>>
 
               <div class = "row show-grid whole-form-row">
 
@@ -90,18 +96,19 @@
                       <%end%>>
                     Submit</button>
                   </div>
-                </div> <!--end row-->
 
-</div><!--end collapsing div-->
+                </div> <!--end whole form col-->
 
-
-              </div> <!--end form column-->
-
-            </div>
-          </div>
+              </div><!--end whole form row-->
+            
+            </div> <!-- end critique-box div-->
+          
+            </div> <!--end collapsing div-->
+          </div> <!-- end form column-->
+        </div><!-- end row containing column -->
 
         <% end %>
-      </div>
+      </div> <!--end container-->
 
-</div>
+</div> <!-- end outer container-->
                                                                                                                                                                                            
