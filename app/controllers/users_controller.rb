@@ -9,12 +9,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def all_test
-    @photos = Photo.all
-    respond_to do |format|
-      format.js
-    end
-  end
-
 
 end

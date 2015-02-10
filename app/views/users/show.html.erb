@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<%= link_to "All photos", show_user_path(:id=>1, :show_diff_data => "yes"), :remote => true %>
+<%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "yes"), :remote => true %>
 
 <div id = 'test-filter'><%=render '/home/photos', :photos => @photos %></div>
 <div id="test-click">Test</div>

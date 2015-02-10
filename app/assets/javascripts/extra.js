@@ -16,7 +16,5 @@ $(document).ready(function(){
 
   });
 
-
-  //$("#test-filter").html("<%= escape_javascript(render partial: '/home/photos', locals: { photos: @photos } ) %>"); 
 });
 
