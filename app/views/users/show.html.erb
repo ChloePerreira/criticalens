@@ -1,5 +1,5 @@
 <div class = "container">
-  <div class = "outer-form-and-photo">
+  <div class = "profile-holder">
     <div class = "row show-grid">
       <div class = "col-md-12">
         <%= image_tag @user.avatar, class: "avatar" %>
@@ -8,11 +8,17 @@
         <br>
         Member since: <%= @user.created_at.to_date.strftime("%B %d, %Y")%>
       </div>
+      
+      <% if session[:user_id] %>
+      <% end %>
+  
+      <div class = "col-md-12">
+        <%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), class: "btn btn-default", :remote => true %>
+        <%= link_to "Photos with no critiques", show_user_path(:id=>@user.id, :show_diff_data => "no critiques"), class: "btn btn-default", :remote => true %>
+      </div>
     </div>
   </div>
 </div>
 
-<%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), :remote => true %>
-<%= link_to "Photos with no critiques", show_user_path(:id=>@user.id, :show_diff_data => "no critiques"), :remote => true %>
 
 <div id = 'populate-div'><%=render '/home/photos', :photos => @photos %></div>
