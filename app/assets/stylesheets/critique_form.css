@@ -10,9 +10,9 @@
   border-top: 1.5px dotted #e6e6e6;
   border-right: 1.5px dotted #e6e6e6;
   border-bottom: 1.5px dotted #e6e6e6;
-  padding-top: 10px;
-  
-  /*border-style: solid;
-  border-color: #e6e6e6;
-  border-width: 1.5px;
+  padding-top: 15px;
 }
+
+.sugg-list {
+  margin-bottom: 20px;
+}  

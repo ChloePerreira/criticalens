@@ -10,7 +10,9 @@
             </div>
 
             <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>> <!--form half-->
-
+                
+              <!--PRE CRITIQUE -->
+              <% if false %>
               <div class="pre-critique-box" id=<%= "pre-critique-box-"+photo_object.fid%> fid=<%=photo_object.fid%>>
                 <div class="col-md-12"> 
                   <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
@@ -40,12 +42,126 @@
                 </div>
 
               </div> <!--end pre-box-->
+              <% end %>
 
+              <!------------------------>
               <div class = "critique-box" id=<%="critique-box"+photo_object.fid%> fid=<%=photo_object.fid%>>
-              </div>
+              <% if !has_critiqued?(photo_object.fid) %>
 
+
+                <div class = "row show-grid whole-form-row">
+
+                  <div class = <%="col-md-12 "+photo_object[:fid]+"-sugg-settings-col"%>>
+
+                    <div class = "col-md-12">Aperture</div>
+                    <div class = "col-md-12">
+                      <div class = "col-md-2"></div>
+                      <div class= "col-md-8 dot-fixer">
+                        <div class = "aperture-slider" id = <%=photo_object.fid+"-aperture-slider"%>  
+                          fid = <%=photo_object.fid%> maxAp = <%=photo_object.max_aperture_value%>
+                          apUsed = <%=photo_object.f_number%>>
+                        </div>
+                        <div class="ap-symbol">ƒ/</div><div class="ap-hint" id =  <%=photo_object.fid+"-aperture-hint"%>></div>
+                        <div id =  <%=photo_object.fid+"-aperture-dot"%> class="dots ui-state-default"></div>
+                      </div>
+                    </div>
+
+                    <div class = "col-md-12">Shutter speed</div>
+                    <div class= "col-md-12">
+                      <div class = "col-md-2"></div>
+                      <div class= "col-md-8 dot-fixer">
+                        <div class = "exposure-slider" id = <%=photo_object.fid+"-exposure-slider"%>  
+                          fid = <%=photo_object.fid%> expUsed = <%=photo_object.exposure_time%>
+                          maxExp = "1/15">
+                        </div>
+                        <div id =  <%=photo_object.fid+"-exposure-hint"%>></div>
+                        <div id =  <%=photo_object.fid+"-exposure-dot"%> class="dots ui-state-default"></div>
+                      </div>
+                    </div>
+
+                  <div class = "col-md-12">ISO</div>
+                  <div class = "col-md-12">
+                    <div class= "col-md-2"></div>
+                    <div class = "col-md-8 dot-fixer">
+                      <div class = "iso-slider" id = <%=photo_object.fid+"-iso-slider"%>  
+                        fid = <%=photo_object.fid%> isoUsed = <%=photo_object.iso%>
+                        maxExp = "100">
+                      </div>
+                      <div id =  <%=photo_object.fid+"-iso-hint"%>></div>
+                      <div id =  <%=photo_object.fid+"-iso-dot"%> class="dots ui-state-default"></div>
+                    </div>
+                  </div>
+
+                  <div class = "col-md-12">
+                    <button type="button" class="btn btn-default submit-critique" 
+                      fid=<%=photo_object.fid%> 
+                      <%if session[:user_id]%>
+                        session=<%=session[:user_id]%>
+                      <%end%>>
+                    Submit</button>
+                  </div>
+
+                </div> <!--end whole form col-->
+
+              </div><!--end whole form row-->
+
+              <% end %>
+              </div><!--end critique form div-->
+
+              <!--only show if the person has just submitted a critique or if they've already done so, base on session (has critiqued method)-->
               <div class = "post-critique-box" id=<%=" post-critique-box-"+photo_object.fid %> fid = <%=photo_object.fid%>>
-              </div>
+
+              <%if has_critiqued?(photo_object.fid) %>
+                <div class="col-md-12"> 
+                  <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
+                </div>
+
+                <div class="col-md-12">
+                  <div class="row show-grid">
+                    <div class = "col-md-2"></div>
+                  
+                    <div class = "col-md-8">
+                      <div class = "row show-grid">
+                          <%= image_tag "aperture_symbol.png", class: "settings-img"%> 
+                          <div class="settings-text">ƒ/<%=photo_object.f_number%></div>
+                          <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=photo_object.exposure_time%></div>
+                          <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=photo_object.iso%></div>
+                      </div>
+                    </div>
+
+                    <div class = "col-md-2"></div>
+                  </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="col-md-12 post-critique-sugg"> 
+                  <hr>
+                  <a href=<%="/user/#{current_user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; On <%=get_critique(photo_object.fid).created_at.to_date.strftime("%B %d, %Y")%> you suggested these settings:
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="row show-grid">
+                    <div class = "col-md-2"></div>
+                  
+                    <div class = "col-md-8">
+                      <div class = "row show-grid sugg-list">
+                          <%= image_tag "aperture_symbol.png", class: "settings-img"%> 
+                          <div class="settings-text">ƒ/<%=get_critique(photo_object.fid).sugg_ap%></div>
+                          <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=get_critique(photo_object.fid).sugg_sh%></div>
+                          <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=get_critique(photo_object.fid).sugg_iso%></div>
+                      </div>
+                    </div>
+
+                    <div class = "col-md-2"></div>
+                  </div><!--end col-->
+                </div><!--end row-->
+              
+              <% end %>
+              </div> <!--end post-critique div-->
 
 <!-- all hidden-->
               <!--button for collapsing-->

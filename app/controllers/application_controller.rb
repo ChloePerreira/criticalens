@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_critique (fid)
+    Critique.where(author: session[:user_id], fid: fid).first  
+  end
+
   def get_critiques (photo)
     Critique.where(fid: photo.fid)
   end
@@ -96,5 +100,5 @@ class ApplicationController < ActionController::Base
     photos
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique
 end
