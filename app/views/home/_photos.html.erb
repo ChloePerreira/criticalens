@@ -5,14 +5,51 @@
 
           <div class = "row show-grid outer-form-and-photo">
 
-            <div class="col-md-6 photo-left-home">
+            <div class="col-md-6 photo-left-home"> <!--photo half-->
               <a href=<%="/photo/#{photo_object.id}"%>><%= image_tag photo_object[:medium_640], class: "photo-home", id: "photo-"+photo_object[:fid] %></a>
             </div>
 
-            <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>>
+            <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>> <!--form half-->
 
+              <div class="pre-critique-box" id=<%= "pre-critique-box-"+photo_object.fid%> fid=<%=photo_object.fid%>>
+                <div class="col-md-12"> 
+                  <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
+                </div>
+
+                <div class="col-md-12">
+                  <div class="row show-grid">
+                    <div class = "col-md-2"></div>
+                  
+                    <div class = "col-md-8">
+                      <div class = "row show-grid">
+                          <%= image_tag "aperture_symbol.png", class: "settings-img"%> 
+                          <div class="settings-text">ƒ/<%=photo_object.f_number%></div>
+                          <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=photo_object.exposure_time%></div>
+                          <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=photo_object.iso%></div>
+                      </div>
+                    </div>
+
+                    <div class = "col-md-2"></div>
+                  </div><!--end col-->
+                </div><!--end row-->
+              
+                <div class="col-md-12">
+                  <div class="btn btn-default critique-button">Critique</div>
+                </div>
+
+              </div> <!--end pre-box-->
+
+              <div class = "critique-box" id=<%="critique-box"+photo_object.fid%> fid=<%=photo_object.fid%>>
+              </div>
+
+              <div class = "post-critique-box" id=<%=" post-critique-box-"+photo_object.fid %> fid = <%=photo_object.fid%>>
+              </div>
+
+<!-- all hidden-->
               <!--button for collapsing-->
-              <%if !has_critiqued?(photo_object.fid)%>
+              <%if false #if !has_critiqued%>
               <!--show settings used and suggest critique with button-->
                 <div class="pre-critique-box" id=<%= "pre-critique-box-"+photo_object.fid%> fid=<%=photo_object.fid%>>
                   <div class="col-md-12"> 
@@ -32,7 +69,7 @@
                  aria-expanded="false" aria-controls=<%="collapse"+photo_object.fid%>>
                  Critique this photo
                 </button></div>
-              <%else%>
+              <%elsif false%>
                 <div class = "post-critique-box" id=<%=" post-critique-box-"+photo_object.fid %> fid = <%=photo_object.fid%>>
                   <div class = "col-md-12">
                     You have critiqued this photo. Thanks!
@@ -40,6 +77,7 @@
                 </div>
               <%end%>
 
+              <%if false %>
               <!--div containing critique form that is collapsible-->
               <div class="collapse critique-box" id=<%="collapse"+photo_object.fid%>>
               <div class = "critique-box" id=<%="critique-box"+photo_object.fid%> fid=<%=photo_object.fid%>>
@@ -104,6 +142,11 @@
             </div> <!-- end critique-box div-->
           
             </div> <!--end collapsing div-->
+          
+        <% end%> <!-- end false statement -->
+
+<!-- all hidden -->
+
           </div> <!-- end form column-->
         </div><!-- end row containing column -->
 

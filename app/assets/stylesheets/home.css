@@ -88,6 +88,7 @@
 
 .settings-text {
   display: inline-block;
+  padding-right: 10px;
 }
 
 .dot-fixer {
