@@ -6,11 +6,18 @@
         <br>
         <%= @user.name %>
         <br>
+        <% if @user.level %>
+          Level: <%= @user.level %>
+          <br>
+        <% end %>
         Member since: <%= @user.created_at.to_date.strftime("%B %d, %Y")%>
       </div>
-      
-      <% if session[:user_id] %>
-      <% end %>
+
+      <div class = "col-md-12">      
+        <% if session[:user_id] == @user.id && !@user.level%>
+          Enter your level!
+        <% end %>
+      </div>
   
       <div class = "col-md-12">
         <%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), class: "btn btn-default", :remote => true %>
