@@ -84,5 +84,17 @@ class ApplicationController < ActionController::Base
     (val/sum)*100
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent
+
+  def get_photos_wo_critiques(user_id) 
+    photos = []
+    user_photos = User.find(user_id).photos
+    user_photos.each do |photo|
+      if get_critiques(photo).size<1
+        photos.push(photo)
+      end
+    end
+    photos
+  end
+
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques
 end
