@@ -33,12 +33,19 @@ class ApplicationController < ActionController::Base
     apertures = array_of_critique_vals (photo, "sugg_ap")
     apertures = apertures.map(&:to_f)
     avg = apertures.sum/apertures.length
+    avg = find_nearest(setting_options("aperture"), avg)
+    avg
   end 
 
   def get_avg_shutter_sugg (photo)
   end
 
   def get_avg_iso_sugg (photo)
+    isos = array_of_critique_vals (photo, "sugg_iso")
+    isos = isos.map(&:to_i)
+    avg = isos.sum/isos.length
+    avg = find_nearest(setting_options("iso"), avg)
+    avg
   end
 
   def array_of_critique_vals (photo, name_of_val)
@@ -123,5 +130,5 @@ class ApplicationController < ActionController::Base
     photos
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals 
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg 
 end
