@@ -168,6 +168,8 @@ $(document).ready(function () {
     if($(this).attr("session") >= 1){ //if someone is actually logged in
     
     } else {
+      alert("Please log in with Flickr to critique this photo");
+      window.location.href = "https://www.flickr.com/services/oauth/authorize?perms=read&oauth_token=72157650688389746-d810cf5f9a341fa4";
     }
   });
 
