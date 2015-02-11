@@ -34,8 +34,8 @@ $(document).ready(function(){
 
             var options = {
               title: "Critiques on aperture",
-              width: 300,
-              height: 300,
+              //width: 300,
+              //height: 300,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
               vAxis: {title: "% of critiques", minValue: 100}
@@ -85,8 +85,8 @@ $(document).ready(function(){
 
             var options = {
               title: "Critiques on shutter",
-              width: 300,
-              height: 300,
+              //width: 300,
+              //height: 300,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
               vAxis: {title: "% of critiques", minValue: 100}
@@ -135,8 +135,8 @@ $(document).ready(function(){
 
             var options = {
               title: "Critiques on ISO",
-              width: 300,
-              height: 300,
+              //width: 300,
+              //height: 300,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
               vAxis: {title: "% of critiques", minValue: 100}
@@ -150,6 +150,13 @@ $(document).ready(function(){
       }
     }
   }
+
+// for restyling charts after load - may not be necessary
+  //$(window).load(function(){
+   // $("div[dir='ltr']")
+
+ // });
+
 });
 
 
