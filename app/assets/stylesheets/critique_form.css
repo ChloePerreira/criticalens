@@ -16,3 +16,23 @@
 .sugg-list {
   margin-bottom: 20px;
 }  
+
+.slider-title-bar {
+  margin-bottom: 5px;
+  margin-top: 3px;
+}
+
+.slider-hint {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 3px;
+}
+
+.critique-prompt {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.submit-critique {
+  margin-bottom: 15px;
+} 
