@@ -157,13 +157,7 @@ $(document).ready(function () {
     postCritique($(this), $(this).attr('fid'));
   });
 
-  //when you click the critique button
-  //check the session attribute of that button
-  //if there's a session, hide the div it lives in
-      //"pre-critique-box-fid"
-  //and unhide the critique form div
-      //"critique-box-fid"
-
+// Unhide form when logged-in user clicks critique
   $(".critique-button").click(function() {
     if($(this).attr("session") >= 1){ //if someone is actually logged in
       var fid = $(this).attr('fid');
@@ -172,6 +166,7 @@ $(document).ready(function () {
       $("#critique-box-"+fid).removeClass("hidden");
     } else {
       alert("Please log in with Flickr to critique this photo");
+      //this doesn't work
       //window.location.href = "https://www.flickr.com/services/oauth/authorize?perms=read&oauth_token=72157650688389746-d810cf5f9a341fa4";
     }
   });
