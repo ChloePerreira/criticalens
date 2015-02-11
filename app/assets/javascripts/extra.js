@@ -1,6 +1,6 @@
-/*$(document).ready(function(){
+$(document).ready(function(){
 
-  $(window).load(function(){ 
+ /* $(window).load(function(){ 
 
     //get all of the form columns and make them the same height as the photo column 
     var all_form_divs = $('.whole-form')
@@ -14,7 +14,7 @@
       ) 
     }
 
-  });
+  });*/
 
-});*/
+});
 

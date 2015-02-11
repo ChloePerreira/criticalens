@@ -157,7 +157,12 @@ $(document).ready(function () {
     postCritique($(this), $(this).attr('fid'));
   });
 
-  //hide the show form button onclick
+  //when you click the critique button
+  //check the session attribute of that button
+  //if there's a session, hide the div it lives in
+      //"pre-critique-box-fid"
+  //and unhide the critique form div
+      //"critique-box-fid"
 
 });
 
