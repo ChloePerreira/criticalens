@@ -21,13 +21,36 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_critique (fid)
+  def get_critique (fid) # returns current users critique of a photo
     Critique.where(author: session[:user_id], fid: fid).first  
   end
 
-  def get_critiques (photo)
+  def get_critiques (photo) # returns all critiques for a photo
     Critique.where(fid: photo.fid)
   end
+
+  def get_avg_aperture_sugg (photo)
+    apertures = array_of_critique_vals (photo, "sugg_ap")
+    apertures = apertures.map(&:to_f)
+    avg = apertures.sum/apertures.length
+  end 
+
+  def get_avg_shutter_sugg (photo)
+  end
+
+  def get_avg_iso_sugg (photo)
+  end
+
+  def array_of_critique_vals (photo, name_of_val)
+    critiques = get_critiques(photo)
+    suggestions = []
+    name_of_val = name_of_val.to_sym
+    critiques.each do |critique|
+      suggestions.push(critique.send(name_of_val))
+    end
+    suggestions
+  end
+  
 
   def setting_options(type)
     settings_array = []
@@ -62,7 +85,7 @@ class ApplicationController < ActionController::Base
     value
   end
 
-  def find_nearest (array, actual_val) #WILL NOT WORK WITH SHUTTER SPEED
+  def find_nearest (array, actual_val) #WILL NOT WORK WITH SHUTTER SPEED, returns array index
     nearest = -1
     bestDist = 1000.0
     d = 1000.0
@@ -100,5 +123,5 @@ class ApplicationController < ActionController::Base
     photos
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals 
 end
