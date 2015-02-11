@@ -1,17 +1,22 @@
 <div class = "container">
 
       <div class="photo-home-container">
+
+<!--START LOOP FOR DISPLAYING PHOTOS---------->
         <% @photos.each do |photo_object| %>
 
           <div class = "row show-grid outer-form-and-photo">
 
-            <div class="col-md-6 photo-left-home"> <!--photo half-->
+        <!--SHOW PHOTOS ON LEFT SIDE------>
+            <div class="col-md-6 photo-left-home"> 
               <a href=<%="/photo/#{photo_object.id}"%>><%= image_tag photo_object[:medium_640], class: "photo-home", id: "photo-"+photo_object[:fid] %></a>
             </div>
+        <!--END SHOW PHOTOS ON LEFT SIDE------>
 
-            <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>> <!--form half-->
+        <!-- DIV CONTAINING ALL FORM ELEMENTS -->
+            <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>> 
                 
-              <!--PRE CRITIQUE -->
+          <!--PRE CRITIQUE - THIS DIV SHOWS IF USER HAS NOT CRITIQUED PHOTO -->
               <% if !has_critiqued?(photo_object.fid) %>
               <div class="pre-critique-box" id=<%= "pre-critique-box-"+photo_object.fid%> fid=<%=photo_object.fid%>>
                 <div class="col-md-12"> 
@@ -41,12 +46,16 @@
                   <div class="btn btn-default critique-button" id=<%="critique-button-"+photo_object.fid%> fid=<%=photo_object.fid%> session=<%=session[:user_id]%>>Critique</div>
                 </div>
 
-              </div> <!--end pre-box-->
+              </div> 
               <% end %>
+          <!-- END PRE CRITIQUE - THIS DIV SHOWS IF USER HAS NOT CRITIQUED PHOTO -->
 
-              <!------------------------>
+
+          <!--START CRITIQUE FORM DIV - DEFAULTS TO HIDDEN, OUTER PART ALWAYS SHOWS---------->
               <div class = "critique-box hidden" id=<%="critique-box-"+photo_object.fid%> fid=<%=photo_object.fid%>>
-<% if session[:user_id] && !has_critiqued?(photo_object.fid)%> <!--if someone is logged in, and they haven't critiqued a certain photo, render and hide this div-->
+
+            <!--ONLY RENDER CONTENTS OF HIDDEN CRITIQUE FORM DIV IF 1) SOMEONE IS LOGGED IN AND 2) THEY HAVE NOT CRITIQUED THAT PHOTO -->
+              <% if session[:user_id] && !has_critiqued?(photo_object.fid)%> 
                 <div class = "row show-grid whole-form-row">
                   <div class = "col-md-12"><%= image_tag current_user.avatar, class: "avatar"%></div>
                   <div class = "col-md-12 critique-prompt">Enter the settings that you would have used for this shot</div>
@@ -102,22 +111,21 @@
                   </div>
 
                 </div> <!--end whole form col-->
-
               </div><!--end whole form row-->
-<% end %>
-              </div><!--end critique form div-->
+
+            <% end %>
+          <!-- END ONLY RENDER CONTENTS OF HIDDEN CRITIQUE FORM DIV IF 1) SOMEONE IS LOGGED IN AND 2) THEY HAVE NOT CRITIQUED THAT PHOTO -->
+
+            </div>
+          <!--END HIDDEN CRITIQUE FORM DIV-->
 
 
 
+          <!--START AJAX POST CRITIQUE FORM DIV - DEFAULTS TO HIDDEN, OUTER PART ALWAYS SHOWS---------->
+            <div class = "post-critique-ajax hidden" id=<%="post-critique-ajax-"+photo_object.fid %> fid = <%=photo_object.fid%>>
 
-
-
-
-<!------This is the post-critique div that's prepped for AJAX if the submit a critique -->
-
-              <div class = "post-critique-ajax hidden" id=<%="post-critique-ajax-"+photo_object.fid %> fid = <%=photo_object.fid%>>
-
-<% if session[:user_id] && !has_critiqued?(photo_object.fid)%> <!--if someone is logged in, and they haven't critiqued a certain photo, render and hide this div-->
+            <!--ONLY RENDER CONTENTS OF HIDDEN POST CRITIQUE FORM DIV IF 1) SOMEONE IS LOGGED IN AND 2) THEY HAVE NOT CRITIQUED THAT PHOTO -->
+              <% if session[:user_id] && !has_critiqued?(photo_object.fid)%> 
                 <div class="col-md-12"> 
                   <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
                 </div>
@@ -165,21 +173,19 @@
                     <div class = "col-md-2"></div>
                   </div><!--end col-->
                 </div><!--end row-->
-<% end %>
-              </div> <!--end post-critique div-->
-<!--------------end critique form and post critique for ajax-->
+              <% end %>
+            <!--ONLY RENDER CONTENTS OF HIDDEN POST CRITIQUE FORM DIV IF 1) SOMEONE IS LOGGED IN AND 2) THEY HAVE NOT CRITIQUED THAT PHOTO -->
+
+              </div>
+          <!--END AJAX POST CRITIQUE FORM DIV - DEFAULTS TO HIDDEN, OUTER PART ALWAYS SHOWS---------->
 
 
 
 
-
-
-
-
-
-              <!--only show if the person has just submitted a critique or if they've already done so, base on session (has critiqued method)-->
+          <!--START REGULAR POST CRITIQUE FORM DIV - ALWAYS RENDERS BUT IS EMPTY UNELSS PHOTO HAS BEEN CRITIQUED BY USER---------->
               <div class = "post-critique-box" id=<%=" post-critique-box-"+photo_object.fid %> fid = <%=photo_object.fid%>>
 
+            <!--SHOW CONTENTS IF PHOTO HAS BEEN CRITIQUED BY LOGGED IN USER -->
               <%if has_critiqued?(photo_object.fid) %>
                 <div class="col-md-12"> 
                   <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
@@ -230,14 +236,19 @@
                 </div><!--end row-->
               
               <% end %>
-              </div> <!--end post-critique div-->
+            <!--END SHOW CONTENTS IF PHOTO HAS BEEN CRITIQUED BY LOGGED IN USER -->
+
+              </div> 
+          <!--END REGULAR POST CRITIQUE FORM DIV - ALWAYS RENDERS BUT IS EMPTY UNELSS PHOTO HAS BEEN CRITIQUED BY USER---------->
 
 
           </div> <!-- end form column-->
         </div><!-- end row containing column -->
 
-        <% end %>
-    </div> <!--end container-->
 
-</div> <!-- end outer container-->
-                                                                                                                                                                                           
+        <% end %>
+      <!--END LOOP FOR PHOTOS------>
+
+    </div> 
+</div>                                                                                                                                                                                            
+<!--END OUTERMOST CONTAINERS-->
