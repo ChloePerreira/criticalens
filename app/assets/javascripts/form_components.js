@@ -100,36 +100,6 @@ $(document).ready(function () {
   
   generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
 
-  //deactivate wb buttons on click if active
-  $('body').on('click', '.btn.wb.active', function(e){
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    var id = $(this).attr('fid');
-    $(this).removeClass('active');
-    $(this).removeClass(id+"-wb");
-  });
-
-  //add special class with id-wb if active
-  $('body').on('click', '.btn.wb', function(e){
-    e.preventDefault();
-    var id = $(this).attr('fid');
-    $(this).siblings().removeClass(id+"-wb");
-    $(this).addClass(id+"-wb");
-  });
-
-  //on submit, print the values
-  /*$(".submit-critique").click(function(){
-    var id = $(this).attr('fid');
-    form = [
-      $(this).attr('session'),
-      $("#"+id+"-aperture-hint").html(),
-      $("#"+id+"-exposure-hint").html(),
-      $("#"+id+"-iso-hint").html(),
-      $($("."+id+"-wb")[0]).attr("wb")
-    ];
-    console.log(form);
-    console.log(id);
-  });*/
 
   //submission of critique function, what happens when no wb?
   function postCritique(button_clicked, id) {
@@ -141,14 +111,20 @@ $(document).ready(function () {
         sugg_ap:  $("#"+id+"-aperture-hint").html(),  
         sugg_sh:  $("#"+id+"-exposure-hint").html(),  
         sugg_iso: $("#"+id+"-iso-hint").html(),
-        sugg_wb: $($("."+id+"-wb")[0]).attr("wb")
       },
       success: function (data) {
-        console.log("wb is:"+ $($("."+id+"-wb")[0]).attr("wb"));
-        //replace the collapsing div with "You have critiqued this photo. Thanks!"
+        //on success set values of divs in hidden thing
+          //sugg-aperture-ajax-id ƒ/
+          //sug-shutter-ajax-id
+          //sug-iso-ajax-id
+        //hide the original form
+          //critique-box-id
+        //delete its contents
+        //unhide the post-critique-ajax form
         console.log("success");
-        $("#collapse-button-"+id).replaceWith("You have critiqued this photo. Thanks!");
-        $("#collapse"+id).hide();
+        console.log(id);
+        console.log($("#"+id+"-aperture-hint").html());
+        console.log(data[0]);
       }
     });
   };
@@ -174,3 +150,34 @@ $(document).ready(function () {
 });
 
 
+  //deactivate wb buttons on click if active
+  /*$('body').on('click', '.btn.wb.active', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var id = $(this).attr('fid');
+    $(this).removeClass('active');
+    $(this).removeClass(id+"-wb");
+  }); */
+
+  //add special class with id-wb if active
+  /*$('body').on('click', '.btn.wb', function(e){
+    e.preventDefault();
+    var id = $(this).attr('fid');
+    $(this).siblings().removeClass(id+"-wb");
+    $(this).addClass(id+"-wb");
+  });*/ 
+
+
+  //on submit, print the values
+  /*$(".submit-critique").click(function(){
+    var id = $(this).attr('fid');
+    form = [
+      $(this).attr('session'),
+      $("#"+id+"-aperture-hint").html(),
+      $("#"+id+"-exposure-hint").html(),
+      $("#"+id+"-iso-hint").html(),
+      $($("."+id+"-wb")[0]).attr("wb")
+    ];
+    console.log(form);
+    console.log(id);
+  });*/
