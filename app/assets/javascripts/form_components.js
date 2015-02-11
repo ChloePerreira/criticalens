@@ -164,6 +164,13 @@ $(document).ready(function () {
   //and unhide the critique form div
       //"critique-box-fid"
 
+  $(".critique-button").click(function() {
+    if($(this).attr("session") >= 1){ //if someone is actually logged in
+    
+    } else {
+    }
+  });
+
 });
 
 
