@@ -166,10 +166,13 @@ $(document).ready(function () {
 
   $(".critique-button").click(function() {
     if($(this).attr("session") >= 1){ //if someone is actually logged in
-    
+      var fid = $(this).attr('fid');
+      console.log(fid);
+      $("#pre-critique-box-"+fid).addClass("hidden");
+      $("#critique-box-"+fid).removeClass("hidden");
     } else {
       alert("Please log in with Flickr to critique this photo");
-      window.location.href = "https://www.flickr.com/services/oauth/authorize?perms=read&oauth_token=72157650688389746-d810cf5f9a341fa4";
+      //window.location.href = "https://www.flickr.com/services/oauth/authorize?perms=read&oauth_token=72157650688389746-d810cf5f9a341fa4";
     }
   });
 
