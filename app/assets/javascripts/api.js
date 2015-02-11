@@ -38,8 +38,7 @@ $(document).ready(function(){
               height: 300,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
-              vAxis: {minValue: 100}
-            
+              vAxis: {title: "% of critiques", minValue: 100}
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById("aperture_chart"));
@@ -90,7 +89,7 @@ $(document).ready(function(){
               height: 300,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
-              vAxis: {minValue: 100}
+              vAxis: {title: "% of critiques", minValue: 100}
             
             };
 
@@ -140,7 +139,7 @@ $(document).ready(function(){
               height: 300,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
-              vAxis: {minValue: 100}
+              vAxis: {title: "% of critiques", minValue: 100}
             
             };
 
