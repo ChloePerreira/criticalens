@@ -104,6 +104,60 @@
                 </div> <!--end whole form col-->
 
               </div><!--end whole form row-->
+<!------This is the post-critique div that's prepped for AJAX if the submit a critique -->
+
+              <div class = "post-critique-ajax hidden" id=<%="post-critique-ajax-"+photo_object.fid %> fid = <%=photo_object.fid%>>
+
+                <div class="col-md-12"> 
+                  <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
+                </div>
+
+                <div class="col-md-12">
+                  <div class="row show-grid">
+                    <div class = "col-md-2"></div>
+                  
+                    <div class = "col-md-8">
+                      <div class = "row show-grid">
+                          <%= image_tag "aperture_symbol.png", class: "settings-img"%> 
+                          <div class="settings-text">ƒ/<%=photo_object.f_number%></div>
+                          <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=photo_object.exposure_time%></div>
+                          <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                          <div class="settings-text"><%=photo_object.iso%></div>
+                      </div>
+                    </div>
+
+                    <div class = "col-md-2"></div>
+                  </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="col-md-12 post-critique-sugg"> 
+                  <hr>
+                  <a href=<%="/user/#{current_user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; On <%=Date.today.strftime("%B %d, %Y")%> you suggested these settings:
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="row show-grid">
+                    <div class = "col-md-2"></div>
+                  
+                    <div class = "col-md-8">
+                      <div class = "row show-grid sugg-list">
+                          <%= image_tag "aperture_symbol.png", class: "settings-img"%> 
+                          <div class="settings-text" id = <%="sugg-aperture-ajax-"+photo_object.fid%>>ƒ/</div>
+                          <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                          <div class="settings-text" id = <%="sugg-shutter-ajax-"+photo_object.fid%>></div>
+                          <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                          <div class="settings-text" id = <%="sugg-iso-ajax-"+photo_object.fid%>></div>
+                      </div>
+                    </div>
+
+                    <div class = "col-md-2"></div>
+                  </div><!--end col-->
+                </div><!--end row-->
+              </div> <!--end post-critique div-->
+
+<!--------------end critique form and post critique for ajax-->
 <% end %>
               </div><!--end critique form div-->
 

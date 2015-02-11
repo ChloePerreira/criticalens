@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+  //function for making all the custom sliders
   function generate_slider (name_of_slider_divs, array_of_options, bound_attr, default_value_attr) {
     var steps = array_of_options
     var form_divs = $("."+name_of_slider_divs+"-slider")
