@@ -101,7 +101,7 @@ $(document).ready(function () {
   generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
 
 
-  //submission of critique function, what happens when no wb?
+  //submission of critique function, ajax tricks to immediately display stuff on submit
   function postCritique(button_clicked, id) {
     $.ajax("/submit-critique", {
       type: "POST",
@@ -119,12 +119,14 @@ $(document).ready(function () {
           //sug-iso-ajax-id
         //hide the original form
           //critique-box-id
-        //delete its contents
+        //delete its contents using .empty()
         //unhide the post-critique-ajax form
-        console.log("success");
-        console.log(id);
-        console.log($("#"+id+"-aperture-hint").html());
-        console.log(data[0]);
+        $('#sugg-aperture-ajax-'+id).html("ƒ/"+$("#"+id+"-aperture-hint").html());
+        $('#sugg-shutter-ajax-'+id).html($("#"+id+"-exposure-hint").html());
+        $('#sugg-iso-ajax-'+id).html($("#"+id+"-iso-hint").html());
+        $('#post-critique-ajax-'+id).removeClass('hidden');
+        $('#critique-box-'+id).addClass('hidden');
+        $('#critique-box-'+id).empty();
       }
     });
   };

@@ -104,10 +104,20 @@
                 </div> <!--end whole form col-->
 
               </div><!--end whole form row-->
+<% end %>
+              </div><!--end critique form div-->
+
+
+
+
+
+
+
 <!------This is the post-critique div that's prepped for AJAX if the submit a critique -->
 
               <div class = "post-critique-ajax hidden" id=<%="post-critique-ajax-"+photo_object.fid %> fid = <%=photo_object.fid%>>
 
+<% if session[:user_id] && !has_critiqued?(photo_object.fid)%> <!--if someone is logged in, and they haven't critiqued a certain photo, render and hide this div-->
                 <div class="col-md-12"> 
                   <a href=<%="/user/#{photo_object.user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; Shot by <%=photo_object.user.name%> with these settings:
                 </div>
@@ -155,11 +165,17 @@
                     <div class = "col-md-2"></div>
                   </div><!--end col-->
                 </div><!--end row-->
-              </div> <!--end post-critique div-->
-
-<!--------------end critique form and post critique for ajax-->
 <% end %>
-              </div><!--end critique form div-->
+              </div> <!--end post-critique div-->
+<!--------------end critique form and post critique for ajax-->
+
+
+
+
+
+
+
+
 
               <!--only show if the person has just submitted a critique or if they've already done so, base on session (has critiqued method)-->
               <div class = "post-critique-box" id=<%=" post-critique-box-"+photo_object.fid %> fid = <%=photo_object.fid%>>
