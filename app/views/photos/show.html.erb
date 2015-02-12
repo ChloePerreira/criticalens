@@ -60,47 +60,9 @@
             </div>
           <% end %>
         </div><!--end col 6-->
-        
+       
+        <div class = "col-md-12">
 
-      </div> <!--end row-->
-    
-    <div class="col-md-12 graphs-div">
-
-
-    </div>
-
-    </div> <!--end outer form and photo thing-->
-  </div> <!--end photo-home container -->
-</div> <!--end outer container-->
-<!--OLD-->
-
-<div class= "container">
-  <div class = "photo-home-container">
-    <div class="row show-grid outer-form-and-photo">
-      <div class="col-md-12">
-        <% if @photo.medium_800 %>
-          <%= image_tag @photo.medium_800 %>
-        <% else %>
-          <%= image_tag @photo.medium_640 %>
-        <% end %>
-      </div>
-      
-      <div class = "col-md-12">
-      Settings used
-      <br>
-      <%= image_tag "aperture_symbol.png", class: "settings-img"%>
-      <div class="settings-text">ƒ/<%=@photo.f_number%></div>
-      <%= image_tag "shutter_symbol.png", class: "settings-img"%>
-      <div class="settings-text"><%=@photo.exposure_time%></div>
-      <%= image_tag "iso_symbol.png", class: "settings-img"%>
-      <div class="settings-text"><%=@photo.iso%></div>
-      </div>
-
-      <div class="col-md-12">
-        <% if !get_critiques(@photo).last %>
-          This photo has no critiques!
-        <% else %>
-          
           <div class = "row show-grid">
             <div class = "col-md-12">Stats</div>
             <div class = "col-md-4 show-photo-stats-col">
@@ -113,23 +75,15 @@
               <div id="iso_chart" photo_id=<%=@photo.id%>></div>
             </div>
           </div>
-      
-          <% get_critiques(@photo).each do |critique|%>
-            <a href=<%="/user/"+critique.author.to_s%>><%= image_tag User.find(critique.author).avatar, class: "avatar" %></a>
-            <%= User.find(critique.author).name %> thinks that these settings may have worked better:
-            <%= image_tag "aperture_symbol.png", class: "settings-img"%>
-            <div class="settings-text">ƒ/<%=critique.sugg_ap%></div>
-            <%= image_tag "shutter_symbol.png", class: "settings-img"%>
-            <div class="settings-text"><%=critique.sugg_sh%></div>
-            <%= image_tag "iso_symbol.png", class: "settings-img"%>
-            <div class="settings-text"><%=critique.sugg_iso%></div>
-            <hr>
-          <% end %> 
-        <% end %> 
-      </div>
-    </div>
-  </div>
-</div>
+
+        </div><!--end graph--> 
+
+      </div> <!--end row-->
+
+    </div> <!--end outer form and photo thing-->
+  </div> <!--end photo-home container -->
+</div> <!--end outer container-->
+
 
 
 
