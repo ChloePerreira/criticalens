@@ -61,10 +61,11 @@
           <% end %>
         </div><!--end col 6-->
        
-        <div class = "col-md-12">
 
+        <!--start graphs-->
+        <% if get_critiques(@photo).size > 0 %>
+        <div class = "col-md-12 stats-box">
           <div class = "row show-grid">
-            <div class = "col-md-12">Stats</div>
             <div class = "col-md-4 show-photo-stats-col">
               <div id="aperture_chart" photo_id=<%=@photo.id%>></div>
             </div>
@@ -75,8 +76,41 @@
               <div id="iso_chart" photo_id=<%=@photo.id%>></div>
             </div>
           </div>
-
         </div><!--end graph--> 
+        <% end %>
+
+        <% if get_critiques(@photo).size > 0 %>
+        <% get_critiques(@photo).each do |critique| %>
+          <div class = "col-md-12 each-critique-display">
+            <div class = "row show-grid">
+              <div class = "col-md-3"></div>
+            
+              <div class = "col-md-6">
+                <div class="col-md-12">
+                  <a href=<%="/user/#{critique.author.to_s}"%>><%= image_tag User.find(critique.author).avatar, class: "avatar"%></a> &nbsp; On <%= critique.created_at.strftime("%B %d, %Y")%> <%=User.find(critique.author).name%> suggested these settings:
+                </div>
+                <div class="col-md-12">
+                  <div class="row show-grid">
+                    <div class = "col-md-2"></div>
+                    <div class = "col-md-8">
+                      <div class = "row show-grid">
+                        <%= image_tag "aperture_symbol.png", class: "settings-img"%>
+                        <div class="settings-text">ƒ/<%=critique.sugg_ap%></div>
+                        <%= image_tag "shutter_symbol.png", class: "settings-img"%>
+                        <div class="settings-text"><%=critique.sugg_sh%></div>
+                        <%= image_tag "iso_symbol.png", class: "settings-img"%>
+                        <div class="settings-text"><%=critique.sugg_iso%></div>
+                      </div>
+                  </div><!--end 8 col-->
+                  <div class = "col-md-2"></div>
+                </div><!--end row-->
+              </div><!--end col 6-->
+
+              <div class = "col-md-3"></div>
+            </div> <!--end row-->
+          </div><!--end 12 col -->
+        <% end %>
+        <% end %>
 
       </div> <!--end row-->
 

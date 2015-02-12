@@ -1,18 +1,30 @@
 .user-settings {
   padding: 15px;
-  border: 1.5px dotted #e6e6e6;
+  border-top: 1.5px dotted #e6e6e6;
+  border-bottom: 1.5px dotted #e6e6e6;
+  border-right: 1.5px dotted #e6e6e6;
   margin-top: 15px;
 }
 
 .recommended-settings {
   padding: 15px;
   border-top: 1.5px dotted #e6e6e6;
-  border-right: 1.5px dotted #e6e6e6;
   border-bottom: 1.5px dotted #e6e6e6;
   margin-top: 15px;
 }
 
-.no-critiques {
-  vertical-align: center;
+.stats-box {
+  padding: 15px;
+  border-bottom: 1.5px dotted #e6e6e6;
+  margin-bottom: 15;
 }
 
+.no-critiques {
+}
+
+.each-critique-display {
+  padding: 15px;
+  border-bottom: 1.5px dotted #e6e6e6;
+  border-top: 1.5px dotted #e6e6e6;
+  margin-bottom: 15;
+}
