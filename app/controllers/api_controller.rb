@@ -45,7 +45,7 @@ class ApiController < ApplicationController
       elsif sugg_sh > sh_used
         h_sh += 1
       else
-        l_ap += 1
+        l_sh += 1
       end
     end
     sum = l_sh + h_sh + r_sh
