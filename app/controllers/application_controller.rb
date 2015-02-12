@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_avg_iso_sugg (photo)
-    isos = clean_shutter_array(array_of_critique_vals(photo, "sugg_iso"))
+    isos = array_of_critique_vals(photo, "sugg_iso")
     isos = isos.map(&:to_i)
     avg = isos.sum/isos.length
     avg = setting_options("iso")[find_nearest(setting_options("iso"), avg)]
