@@ -9,7 +9,7 @@
 
         <!--SHOW PHOTOS ON LEFT SIDE------>
             <div class="col-md-6 photo-left-home"> 
-              <a href=<%="/photo/#{photo_object.id}"%>><%= image_tag photo_object[:medium_640], class: "photo-home", id: "photo-"+photo_object[:fid] %></a>
+              <a href=<%="/photo/#{photo_object.id}"%> target="_blank"><%= image_tag photo_object[:medium_640], class: "photo-home", id: "photo-"+photo_object[:fid] %></a>
             </div>
         <!--END SHOW PHOTOS ON LEFT SIDE------>
 
