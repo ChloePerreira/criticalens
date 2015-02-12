@@ -30,21 +30,30 @@ class ApplicationController < ActionController::Base
   end
 
   def get_avg_aperture_sugg (photo)
-    apertures = array_of_critique_vals (photo, "sugg_ap")
+    apertures = array_of_critique_vals(photo, "sugg_ap")
     apertures = apertures.map(&:to_f)
     avg = apertures.sum/apertures.length
-    avg = find_nearest(setting_options("aperture"), avg)
+    avg = settings_options("aperture")[find_nearest(setting_options("aperture"), avg)]
     avg
   end 
 
   def get_avg_shutter_sugg (photo)
+    shutters = array_of_critique_vals(photo, "sugg_sh")
+    shutters.each do |val, i|
+      shutters[i] = clean_shutter(val).to_f
+    end
+    avg_denom = shutters.sum/shutters.length
+    clean_shutter_array = clean_shutter_array(setting_options("shutter")
+    avg_denom = clean_shutter_array[find_nearest(clean_shutter_array, avg_denom)]
+    avg = "1/"+avg_denom.to_s
+    avg
   end
 
   def get_avg_iso_sugg (photo)
-    isos = array_of_critique_vals (photo, "sugg_iso")
+    isos = clean_shutter_array(array_of_critique_vals(photo, "sugg_iso"))
     isos = isos.map(&:to_i)
     avg = isos.sum/isos.length
-    avg = find_nearest(setting_options("iso"), avg)
+    avg = setting_options("iso")[find_nearest(setting_options("iso"), avg)]
     avg
   end
 
@@ -85,6 +94,14 @@ class ApplicationController < ActionController::Base
       ]
     end
     return settings_array
+  end
+
+  def clean_shutter_array (array)
+    new = []
+    array.each do |val|
+      new.push(clean_shutter(val))
+    end
+    new
   end
 
   def clean_shutter(value)
@@ -130,5 +147,5 @@ class ApplicationController < ActionController::Base
     photos
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg 
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg, :get_avg_shutter_sugg 
 end
