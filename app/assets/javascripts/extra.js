@@ -16,5 +16,10 @@ $(document).ready(function(){
 
   });*/
 
+  $(window).load(function(){
+    var sib_height = $(".user-settings").height();
+    $(".no-critiques").height(sib_height);
+  });
+
 });
 

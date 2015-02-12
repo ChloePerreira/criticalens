@@ -33,11 +33,10 @@
           </div><!--end col-->
         </div><!--end col-6-->
 
-        <div class="col-md-6">
-
-
+        <div class="col-md-6 recommended-settings">
+          <% if get_critiques(@photo).size > 0 %>
           <div class="col-md-12">
-            <a href=<%="/user/#{@photo.user.id.to_s}"%>><%= image_tag 'gears.png', class: "avatar"%></a> &nbsp; Shot by <%=@photo.user.name%> with these settings:
+            <%= image_tag 'gears.png', class: "avatar"%> &nbsp; Users recommend these settings on average:
           </div>
           <div class="col-md-12">
             <div class="row show-grid">
@@ -45,20 +44,30 @@
               <div class = "col-md-8">
                 <div class = "row show-grid">
                   <%= image_tag "aperture_symbol.png", class: "settings-img"%>
-                  <div class="settings-text">ƒ/<%=@photo.f_number%></div>
+                  <div class="settings-text">ƒ/<%=get_avg_aperture_sugg(@photo)%></div>
                   <%= image_tag "shutter_symbol.png", class: "settings-img"%>
-                  <div class="settings-text"><%=@photo.exposure_time%></div>
+                  <div class="settings-text"><%=get_avg_shutter_sugg(@photo)%></div>
                   <%= image_tag "iso_symbol.png", class: "settings-img"%>
-                  <div class="settings-text"><%=@photo.iso%></div>
+                  <div class="settings-text"><%=get_avg_iso_sugg(@photo)%></div>
                 </div>
               </div><!--end 8 col-->
               <div class = "col-md-2"></div>
             </div><!--end row-->
           </div><!--end col-->
-
-        </div>
+          <% else %>
+            <div class = "no-critiques col-md-12"> 
+              <%= image_tag 'gears.png', class: "avatar"%> &nbsp; This photo has no critiques!
+            </div>
+          <% end %>
+        </div><!--end col 6-->
+        
 
       </div> <!--end row-->
+    
+    <div class="col-md-12 graphs-div">
+
+
+    </div>
 
     </div> <!--end outer form and photo thing-->
   </div> <!--end photo-home container -->
