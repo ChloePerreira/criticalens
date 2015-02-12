@@ -6,64 +6,28 @@
       <div class = "row show-grid">       
         <div class = "col-md-2"></div>
 
-        <div class = "col-md-8 profile-info">
-          <% if @user.level %>
-            <div class = "col-md-12">Skill level: <%=@user.level%></div>          
-          <% elsif @user.id == session[:user_id] %>
-            <div class = "col-md-12 ajax-skill-holder hidden"></div>
-            <div class = "col-md-12">Enter your skill level:</div> 
-            <div class = "col-md-12">
-              <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default level-button">Beginner</button>
-                <button type="button" class="btn btn-default level-button">Amateur</button>
-                <button type="button" class="btn btn-default level-button">Pro</button>
-              </div>
-            </div>
-            <div class = "col-md-12">
-              <div class="btn btn-default submit-level">Submit</div>
-            </div>
-          <% end %>
-
+        <div class = "col-md-8">
+          <div class = "col-md-12 profile-info">Member since: <%=@user.created_at.strftime("%B %d, %Y")%></div>
         </div><!--end 8 col-->
 
         <div class = "col-md-2"></div>
       </div><!--end row-->
+    
+      <div class = "col-md-12 stats-div">Put the stats here</div>
+
+      <div class = "row show-grid">
+        <div class = "col-md-2"></div>
+          <div class = "col-md-8">
+            <div class = "col-md-12 show-photos-buttons">
+              <%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), class: "btn btn-default", :remote => true %>
+              <%= link_to "Photos with no critiques", show_user_path(:id=>@user.id, :show_diff_data => "no critiques"), class: "btn btn-default", :remote => true %>
+            </div>
+          </div>
+        <div class = "col-md-2"></div>
+      </div>
     </div><!--end outer form and photo-->
   </div><!--end photo home container-->
 </div> <!--end container-->
-
-
-
-
-<div class = "container">
-  <div class = "profile-holder">
-
-    <div class = "row show-grid">
-      <div class = "col-md-12">
-        <%= image_tag @user.avatar, class: "avatar" %>
-        <br>
-        <%= @user.name %>
-        <br>
-        <% if @user.level %>
-          Level: <%= @user.level %>
-          <br>
-        <% end %>
-        Member since: <%= @user.created_at.to_date.strftime("%B %d, %Y")%>
-      </div>
-
-      <div class = "col-md-12">      
-        <% if session[:user_id] == @user.id && !@user.level%>
-          Enter your level!
-        <% end %>
-      </div>
-  
-      <div class = "col-md-12">
-        <%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), class: "btn btn-default", :remote => true %>
-        <%= link_to "Photos with no critiques", show_user_path(:id=>@user.id, :show_diff_data => "no critiques"), class: "btn btn-default", :remote => true %>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <div id = 'populate-div'><%=render '/home/photos', :photos => @photos %></div>

@@ -1,3 +1,18 @@
 .profile-img {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.profile-info {
+  padding-bottom: 15px;
+}
+
+.show-photos-buttons {
+  
+}
+
+.stats-div {
+  border-top: 1.5px dotted #e6e6e6;
+  border-bottom: 1.5px dotted #e6e6e6;
+  padding: 15px;
+  margin-bottom: 15px;
 }
