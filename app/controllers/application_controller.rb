@@ -132,7 +132,8 @@ class ApplicationController < ActionController::Base
   end
 
   def percent(val, sum)
-    (val/sum)*100
+    x =(val.to_f/sum.to_f)*100
+    x.to_i
   end
 
 
