@@ -33,18 +33,18 @@ class ApplicationController < ActionController::Base
     apertures = array_of_critique_vals(photo, "sugg_ap")
     apertures = apertures.map(&:to_f)
     avg = apertures.sum/apertures.length
-    avg = settings_options("aperture")[find_nearest(setting_options("aperture"), avg)]
+    avg = setting_options("aperture")[find_nearest(setting_options("aperture"), avg)]
     avg
   end 
 
   def get_avg_shutter_sugg (photo)
     shutters = array_of_critique_vals(photo, "sugg_sh")
-    shutters.each do |val, i|
-      shutters[i] = clean_shutter(val).to_f
+    shutters.each_with_index do |val, index|
+      shutters[index] = clean_shutter(val).to_f
     end
     avg_denom = shutters.sum/shutters.length
-    clean_shutter_array = clean_shutter_array(setting_options("shutter")
-    avg_denom = clean_shutter_array[find_nearest(clean_shutter_array, avg_denom)]
+    clean_sh_array = clean_shutter_array(setting_options("shutter speed"))
+    avg_denom = clean_sh_array[find_nearest(clean_sh_array, avg_denom)]
     avg = "1/"+avg_denom.to_s
     avg
   end
