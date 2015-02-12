@@ -79,9 +79,17 @@
         </div><!--end graph--> 
         <% end %>
 
+      
+        <% if get_critiques(@photo).size > 0 %>
+          <div class = "col-md-12 display-critiques-button-div">
+            <div class = "btn btn-default display-critiques-button">Show critiques</div> 
+          </div>
+        <% end %>
+
         <% if get_critiques(@photo).size > 0 %>
         <% get_critiques(@photo).each do |critique| %>
-          <div class = "col-md-12 each-critique-display">
+
+          <div class = "col-md-12 each-critique-display hidden">
             <div class = "row show-grid">
               <div class = "col-md-3"></div>
             

@@ -129,7 +129,7 @@ $(document).ready(function(){
               ["Critiques", "Percentage", { role: "style" } ],
               ["Too low", too_low, "#EFC94C"],
               ["Just right", just_right, "#45B29D"],
-              ["Too high", too_high, "#DF5A49"]
+              ["Too high", too_high, "#E27A3F"]
             ]);
 
 

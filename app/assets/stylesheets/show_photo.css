@@ -16,7 +16,6 @@
 .stats-box {
   padding: 15px;
   border-bottom: 1.5px dotted #e6e6e6;
-  margin-bottom: 15;
 }
 
 .no-critiques {
@@ -25,5 +24,9 @@
 .each-critique-display {
   padding: 15px;
   border-bottom: 1.5px dotted #e6e6e6;
-  margin-bottom: 15;
+}
+
+.display-critiques-button-div {
+  padding: 15px;
+  border-bottom: 1.5px dotted #e6e6e6;
 }
