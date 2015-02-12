@@ -26,9 +26,9 @@ $(document).ready(function(){
 
             var data = google.visualization.arrayToDataTable([
               ["Critiques", "Percentage", { role: "style" } ],
-              ["Too narrow", too_narrow, "red"],
-              ["Just right", just_right, "green"],
-              ["Too wide", too_wide, "blue"]
+              ["Too narrow", too_narrow, "#EFC94C"],
+              ["Just right", just_right, "#45B29D"],
+              ["Too wide", too_wide, "#E27A3F"]
             ]);
 
 
@@ -77,9 +77,9 @@ $(document).ready(function(){
 
             var data = google.visualization.arrayToDataTable([
               ["Critiques", "Percentage", { role: "style" } ],
-              ["Too slow", too_slow, "red"],
-              ["Just right", just_right, "green"],
-              ["Too fast", too_fast, "blue"]
+              ["Too slow", too_slow, "#EFC94C"],
+              ["Just right", just_right, "#45B29D"],
+              ["Too fast", too_fast, "#E27A3F"]
             ]);
 
 
@@ -127,9 +127,9 @@ $(document).ready(function(){
 
             var data = google.visualization.arrayToDataTable([
               ["Critiques", "Percentage", { role: "style" } ],
-              ["Too low", too_low, "red"],
-              ["Just right", just_right, "green"],
-              ["Too high", too_high, "blue"]
+              ["Too low", too_low, "#EFC94C"],
+              ["Just right", just_right, "#45B29D"],
+              ["Too high", too_high, "#DF5A49"]
             ]);
 
 
