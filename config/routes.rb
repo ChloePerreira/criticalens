@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/critiques_received/:id", to: "api#critiques_received_tally"
 
+  get "/critiques_given/:id", to: "api#critiques_given_tally"
+
   get "/critique", to: "critiques#index", as: :critiques
 
   get "/user/:id", to: "users#show", as: :show_user

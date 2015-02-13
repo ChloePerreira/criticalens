@@ -67,9 +67,18 @@ class ApiController < ApplicationController
     render json: iso_tally
   end 
 
-  def critiques_received_tally 
+  def critiques_received_tally
+    given_received_tally("critiques_received".to_sym)
+  end
+
+  def critiques_given_tally
+    given_received_tally("critiques_given".to_sym)
+  end
+
+  def given_received_tally(name_of_fxn) 
     d_array = []
-    critiques_received(params[:id]).each do |critique|
+    result = ApiController.send(name_of_fxn, params[:id])
+    result.each do |critique|
       d_array.push(critique.created_at.strftime("%B %d, %Y"))
     end
     m_array = []
@@ -97,7 +106,7 @@ class ApiController < ApplicationController
     render json: array
   end
 
-  def critiques_received(user_id)
+  def self.critiques_received(user_id)
     photos = User.find(user_id).photos
     critiques = []
     photos.each do |photo|
@@ -106,7 +115,11 @@ class ApiController < ApplicationController
     critiques = critiques.flatten
   end
 
-  def critiques_given(user_id)
+  def self.get_critiques(photo)
+    Critique.where(fid: photo.fid)
+  end
+
+  def self.critiques_given(user_id)
     Critique.where(author: user_id)
   end
 
