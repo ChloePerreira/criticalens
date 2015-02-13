@@ -100,7 +100,7 @@ class ApiController < ApplicationController
     stuff.each do |thing|
       date = thing.created_at.to_i
       if range.include?(date)
-        matches.push(thing)
+        matches.push(thing) # push just the date maybe, then counting is easier
       end
     end
     matches
