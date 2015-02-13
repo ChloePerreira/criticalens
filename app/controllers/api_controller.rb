@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 
   def test_api
-    my_hash = {stuff: "blah", number: 23, another_number: 24}
+    my_hash = {stuff: "blah", number: 23, another_number: 24, array: [1, 2, 3]}
     render json: my_hash
   end
 
@@ -93,9 +93,9 @@ class ApiController < ApplicationController
 
   def last_month_matches(stuff)
     now = DateTime.now
-    then = now-30.days.to_i
+    month_ago = now-(30.days.to_i)
     now = now.to_i
-    range = then..now
+    range = month_ago..now
     matches = []
     stuff.each do |thing|
       date = thing.created_at.to_i
@@ -118,7 +118,7 @@ class ApiController < ApplicationController
   end
 
   def readable_date (int_date)
-    readable = Time.at(int_date.strftime("%B %d, %Y")
+    readable = Time.at(int_date.strftime("%B %d, %Y"))
     readable
   end
 
