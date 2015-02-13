@@ -74,8 +74,17 @@ class ApiController < ApplicationController
     render json: iso_tally
   end 
 
-  def critiques_received_tally
-    
+  def critiques_received_tally # takes params of :id
+    date_array = gen_month + last_month_date_matches(critiques_received(params[:id])
+    readable_dates = gen_readable_date_array(date_array) 
+    counts = {}
+    readable_dates.each do |date|
+      counts[date] += 1
+    end
+    counts.each do |key, value|
+      counts[key] = value-1
+    end
+    render json: counts  
   end
 
   def critiques_received(user_id)
@@ -118,14 +127,14 @@ class ApiController < ApplicationController
   end
 
   def readable_date (int_date)
-    readable = Time.at(int_date).to_datetime.strftime("%B %d, %Y")
+        readable = Time.at(int_date).to_datetime.strftime("%B %d, %Y")
     readable
   end
 
   def gen_readable_date_array(array)
     readable_dates = []
     array.each do |element|
-      readable_dates.push 
+      readable_dates.push(readable_date(element))
     end
     readable_dates
   end
