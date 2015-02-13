@@ -67,12 +67,12 @@ class ApiController < ApplicationController
     render json: iso_tally
   end 
 
-  def critiques_received_tally
-    given_received_tally("critiques_received".to_sym)
-  end
-
-  def critiques_given_tally
-    given_received_tally("critiques_given".to_sym)
+  def critiques_received_and_given_tally
+    hash = {
+      given: given_received_tally("critiques_given".to_sym),
+      received: given_received_tally("critiques_received".to_sym)
+    }
+    render json:hash
   end
 
   def given_received_tally(name_of_fxn) 
@@ -103,7 +103,7 @@ class ApiController < ApplicationController
     array.sort_by! do |element|
       DateTime.parse(element[0])
     end
-    render json: array
+    array
   end
 
   def self.critiques_received(user_id)
