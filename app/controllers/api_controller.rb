@@ -5,13 +5,6 @@ class ApiController < ApplicationController
     render json: my_hash
   end
 
-  def critiqued_photos
-    # get the users photos size 
-    # get the users photos have been critiqued and that size
-    # spit out the numbers in a json 
-    
-  end
-
   def aperture_tally
     photo = Photo.find(params[:id])
     ap_used = photo.f_number.to_f
@@ -74,17 +67,47 @@ class ApiController < ApplicationController
     render json: iso_tally
   end 
 
-  def critiques_received_tally # takes params of :id
-    date_array = gen_month + last_month_date_matches(critiques_received(params[:id])
-    readable_dates = gen_readable_date_array(date_array) 
+  #def critiques_received_tally # takes params of :id
+   # date_array = gen_month + last_month_date_matches(critiques_received(params[:id]))
+   # readable_dates = gen_readable_date_array(date_array) 
+   # counts = {}
+   # readable_dates.each do |date|
+   #   counts[date] = 0
+   # end
+   # readable_dates.each do |date|
+   #   counts[date] += 1
+   # end
+   # counts.each do |key, value|
+   #   counts[key] = value-1
+   # end
+   # render json: counts  
+  #end
+
+  def critiques_received_tally 
+    d_array = []
+    critiques_received(params[:id]).each do |critique|
+      d_array.push(critique.created_at.strftime("%B %d, %Y"))
+    end
+    m_array = []
+    31.downto(0) do |number|
+      m_array.push((DateTime.now-(number.day)).strftime("%B %d, %Y"))
+    end
+    d_array = d_array + m_array
     counts = {}
-    readable_dates.each do |date|
-      counts[date] += 1
+    d_array.each do |d|
+      counts[d]=0
     end
+    d_array.each do |key, value|
+      counts[key] += 1
+    end
+    m_array.each do |key, value|
+      counts[key] -= 1
+    end
+    array = []
     counts.each do |key, value|
-      counts[key] = value-1
+      array.push([key, value])
     end
-    render json: counts  
+    render json: array
   end
 
   def critiques_received(user_id)

@@ -1,0 +1,19 @@
+\q
+SELECT
+* FROM students;
+list
+\d
+quit
+\quit
+\d
+\q
+/d
+\d
+/q
+\
+\q
+use criticalens_development
+;
+\h
+\d
+\s critiques

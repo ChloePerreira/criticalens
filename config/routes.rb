@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   get "/iso_tally/:id", to: "api#iso_tally"
 
+  get "/critiques_received/:id", to: "api#critiques_received_tally"
+
   get "/critique", to: "critiques#index", as: :critiques
 
   get "/user/:id", to: "users#show", as: :show_user
