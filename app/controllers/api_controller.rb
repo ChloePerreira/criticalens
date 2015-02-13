@@ -74,5 +74,27 @@ class ApiController < ApplicationController
     render json: iso_tally
   end 
 
+  def critiques_received(user_id)
+    photos = User.find(user_id).photos
+    critiques = []
+    photos.each do |photo|
+      critiques.push (get_critiques(photo))
+    end
+    critiques = critiques.flatten
+  end
+
+  def last_month(stuff)
+    now = DateTime.now.to_i
+    then = now-30.days.to_i
+    range = then..now
+    matches = []
+    stuff.each do |thing|
+      date = thing.created_at.to_i
+      if range.include?(date)
+        matches.push(thing)
+      end
+    end
+    matches
+  end
 
 end
