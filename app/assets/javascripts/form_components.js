@@ -1,4 +1,3 @@
-$(document).ready(function () {
 
   //function for making all the custom sliders
   function generate_slider (name_of_slider_divs, array_of_options, bound_attr, default_value_attr) {
@@ -79,7 +78,6 @@ $(document).ready(function () {
     "13", "14", "16", "18", "20", "22"
   ];
 
-  generate_slider ("aperture", aperture_steps, "maxAp", "apUsed") 
 
   var exposure_steps = [
     "1/15", "1/20", "1/25", "1/30", "1/40",
@@ -89,7 +87,6 @@ $(document).ready(function () {
     "1/2500", "1/3200", "1/4000", "1/5000", "1/8000"
     ];
 
-  generate_slider ("exposure", exposure_steps, "maxExp", "expUsed") 
 
   var iso_steps = [
     "100", "125", "160", "200", "250", "320", 
@@ -98,8 +95,15 @@ $(document).ready(function () {
     "6400", "8000", "10000", "12500"
   ];
   
-  generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
 
+
+$(document).ready(function () {
+
+  generate_slider ("aperture", aperture_steps, "maxAp", "apUsed") 
+
+  generate_slider ("exposure", exposure_steps, "maxExp", "expUsed") 
+
+  generate_slider ("iso", iso_steps, "maxIso", "isoUsed") 
 
   //submission of critique function, ajax tricks to immediately display stuff on submit
   function postCritique(button_clicked, id) {
@@ -131,12 +135,12 @@ $(document).ready(function () {
     });
   };
 
-  $(".submit-critique").click(function(){
+  $("body").on("click", ".submit-critique", function(){
     postCritique($(this), $(this).attr('fid'));
   });
 
 // Unhide form when logged-in user clicks critique
-  $(".critique-button").click(function() {
+  $("body").on("click", ".critique-button", function() {
     if($(this).attr("session") >= 1){ //if someone is actually logged in
       var fid = $(this).attr('fid');
       console.log(fid);

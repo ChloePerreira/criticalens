@@ -1,1 +1,5 @@
 $('#populate-div').html("<%= escape_javascript(render partial: '/home/photos', locals: {photos: @photos }) %>");
+generate_slider("aperture", aperture_steps, "maxAp", "apUsed");
+generate_slider("exposure", exposure_steps, "maxExp", "expUsed");
+generate_slider("iso", iso_steps, "maxIso", "isoUsed");
+
