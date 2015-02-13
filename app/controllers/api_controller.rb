@@ -67,22 +67,6 @@ class ApiController < ApplicationController
     render json: iso_tally
   end 
 
-  #def critiques_received_tally # takes params of :id
-   # date_array = gen_month + last_month_date_matches(critiques_received(params[:id]))
-   # readable_dates = gen_readable_date_array(date_array) 
-   # counts = {}
-   # readable_dates.each do |date|
-   #   counts[date] = 0
-   # end
-   # readable_dates.each do |date|
-   #   counts[date] += 1
-   # end
-   # counts.each do |key, value|
-   #   counts[key] = value-1
-   # end
-   # render json: counts  
-  #end
-
   def critiques_received_tally 
     d_array = []
     critiques_received(params[:id]).each do |critique|
@@ -107,6 +91,9 @@ class ApiController < ApplicationController
     counts.each do |key, value|
       array.push([key, value])
     end
+    array.sort_by! do |element|
+      DateTime.parse(element[0])
+    end
     render json: array
   end
 
@@ -123,43 +110,43 @@ class ApiController < ApplicationController
     Critique.where(author: user_id)
   end
 
-  def last_month_date_matches(stuff) #pass critiques
-    now = DateTime.now
-    month_ago = (now-(31.days)).to_i
-    now = now.to_i
-    range = month_ago..now
-    matches = []
-    stuff.each do |thing|
-      date = thing.created_at.to_i
-      if range.include?(date)
-        matches.push(thing.created_at.to_i) # push just the date maybe, then counting is easier
-      end
-    end
-    matches
-  end
+  #def last_month_date_matches(stuff) #pass critiques
+  #  now = DateTime.now
+  #  month_ago = (now-(31.days)).to_i
+  #  now = now.to_i
+  #  range = month_ago..now
+  #  matches = []
+  #  stuff.each do |thing|
+   #   date = thing.created_at.to_i
+  #  if range.include?(date)
+   #     matches.push(thing.created_at.to_i) # push just the date maybe, then counting is easier
+    #  end
+   # end
+   # matches
+ # end
 
-  def gen_month
-    now = DateTime.now
-    array = [now.to_i]
-    x = 1
-    while x < 31
-      array.push((now-x.days).to_i)
-      x += 1
-    end
-    array
-  end
+  #def gen_month
+   # now = DateTime.now
+    #array = [now.to_i]
+    #x = 1
+    #while x < 31
+    #  array.push((now-x.days).to_i)
+     # x += 1
+    #end
+    #array
+ # end
 
-  def readable_date (int_date)
-        readable = Time.at(int_date).to_datetime.strftime("%B %d, %Y")
-    readable
-  end
+  #def readable_date (int_date)
+   #     readable = Time.at(int_date).to_datetime.strftime("%B %d, %Y")
+   # readable
+  #end
 
-  def gen_readable_date_array(array)
-    readable_dates = []
-    array.each do |element|
-      readable_dates.push(readable_date(element))
-    end
-    readable_dates
-  end
+  #def gen_readable_date_array(array)
+   # readable_dates = []
+   # array.each do |element|
+    #  readable_dates.push(readable_date(element))
+    #end
+   # readable_dates
+ # end
 
 end
