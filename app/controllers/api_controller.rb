@@ -91,16 +91,16 @@ class ApiController < ApplicationController
     Critique.where(author: user_id)
   end
 
-  def last_month_matches(stuff)
+  def last_month_date_matches(stuff) #pass critiques
     now = DateTime.now
-    month_ago = now-(30.days.to_i)
+    month_ago = (now-(31.days)).to_i
     now = now.to_i
     range = month_ago..now
     matches = []
     stuff.each do |thing|
       date = thing.created_at.to_i
       if range.include?(date)
-        matches.push(thing) # push just the date maybe, then counting is easier
+        matches.push(thing.created_at.to_i) # push just the date maybe, then counting is easier
       end
     end
     matches
@@ -110,7 +110,7 @@ class ApiController < ApplicationController
     now = DateTime.now
     array = [now.to_i]
     x = 1
-    while x < 30
+    while x < 31
       array.push((now-x.days).to_i)
       x += 1
     end
@@ -118,7 +118,7 @@ class ApiController < ApplicationController
   end
 
   def readable_date (int_date)
-    readable = Time.at(int_date.strftime("%B %d, %Y"))
+    readable = Time.at(int_date).to_datetime.strftime("%B %d, %Y")
     readable
   end
 
