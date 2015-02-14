@@ -17,6 +17,9 @@ class ApiController < ApplicationController
     render json: iso_tally_data(params[:id])
   end
 
+  def aperture_tally_all
+    #
+  end
 
   def aperture_tally_data(photo_id)
     photo = Photo.find(photo_id)

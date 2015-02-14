@@ -21,6 +21,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def has_critiques? (fid)
+    if Critique.where(fid: fid) > 0
+      return true
+    else
+      return false
+    end
+  end
+
   def get_critique (fid) # returns current users critique of a photo
     Critique.where(author: session[:user_id], fid: fid).first  
   end
@@ -148,5 +156,5 @@ class ApplicationController < ActionController::Base
     photos
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg, :get_avg_shutter_sugg 
+  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg, :get_avg_shutter_sugg, :has_critiques? 
 end
