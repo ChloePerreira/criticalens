@@ -94,6 +94,25 @@ class ApiController < ApplicationController
   end
 
 
+  def iso_tally_all
+    user_photos = User.find(params[:id]).photos
+    too_high = []
+    too_low = []
+    just_right = []
+    user_photos.each do |photo|
+      if has_critiques?(photo.fid)
+        tally = iso_tally_data(photo.id)
+        too_high.push(tally[:too_high])
+        too_low.push(tally[:too_low])
+        just_right.push(tally[:just_right])
+      end
+    end
+    too_high_avg = array_avg(too_high)
+    too_low_avg = array_avg(too_low)
+    just_right_avg = array_avg(just_right)
+    render json: {too_high: too_high_avg, too_low: too_low_avg, just_right: just_right_avg}
+  end
+
   def iso_tally_data(photo_id)
     photo = Photo.find(photo_id)
     iso_used = photo.iso.to_i

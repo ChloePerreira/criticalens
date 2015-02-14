@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get "/shutter_tally_all/:id", to: "api#shutter_tally_all"
 
+  get "/iso_tally_all/:id", to: "api#iso_tally_all"
+
   get "/critiques_received_and_given/:id", to: "api#critiques_received_and_given_tally"
 
   get "/critique", to: "critiques#index", as: :critiques
