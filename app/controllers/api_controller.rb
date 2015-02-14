@@ -82,7 +82,7 @@ class ApiController < ApplicationController
       d_array.push(critique.created_at.strftime("%B %d, %Y"))
     end
     m_array = []
-    31.downto(0) do |number|
+    30.downto(0) do |number|
       m_array.push((DateTime.now-(number.day)).strftime("%B %d, %Y"))
     end
     d_array = d_array + m_array

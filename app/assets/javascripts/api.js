@@ -166,35 +166,46 @@ $(document).ready(function(){
       function critique_drawChart() {
 
         var data = new google.visualization.DataTable();
-        data.addColumn('number', 'X');
-        data.addColumn('number', 'Dogs');
-        data.addColumn('number', 'Cats');
-        data.addRows([
-          [0, 0, 80],   [1, 10, 75],  [2, 23, 72],
-          [3, 17, 70],  [4, 18, 69],  [5, 9, 68],
-          [6, 11, 67],  [7, 27, 65],  [8, 33, 60],
-          [9, 40, 64],  [10, 32, 68], [11, 35, 70],
-          [12, 30, 75], [13, 40, 73], [14, 42, 72],
-          [15, 47, 71], [16, 44, 70], [17, 48, 67],
-          [18, 52, 65], [19, 54, 66], [20, 42, 68],
-        ]);
-        var options = {
-          width: 1000,
-          height: 563,
-          hAxis: {
-            title: 'Time'
-          },
-          vAxis: {
-            title: 'Popularity'
-          },
-          colors: ['#a52714', '#097138']
-        };
 
-        var chart = new google.visualization.LineChart(document.getElementById('critiques-chart'));
-        chart.draw(data, options);
-      }
-    }
-  }
+        $.ajax({
+          dataType: "json",
+          url: ("/critiques_received_and_given/"+user_id),
+          success: function (response){
+            console.log(response);
+            console.log(response.given[0][0]);
+            console.log(response.given.length);
+            var given = response.given;
+            var received = response.received;
+
+            data.addColumn('number', 'X');
+            data.addColumn('number', 'Critiques given');
+            data.addColumn('number', 'Critiques received');
+            data.addRows([
+              [0, 0, 80],   [1, 10, 75],  [2, 23, 72],
+              [3, 17, 70],  [4, 18, 69],  [5, 9, 68],
+              [6, 11, 67],  [7, 27, 65],  [8, 33, 60],
+              [18, 52, 65], [19, 54, 66], [20, 42, 68],
+            ]);
+
+            var options = {
+              width: 1000,
+              height: 563,
+              hAxis: {
+                title: 'Time'
+              },
+              vAxis: {
+                title: 'Popularity'
+              },
+              colors: ['#a52714', '#097138']
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('critiques-chart'));
+            chart.draw(data, options);
+          }
+        });
+      };
+    };
+  };
 
 });
 
