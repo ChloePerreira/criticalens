@@ -173,6 +173,7 @@ $(document).ready(function(){
           success: function (response){
             var given = response.given;
             var received = response.received;
+            var name = response.user;
             console.log("The date "+given[0][0]+given[0][1]+received[0][1]);            
 
             data.addColumn('date', 'X');
@@ -213,6 +214,7 @@ $(document).ready(function(){
             ]);
 
             var options = {
+              title: name+"'s critiques",
               width: 700,
               height: 400,
               hAxis: {

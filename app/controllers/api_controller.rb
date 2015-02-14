@@ -5,8 +5,16 @@ class ApiController < ApplicationController
     render json: my_hash
   end
 
+
+
   def aperture_tally
-    photo = Photo.find(params[:id])
+    render json: aperture_tally_data(params[:id])
+  end
+
+
+
+  def aperture_tally_data(photo_id)
+    photo = Photo.find(photo_id)
     ap_used = photo.f_number.to_f
     h_ap = l_ap = r_ap = 0
     critiques = get_critiques(photo)
@@ -22,7 +30,6 @@ class ApiController < ApplicationController
     end
     sum = h_ap + l_ap + r_ap
     ap_tally = {too_wide: percent(h_ap,sum), too_narrow: percent(l_ap,sum), just_right: percent(r_ap,sum)}
-    render json: ap_tally
   end
 
   
@@ -69,6 +76,7 @@ class ApiController < ApplicationController
 
   def critiques_received_and_given_tally
     hash = {
+      user: User.find(params[:id]).name,
       given: given_received_tally("critiques_given".to_sym),
       received: given_received_tally("critiques_received".to_sym)
     }
