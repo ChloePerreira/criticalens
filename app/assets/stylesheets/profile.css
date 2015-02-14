@@ -16,3 +16,10 @@
   padding: 15px;
   margin-bottom: 15px;
 }
+
+#critiques-chart {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+}

@@ -176,8 +176,8 @@ $(document).ready(function(){
             console.log("The date "+given[0][0]+given[0][1]+received[0][1]);            
 
             data.addColumn('date', 'X');
-            data.addColumn('number', 'Critiques given');
-            data.addColumn('number', 'Critiques received');
+            data.addColumn('number', 'Given');
+            data.addColumn('number', 'Received');
             data.addRows([
               [new Date(given[0][0]), given[0][1], received[0][1]],
               [new Date(given[1][0]), given[1][1], received[1][1]],
@@ -213,8 +213,8 @@ $(document).ready(function(){
             ]);
 
             var options = {
-              width: 1000,
-              height: 563,
+              width: 700,
+              height: 400,
               hAxis: {
                 format: 'M/d/yy',
                 gridlines: {color: 'none', count: 11}
