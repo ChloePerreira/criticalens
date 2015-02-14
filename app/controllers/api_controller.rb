@@ -18,7 +18,29 @@ class ApiController < ApplicationController
   end
 
   def aperture_tally_all
-    #
+    # fetch all users photos
+    # for each photo
+      # if has critiques
+        # get aperture tally
+        # push each value to respective array
+    # get the avergae of this array
+    # render each average as json
+    # make routes and stuff, user id as param
+    user_photos = User.find(params[:id]).photos
+    too_wide = too_narrow = just_right = []
+    user_photos.each do |photo|
+      id = photo.fid
+      if has_critiques?(id)
+        tally = aperture_tally_data(id)
+        too_wide.push(tally[:too_wide])
+        too_narrow.push(tally[:too_narrow])
+        just_right.push(tally[:just_right])
+      end
+    end
+    too_wide_avg = array_avg(too_wide)
+    too_narrow_avg = array_avg(too_narrow)
+    just_right_avg = array_avg(just_right)
+    render json: {too_wide: too_wide_avg, too_narrow: too_narrow_avg, just_right: just_right_avg}
   end
 
   def aperture_tally_data(photo_id)
