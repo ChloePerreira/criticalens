@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_critiques? (fid)
-    if Critique.where(fid: fid) > 0
+    if Critique.where(fid: fid).length > 0
       return true
     else
       return false

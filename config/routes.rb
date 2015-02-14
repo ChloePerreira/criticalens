@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get "/shutter_tally/:id", to: "api#shutter_tally"
   
   get "/iso_tally/:id", to: "api#iso_tally"
+  
+  get "/aperture_tally_all/:id", to: "api#aperture_tally_all"
+
+  get "/shutter_tally_all/:id", to: "api#shutter_tally_all"
 
   get "/critiques_received_and_given/:id", to: "api#critiques_received_and_given_tally"
 

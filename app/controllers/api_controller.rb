@@ -18,20 +18,13 @@ class ApiController < ApplicationController
   end
 
   def aperture_tally_all
-    # fetch all users photos
-    # for each photo
-      # if has critiques
-        # get aperture tally
-        # push each value to respective array
-    # get the avergae of this array
-    # render each average as json
-    # make routes and stuff, user id as param
     user_photos = User.find(params[:id]).photos
-    too_wide = too_narrow = just_right = []
+    too_wide = []
+    too_narrow = []
+    just_right = []
     user_photos.each do |photo|
-      id = photo.fid
-      if has_critiques?(id)
-        tally = aperture_tally_data(id)
+      if has_critiques?(photo.fid)
+        tally = aperture_tally_data(photo.id)
         too_wide.push(tally[:too_wide])
         too_narrow.push(tally[:too_narrow])
         just_right.push(tally[:just_right])
@@ -61,8 +54,26 @@ class ApiController < ApplicationController
     sum = h_ap + l_ap + r_ap
     ap_tally = {too_wide: percent(h_ap,sum), too_narrow: percent(l_ap,sum), just_right: percent(r_ap,sum)}
   end
-
   
+  def shutter_tally_all
+    user_photos = User.find(params[:id]).photos
+    too_fast = []
+    too_slow = []
+    just_right = []
+    user_photos.each do |photo|
+      if has_critiques?(photo.fid)
+        tally = shutter_tally_data(photo.id)
+        too_fast.push(tally[:too_fast])
+        too_slow.push(tally[:too_slow])
+        just_right.push(tally[:just_right])
+      end
+    end
+    too_fast_avg = array_avg(too_fast)
+    too_slow_avg = array_avg(too_slow)
+    just_right_avg = array_avg(just_right)
+    render json: {too_fast: too_fast_avg, too_slow: too_slow_avg, just_right: just_right_avg}
+  end
+
   def shutter_tally_data(photo_id)
     photo = Photo.find(photo_id)
     sh_used = clean_shutter(photo.exposure_time)

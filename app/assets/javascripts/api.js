@@ -233,6 +233,49 @@ $(document).ready(function(){
     };
   };
 
+//all apertures for profile page
+  if ($("#aperture-chart-all").length > 0) {
+    var user_id = $("#aperture-chart-all").attr("uid");
+
+    if (user_id > 0) {
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(ap_all_drawChart);
+
+      function ap_all_drawChart() {
+
+        $.ajax({
+        dataType: "json",
+        url: ("/aperture_tally_all/"+user_id),
+        success: function (response){
+            var too_wide = response.too_wide
+            var too_narrow = response.too_narrow
+            var just_right = response.just_right
+
+            var data = google.visualization.arrayToDataTable([
+              ["Critiques", "Percentage", { role: "style" } ],
+              ["Too narrow", too_narrow, "#EFC94C"],
+              ["Just right", just_right, "#45B29D"],
+              ["Too wide", too_wide, "#E27A3F"]
+            ]);
+
+
+            var options = {
+              title: "Critiques on aperture",
+              //width: 300,
+              //height: 300,
+              bar: {groupWidth: "95%"},
+              legend: { position: "none" },
+              vAxis: {title: "% of critiques", minValue: 100}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById("aperture-chart-all"));
+            chart.draw(data,options);
+          }
+        });
+      }
+    }
+  }
 });
 
 
