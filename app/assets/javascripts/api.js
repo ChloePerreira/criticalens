@@ -171,32 +171,56 @@ $(document).ready(function(){
           dataType: "json",
           url: ("/critiques_received_and_given/"+user_id),
           success: function (response){
-            console.log(response);
-            console.log(response.given[0][0]);
-            console.log(response.given.length);
             var given = response.given;
             var received = response.received;
+            console.log("The date "+given[0][0]+given[0][1]+received[0][1]);            
 
-            data.addColumn('number', 'X');
+            data.addColumn('date', 'X');
             data.addColumn('number', 'Critiques given');
             data.addColumn('number', 'Critiques received');
             data.addRows([
-              [0, 0, 80],   [1, 10, 75],  [2, 23, 72],
-              [3, 17, 70],  [4, 18, 69],  [5, 9, 68],
-              [6, 11, 67],  [7, 27, 65],  [8, 33, 60],
-              [18, 52, 65], [19, 54, 66], [20, 42, 68],
+              [new Date(given[0][0]), given[0][1], received[0][1]],
+              [new Date(given[1][0]), given[1][1], received[1][1]],
+              [new Date(given[2][0]), given[2][1], received[2][1]],
+              [new Date(given[3][0]), given[3][1], received[3][1]],
+              [new Date(given[4][0]), given[4][1], received[4][1]],
+              [new Date(given[5][0]), given[5][1], received[5][1]],
+              [new Date(given[6][0]), given[6][1], received[6][1]],
+              [new Date(given[7][0]), given[7][1], received[7][1]],
+              [new Date(given[8][0]), given[8][1], received[8][1]],
+              [new Date(given[9][0]), given[9][1], received[9][1]],
+              [new Date(given[10][0]), given[10][1], received[10][1]],
+              [new Date(given[11][0]), given[11][1], received[11][1]],
+              [new Date(given[12][0]), given[12][1], received[12][1]],
+              [new Date(given[13][0]), given[13][1], received[13][1]],
+              [new Date(given[14][0]), given[14][1], received[14][1]],
+              [new Date(given[15][0]), given[15][1], received[15][1]],
+              [new Date(given[16][0]), given[16][1], received[16][1]],
+              [new Date(given[17][0]), given[17][1], received[17][1]],
+              [new Date(given[18][0]), given[18][1], received[18][1]],
+              [new Date(given[19][0]), given[19][1], received[19][1]],
+              [new Date(given[20][0]), given[20][1], received[20][1]],
+              [new Date(given[21][0]), given[21][1], received[21][1]],
+              [new Date(given[22][0]), given[22][1], received[22][1]],
+              [new Date(given[23][0]), given[23][1], received[23][1]],
+              [new Date(given[24][0]), given[24][1], received[24][1]],
+              [new Date(given[25][0]), given[25][1], received[25][1]],
+              [new Date(given[26][0]), given[26][1], received[26][1]],
+              [new Date(given[27][0]), given[27][1], received[27][1]],
+              [new Date(given[28][0]), given[28][1], received[28][1]],
+              [new Date(given[29][0]), given[29][1], received[29][1]],
+              [new Date(given[30][0]), given[30][1], received[30][1]]
             ]);
 
             var options = {
               width: 1000,
               height: 563,
               hAxis: {
-                title: 'Time'
+                format: 'M/d/yy',
+                gridlines: {color: 'none', count: 11}
+                //slantedText: true
               },
-              vAxis: {
-                title: 'Popularity'
-              },
-              colors: ['#a52714', '#097138']
+              colors: ['#E27A3F', '#45B29D']
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('critiques-chart'));
