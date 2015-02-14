@@ -261,7 +261,7 @@ $(document).ready(function(){
 
 
             var options = {
-              title: "Critiques on aperture",
+              title: "Aperture habits",
               //width: 300,
               //height: 300,
               bar: {groupWidth: "95%"},
@@ -306,7 +306,7 @@ $(document).ready(function(){
 
 
             var options = {
-              title: "Critiques on shutter speed",
+              title: "Shutter speed habits",
               //width: 300,
               //height: 300,
               bar: {groupWidth: "95%"},
@@ -322,6 +322,50 @@ $(document).ready(function(){
     }
   }
 
+
+//all iso for profile page
+  if ($("#iso-chart-all").length > 0) {
+    var user_id = $("#iso-chart-all").attr("uid");
+
+    if (user_id > 0) {
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(iso_all_drawChart);
+
+      function iso_all_drawChart() {
+
+        $.ajax({
+        dataType: "json",
+        url: ("/iso_tally_all/"+user_id),
+        success: function (response){
+            var too_high = response.too_high
+            var too_low = response.too_low
+            var just_right = response.just_right
+
+            var data = google.visualization.arrayToDataTable([
+              ["Critiques", "Percentage", { role: "style" } ],
+              ["Too low", too_low, "#EFC94C"],
+              ["Just right", just_right, "#45B29D"],
+              ["Too high", too_high, "#E27A3F"]
+            ]);
+
+
+            var options = {
+              title: "ISO habits",
+              //width: 300,
+              //height: 300,
+              bar: {groupWidth: "95%"},
+              legend: { position: "none" },
+              vAxis: {title: "% of critiques", minValue: 100}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById("iso-chart-all"));
+            chart.draw(data,options);
+          }
+        });
+      }
+    }
+  }
 
 });
 
