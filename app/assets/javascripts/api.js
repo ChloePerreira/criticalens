@@ -151,7 +151,7 @@ $(document).ready(function(){
     }
   }
 
-
+//all critiques received and given
   if ($("#critiques-chart").length) {
 
     var user_id = $("#critiques-chart").attr("uid");
@@ -276,6 +276,53 @@ $(document).ready(function(){
       }
     }
   }
+
+
+//all shutter for profile page
+  if ($("#shutter-chart-all").length > 0) {
+    var user_id = $("#shutter-chart-all").attr("uid");
+
+    if (user_id > 0) {
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(sh_all_drawChart);
+
+      function sh_all_drawChart() {
+
+        $.ajax({
+        dataType: "json",
+        url: ("/shutter_tally_all/"+user_id),
+        success: function (response){
+            var too_fast = response.too_fast
+            var too_slow = response.too_slow
+            var just_right = response.just_right
+
+            var data = google.visualization.arrayToDataTable([
+              ["Critiques", "Percentage", { role: "style" } ],
+              ["Too slow", too_slow, "#EFC94C"],
+              ["Just right", just_right, "#45B29D"],
+              ["Too fast", too_fast, "#E27A3F"]
+            ]);
+
+
+            var options = {
+              title: "Critiques on shutter speed",
+              //width: 300,
+              //height: 300,
+              bar: {groupWidth: "95%"},
+              legend: { position: "none" },
+              vAxis: {title: "% of critiques", minValue: 100}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById("shutter-chart-all"));
+            chart.draw(data,options);
+          }
+        });
+      }
+    }
+  }
+
+
 });
 
 

@@ -15,7 +15,16 @@
     
       <div class = "col-md-12 stats-div">
         <div id = "critiques-chart" uid = <%=@user.id%>></div>
-        <div id = "aperture-chart-all" uid = <%=@user.id%>></div>
+        <div class = "row show-grid">
+          <div class = "col-md-4">
+            <div id = "aperture-chart-all" uid = <%=@user.id%>></div>
+          </div>
+          <div class = "col-md-4">
+            <div id = "shutter-chart-all" uid = <%=@user.id%>></div>
+          </div>
+          <div class = "col-md-4">
+            <div id = "iso-chart-all" uid = <%=@user.id%>></div>
+          </div>
       </div>
 
       <div class = "row show-grid">
