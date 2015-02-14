@@ -5,12 +5,17 @@ class ApiController < ApplicationController
     render json: my_hash
   end
 
-
-
   def aperture_tally
     render json: aperture_tally_data(params[:id])
   end
 
+  def shutter_tally
+    render json: shutter_tally_data(params[:id])
+  end
+
+  def iso_tally
+    render json: iso_tally_data(params[:id])
+  end
 
 
   def aperture_tally_data(photo_id)
@@ -33,8 +38,8 @@ class ApiController < ApplicationController
   end
 
   
-  def shutter_tally
-    photo = Photo.find(params[:id])
+  def shutter_tally_data(photo_id)
+    photo = Photo.find(photo_id)
     sh_used = clean_shutter(photo.exposure_time)
     h_sh = l_sh = r_sh = 0
     critiques = get_critiques(photo)
@@ -50,12 +55,11 @@ class ApiController < ApplicationController
     end
     sum = l_sh + h_sh + r_sh
     sh_tally = {too_fast: percent(l_sh, sum), too_slow: percent(h_sh, sum), just_right: percent(r_sh, sum)}
-    render json: sh_tally
   end
 
 
-  def iso_tally
-    photo = Photo.find(params[:id])
+  def iso_tally_data(photo_id)
+    photo = Photo.find(photo_id)
     iso_used = photo.iso.to_i
     h_iso = l_iso = r_iso = 0
     critiques = get_critiques(photo)
@@ -71,7 +75,6 @@ class ApiController < ApplicationController
     end
     sum = l_iso + h_iso + r_iso
     iso_tally = {too_high: percent(l_iso, sum), too_low: percent(h_iso, sum), just_right: percent(r_iso, sum)}
-    render json: iso_tally
   end 
 
   def critiques_received_and_given_tally
