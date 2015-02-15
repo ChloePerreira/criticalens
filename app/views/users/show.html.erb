@@ -7,6 +7,7 @@
           <div class = "col-md-12 profile-img"><%= image_tag @user.avatar, class: "avatar" %></div>
           <div class = "col-md-12"><%= @user.name %></div>
           <div class = "col-md-12 profile-info">Member since: <%=@user.created_at.strftime("%B %d, %Y")%></div>
+          <div class = "col-md-12">Photos submitted: <%= @user.photos.size %></div>
           To-do: Move this stuff to left of critique chart - 
           remember that critique chart div is set in JS
           and that div width is set in CSS for centering
