@@ -3,7 +3,7 @@
     <div class = "outer-form-and-photo">
       <div class = "row show-grid">       
 
-        <div class = "col-md-5 profile-info">
+        <div class = "col-md-5 col-xs-12 profile-info">
           <div class = "col-md-12 profile-img"><%= image_tag @user.avatar, class: "avatar" %> &nbsp;
             <div class = "username"><b><%=@user.name%></b></div></div>
           <div class = "col-md-12">Member since <%=@user.created_at.strftime("%B %d, %Y")%></div>
@@ -12,26 +12,27 @@
           <div class = "col-md-12"><a href=<%="https://www.flickr.com/photos/"+@user.fid%> target="_blank"><%=@user.name%> on Flickr</a></div>
         </div><!--end 8 col-->
         
-        <div class = "col-md-7">
+        <div class = "col-md-7 col-xs-12">
           <div id = "critiques-chart" uid = <%=@user.id%>></div>
         </div>
 
       </div><!--end row-->
     
-      <div class = "col-md-12 stats-div">
+      <div class = "col-md-12 col-xs-12 stats-div">
         <div class = "col-md-12">
           Critique averages for <%=@user.name%>'s photos
         </div>
         <div class = "row show-grid">
-          <div class = "col-md-4">
+          <div class = "col-md-4 col-xs-12">
             <div id = "aperture-chart-all" uid = <%=@user.id%>></div>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-4 col-xs-12">
             <div id = "shutter-chart-all" uid = <%=@user.id%>></div>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-4 col-xs-12">
             <div id = "iso-chart-all" uid = <%=@user.id%>></div>
           </div>
+        </div>
       </div>
 
       <div class = "row show-grid">

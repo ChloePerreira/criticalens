@@ -214,9 +214,9 @@ $(document).ready(function(){
             ]);
 
             var options = {
-              title: name+"'s critiques",
-              width: 700,
-              height: 400,
+              title: "Critiques during the last month",
+              //width: 600,
+              height: 300,
               hAxis: {
                 format: 'M/d/yy',
                 gridlines: {color: 'none', count: 11}
