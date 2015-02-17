@@ -13,6 +13,13 @@
   padding-top: 15px;
 }
 
+@media screen and  (max-width: 768px){
+  .whole-form {
+  border-bottom: 1.5px dotted #e6e6e6;
+  padding-top: 15px;
+  }
+}
+
 .sugg-list {
   margin-bottom: 20px;
 }  
