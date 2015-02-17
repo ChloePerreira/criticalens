@@ -3,15 +3,13 @@
     <div class = "outer-form-and-photo">
       <div class = "row show-grid">       
 
-        <div class = "col-md-5">
-          <div class = "col-md-12 profile-img"><%= image_tag @user.avatar, class: "avatar" %></div>
-          <div class = "col-md-12"><%= @user.name %></div>
-          <div class = "col-md-12 profile-info">Member since: <%=@user.created_at.strftime("%B %d, %Y")%></div>
+        <div class = "col-md-5 profile-info">
+          <div class = "col-md-12 profile-img"><%= image_tag @user.avatar, class: "avatar" %> &nbsp;
+            <div class = "username"><b><%=@user.name%></b></div></div>
+          <div class = "col-md-12">Member since: <%=@user.created_at.strftime("%B %d, %Y")%></div>
           <div class = "col-md-12">Photos submitted: <%= @user.photos.size %></div>
           <div class = "col-md-12">Critiques submitted: <%= Critique.where(author: @user.id).size %></div>
-          To-do: Move this stuff to left of critique chart - 
-          remember that critique chart div is set in JS
-          and that div width is set in CSS for centering
+          <div class = "col-md-12"><a href=<%="https://www.flickr.com/photos/"+@user.fid%> target="_blank">Flickr photostream</a></div>
         </div><!--end 8 col-->
         
         <div class = "col-md-7">
@@ -22,7 +20,7 @@
     
       <div class = "col-md-12 stats-div">
         <div class = "col-md-12">
-          Critique averages for all photos
+          Critique averages for <%=@user.name%>'s photos
         </div>
         <div class = "row show-grid">
           <div class = "col-md-4">
