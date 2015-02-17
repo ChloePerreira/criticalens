@@ -18,11 +18,11 @@ class PhotosController < ApplicationController
       model: exif_hash[:Model],
       lens: exif_hash[:Lens],
       focal_length: exif_hash[:FocalLength] ,
-      max_aperture_value: exif_hash[:MaxApertureValue], 
+      max_aperture_value: clean_aperture(exif_hash[:MaxApertureValue]), 
       exposure_time: exif_hash[:ExposureTime],
       iso: exif_hash[:ISO],
       white_balance: exif_hash[:WhiteBalance],
-      f_number: exif_hash[:FNumber],
+      f_number: clean_aperture(exif_hash[:FNumber]),
       flash: exif_hash[:Flash],
       ev: exif_hash[:ExposureCompensation]
     )     
@@ -33,4 +33,12 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
   end
+
+  def clean_aperture(aperture)
+    if aperture[-1] == "0" && aperture[-2] == "."
+        aperture == aperture.chomp(aperture[-2..-1])
+    end
+    aperture
+  end
+
 end
