@@ -8,7 +8,7 @@
   <div class = "row show-grid">
     <div class = "col-md-2">
     </div>
-    <div class = "col-md-8 photo-holder">
+    <div class = "col-md-8 col-xs-12 photo-holder">
         <% if session[:user_id] %>
           <% i = 3 %>
           <% last = @photo_hash.last %>
@@ -16,13 +16,13 @@
  
           <% @photo_hash.each do |hash_element| %>
             <% if i>3 && i%3 == 0 %>
-              </div>
+              <!--</div>-->
             <% end %>
             <% if i%3 == 0 %>
-              <div class="row show-grid">
+              <!--<div class="row show-grid">-->
             <% end %>
 
-            <div class="col-md-4 photo-box">
+            <div class="col-md-4 col-sm-4 col-xs-6 photo-box">
               <% if !Photo.exists?(fid: hash_element[:id]) %>
                 <%= image_tag hash_element[:large_square], class: "photo" %>
                 <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :info => hash_element.to_json  } %>
@@ -37,7 +37,7 @@
             </div>
             
             <% if hash_element == last && i%3 !=0%>
-              </div>
+              <!--</div>-->
             <% end %>
             <% i += 1%>
           <% end %>
