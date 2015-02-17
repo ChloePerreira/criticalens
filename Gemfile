@@ -65,3 +65,4 @@ gem 'typhoeus'
 
 gem 'carrierwave'
 gem 'fog'
+
