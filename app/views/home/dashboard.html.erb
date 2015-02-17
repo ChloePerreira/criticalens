@@ -23,10 +23,12 @@
             <% end %>
 
             <div class="col-md-4 photo-box">
-              <a href=<%="/photo/"+hash_element[:id]%>><%= image_tag hash_element[:large_square], class: "photo" %></a>
               <% if !Photo.exists?(fid: hash_element[:id]) %>
+                <%= image_tag hash_element[:large_square], class: "photo" %>
                 <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :info => hash_element.to_json  } %>
               <% else %>
+                <% id = Photo.where(fid: hash_element[:id]).first.id %>
+                <a href=<%="/photo/"+id.to_s%>><%= image_tag hash_element[:large_square], class: "photo" %></a>
                 <br>
                 <div class = 'btn btn-default btn-disabled disabled submitted'>
                   Submitted!
