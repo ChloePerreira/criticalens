@@ -1,3 +1,20 @@
 .photo {
   padding-bottom: 8px;
 }
+
+.submit-suggest {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.photo-holder {
+  border-top: 1.5px dotted #e6e6e6;
+  padding-top: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.photo-box {
+  padding-bottom: 20px;
+}

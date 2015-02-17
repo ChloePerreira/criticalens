@@ -45,7 +45,9 @@ $(function () {
           console.log(button); 
           button.removeClass("submit-photo");
           button.addClass("submitted");
-          button.val("Submitted");
+          button.val("Submitted!");
+          button.prop('disabled', true);
+          button.addClass("disabled");
           console.log(button);
         }
       });
@@ -57,7 +59,6 @@ $(function () {
 
     check_is_exif_avail(photo_id, submitPhotoOnSuccess($(this)), complainOnError);
   });
-
 
 
 });

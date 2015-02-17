@@ -1,16 +1,14 @@
-<div class = "container">
-Put something here so that if session is nil, an error message shows up
 <!-- no permission test photo = 15387008027 -->
-</div>
 
 <!-- middle column that is 8-columns wide with three columns within -->
 
 <div class = "container">
+<div class = "outer-form-and-photo">
+  <div class = "col-md-12 submit-suggest">Which photos do you want critiqued?</div>
   <div class = "row show-grid">
     <div class = "col-md-2">
     </div>
-    <div class = "col-md-8">
-      <div class = "container">
+    <div class = "col-md-8 photo-holder">
         <% if session[:user_id] %>
           <% i = 3 %>
           <% photo_hash = Flickr.get_photos(current_user.fid) %>
@@ -25,13 +23,13 @@ Put something here so that if session is nil, an error message shows up
               <div class="row show-grid">
             <% end %>
 
-            <div class="col-md-3">
-              <%= image_tag hash_element[:large_square], class: "photo" %>
+            <div class="col-md-4 photo-box">
+              <a href=<%="/photo/"+hash_element[:id]%>><%= image_tag hash_element[:large_square], class: "photo" %></a>
               <% if !Photo.exists?(fid: hash_element[:id]) %>
                 <%= button_to "Submit", root_path, {class: 'btn btn-default submit-photo', :info => hash_element.to_json  } %>
               <% else %>
                 <br>
-                <div class = 'btn btn-default submitted'>
+                <div class = 'btn btn-default btn-disabled disabled submitted'>
                   Submitted!
                 </div>
               <% end %>
@@ -44,12 +42,12 @@ Put something here so that if session is nil, an error message shows up
           <% end %>
         <% end %>
 
-      </div>
     </div>
 
-    <div class = "col-md-2">
-    </div>
 
   </div>
+    <div class = "col-md-2">
+    </div>
+</div>
 </div>
 
