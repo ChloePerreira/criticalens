@@ -36,7 +36,7 @@ class PhotosController < ApplicationController
 
   def clean_aperture(aperture)
     if aperture[-1] == "0" && aperture[-2] == "."
-        aperture == aperture.chomp(aperture[-2..-1])
+        aperture = aperture.chomp(aperture[-2..-1])
     end
     aperture
   end
