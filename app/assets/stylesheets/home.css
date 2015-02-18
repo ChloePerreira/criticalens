@@ -2,11 +2,6 @@
   width: 100%;
 }
 
-.camera-brand {
-  max-height: 90px;
-  padding: 15px;
-  padding-right: 20px;
-}
 .outer-form-and-photo {
   padding-top: 50px;
 }
@@ -21,10 +16,6 @@
   width: inherit;
 }
 
-.temp-home input{
-  width: 100px;
-}
-
 .whole-form-row {
   top: 25%;
   position: relative;
@@ -37,6 +28,11 @@
   max-height: 48px;
 }
 
+/*navbar*/
+.avatar-menu {
+  border-radius: 50%;
+  height: 40px;
+}
 .navbar-nav li a {
   line-height: 50px;
 }
@@ -58,10 +54,43 @@
   line-height: 26px !important;
 }
 
+
+.camera-brand {
+  height: 40px;
+  vertical-align: center;
+}
+
+.camera-brand-img {
+  width: 50px;
+}
+
 /*don't chnage link colors in dropdown menu boxes*/
 .drop-menu a:hover {
   color: black !important;
 }
+
+@media screen and (max-width: 768px) {
+  .camera-brand-img {
+    margin: 0px;
+    margin-left: 15px;
+  }
+
+  .navbar-brand-logo {
+    font-size: 35px;
+    padding: 0px !important;
+    padding-top: 10px !important;
+  }
+
+  .dropdown-menu li a{
+    color: white !important;
+  }
+
+  .dropdown-menu li a:hover {
+    color: white !important;
+  }
+}
+
+/* end navbar  */
 
 .dots{
     width: 8px;
@@ -105,3 +134,5 @@
   text-decoration: none;
   padding: 0px !important;
 }
+
+
