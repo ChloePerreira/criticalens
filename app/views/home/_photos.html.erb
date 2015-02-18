@@ -8,13 +8,13 @@
           <div class = "row show-grid outer-form-and-photo">
 
         <!--SHOW PHOTOS ON LEFT SIDE------>
-            <div class="col-md-6 photo-left-home"> 
+            <div class="col-md-6 col-xs-12 col-sm-12 photo-left-home"> 
               <a href=<%="/photo/#{photo_object.id}"%> target="_blank"><%= image_tag photo_object[:medium_640], class: "photo-home", id: "photo-"+photo_object[:fid] %></a>
             </div>
         <!--END SHOW PHOTOS ON LEFT SIDE------>
 
         <!-- DIV CONTAINING ALL FORM ELEMENTS -->
-            <div class="col-md-6 whole-form" form_id=<%=photo_object[:fid]%>> 
+            <div class="col-md-6 col-xs-12 col-sm-12 whole-form" form_id=<%=photo_object[:fid]%>> 
                 
           <!--PRE CRITIQUE - THIS DIV SHOWS IF USER HAS NOT CRITIQUED PHOTO -->
               <% if !has_critiqued?(photo_object.fid) %>

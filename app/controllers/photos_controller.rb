@@ -41,4 +41,13 @@ class PhotosController < ApplicationController
     aperture
   end
 
+  def self.has_critiques?
+    fid = self.fid
+    if Critique.where(fid: fid).length > 0
+      return true
+    else
+      return false
+    end  
+  end
+
 end

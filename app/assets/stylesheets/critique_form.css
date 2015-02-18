@@ -13,7 +13,7 @@
   padding-top: 15px;
 }
 
-@media screen and  (max-width: 768px){
+@media screen and  (max-width: 1000px){
   .whole-form {
   border: none;
   border-bottom: 1.5px dotted #e6e6e6;

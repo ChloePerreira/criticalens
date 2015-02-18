@@ -25,11 +25,13 @@ class ApplicationController < ActionController::Base
     #pass in photo as arg
     #photo.has_critiques? in here instead of logic
     #stopgap measure
-    if Critique.where(fid: fid).length > 0
-      return true
-    else
-      return false
-    end
+    #if Critique.where(fid: fid).length > 0
+    #  return true
+    #else
+    #  return false
+    #end
+    photo = Photo.where(fid: fid).first
+    photo.has_critiques?
   end
 
   def get_critique (fid) # returns current user's critique of a photo
