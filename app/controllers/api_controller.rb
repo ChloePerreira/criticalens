@@ -200,47 +200,5 @@ class ApiController < ApplicationController
     avg                           
   end                             
 
-  #def self.get_critiques(photo)
-  #  Critique.where(fid: photo.fid)
-  #end
-
-  #def last_month_date_matches(stuff) #pass critiques
-  #  now = DateTime.now
-  #  month_ago = (now-(31.days)).to_i
-  #  now = now.to_i
-  #  range = month_ago..now
-  #  matches = []
-  #  stuff.each do |thing|
-   #   date = thing.created_at.to_i
-  #  if range.include?(date)
-   #     matches.push(thing.created_at.to_i) # push just the date maybe, then counting is easier
-    #  end
-   # end
-   # matches
- # end
-
-  #def gen_month
-   # now = DateTime.now
-    #array = [now.to_i]
-    #x = 1
-    #while x < 31
-    #  array.push((now-x.days).to_i)
-     # x += 1
-    #end
-    #array
- # end
-
-  #def readable_date (int_date)
-   #     readable = Time.at(int_date).to_datetime.strftime("%B %d, %Y")
-   # readable
-  #end
-
-  #def gen_readable_date_array(array)
-   # readable_dates = []
-   # array.each do |element|
-    #  readable_dates.push(readable_date(element))
-    #end
-   # readable_dates
- # end
 
 end
