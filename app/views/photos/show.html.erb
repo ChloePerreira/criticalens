@@ -44,11 +44,11 @@
               <div class = "col-md-8">
                 <div class = "row show-grid">
                   <%= image_tag "aperture_symbol.png", class: "settings-img"%>
-                  <div class="settings-text">ƒ/<%=get_avg_aperture_sugg(@photo)%></div>
+                  <div class="settings-text">ƒ/<%=@photo.get_avg_aperture_sugg(@photo)%></div>
                   <%= image_tag "shutter_symbol.png", class: "settings-img"%>
-                  <div class="settings-text"><%=get_avg_shutter_sugg(@photo)%></div>
+                  <div class="settings-text"><%=@photo.get_avg_shutter_sugg(@photo)%></div>
                   <%= image_tag "iso_symbol.png", class: "settings-img"%>
-                  <div class="settings-text"><%=get_avg_iso_sugg(@photo)%></div>
+                  <div class="settings-text"><%=@photo.get_avg_iso_sugg(@photo)%></div>
                 </div>
               </div><!--end 8 col-->
               <div class = "col-md-2"></div>

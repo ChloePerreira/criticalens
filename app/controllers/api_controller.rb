@@ -181,13 +181,28 @@ class ApiController < ApplicationController
     critiques = critiques.flatten
   end
 
-  #def self.get_critiques(photo)
-  #  Critique.where(fid: photo.fid)
-  #end
-
   def self.critiques_given(user_id)
     Critique.where(author: user_id)
   end
+
+  def percent(val, sum)
+     x =(val.to_f/sum.to_f)*100   
+     x.to_i                         
+  end
+
+  def clean_shutter(value)      
+    value = value[2..-1].to_i   
+    value                       
+  end                           
+
+  def array_avg(array)            
+    avg = array.sum/array.length  
+    avg                           
+  end                             
+
+  #def self.get_critiques(photo)
+  #  Critique.where(fid: photo.fid)
+  #end
 
   #def last_month_date_matches(stuff) #pass critiques
   #  now = DateTime.now
