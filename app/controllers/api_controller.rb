@@ -23,7 +23,7 @@ class ApiController < ApplicationController
     too_narrow = []
     just_right = []
     user_photos.each do |photo|
-      if has_critiques?(photo.fid)
+      if photo.has_critiques?(photo.fid)
         tally = aperture_tally_data(photo.id)
         too_wide.push(tally[:too_wide])
         too_narrow.push(tally[:too_narrow])
@@ -61,7 +61,7 @@ class ApiController < ApplicationController
     too_slow = []
     just_right = []
     user_photos.each do |photo|
-      if has_critiques?(photo.fid)
+      if photo.has_critiques?(photo.fid)
         tally = shutter_tally_data(photo.id)
         too_fast.push(tally[:too_fast])
         too_slow.push(tally[:too_slow])
@@ -100,7 +100,7 @@ class ApiController < ApplicationController
     too_low = []
     just_right = []
     user_photos.each do |photo|
-      if has_critiques?(photo.fid)
+      if photo.has_critiques?(photo.fid)
         tally = iso_tally_data(photo.id)
         too_high.push(tally[:too_high])
         too_low.push(tally[:too_low])
