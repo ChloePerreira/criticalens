@@ -219,7 +219,7 @@ $(document).ready(function(){
               height: 300,
               hAxis: {
                 format: 'M/d/yy',
-                gridlines: {color: 'none', count: 11}
+                gridlines: {color: 'none', count: 9}
                 //slantedText: true
               },
               colors: ['#E27A3F', '#45B29D']
