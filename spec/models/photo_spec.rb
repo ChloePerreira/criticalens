@@ -24,4 +24,21 @@ describe ".validates" do
   it "must have a iso field" do
     expect(Photo.new(iso: nil)).to_not be_valid
   end
+
+  it "must have a white_balance field" do
+    expect(Photo.new(white_balance: nil)).to_not be_valid
+  end
+
+  it "must have a f_number field" do
+    expect(Photo.new(f_number: nil)).to_not be_valid
+  end
+
+  it "must have a flash field" do
+    expect(Photo.new(flash: nil)).to_not be_valid
+  end
+
+  it "must have a ev field" do
+    expect(Photo.new(ev: nil)).to_not be_valid
+  end
+
 end
