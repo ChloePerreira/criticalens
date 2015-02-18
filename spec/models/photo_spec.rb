@@ -16,4 +16,12 @@ describe ".validates" do
   it "must have a model field" do
     expect(Photo.new(model: nil)).to_not be_valid
   end
+
+  it "must have a exposure_time field" do
+    expect(Photo.new(exposure_time: nil)).to_not be_valid
+  end
+
+  it "must have a iso field" do
+    expect(Photo.new(iso: nil)).to_not be_valid
+  end
 end
