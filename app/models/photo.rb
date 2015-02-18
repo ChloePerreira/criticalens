@@ -4,8 +4,8 @@ class Photo < ActiveRecord::Base
   belongs_to :user
   has_many :critiques
   
-  def has_critiques?(fid)
-    if Critique.where(fid: fid).length > 0
+  def has_critiques? # REMOVED ARG USING SELF
+    if Critique.where(fid: self.fid).length > 0
       return true
     else
       return false

@@ -44,29 +44,37 @@ describe ".validates" do
 end
 
 describe Photo do
-  before(:all) do
-    @photo = Photo.create(
+  let!(:photo) do
+    Photo.create(
       user_id: 1,
-      fid: 1,
-      medium_640: 1,
-      max_aperture_value: 1,
-      lens: 1,
-      model: 1,
-      exposure_time: 1,
-      iso: 1,
-      white_balance: 1,
-      f_number: 1,
-      flash: 1,
-      ev: 1
+      fid: "1",
+      medium_640: "1",
+      max_aperture_value: "1",
+      lens: "1",
+      model: "1",
+      exposure_time: "1",
+      iso: "1",
+      white_balance: "1",
+      f_number: "1",
+      flash: "1",
+      ev: "1"
     )
-    @critique = Critique.create(
+  end
+
+  let!(:critique) do
+    Critique.create(
       author: 1,
+      fid: "1", 
       sugg_ap: "2.0",
       sugg_sh: "1/50",
       sugg_iso: "200"
     )
   end
 
-  describe 
+  describe ".has_critiques?" do
+    it "has critiques" do
+      expect(photo.has_critiques?).to eq true
+    end
+  end
 end
 

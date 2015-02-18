@@ -29,5 +29,6 @@ describe ".photos" do
   it "must have many photos" do
     expect(user.photos.length).to eq 1
   end
+
 end
 
