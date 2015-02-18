@@ -12,4 +12,8 @@ class Photo < ActiveRecord::Base
     end
   end
 
+  def get_critiques(fid)
+    Critique.where(fid: fid)
+  end
+
 end

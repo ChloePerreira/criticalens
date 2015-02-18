@@ -40,7 +40,7 @@ class ApiController < ApplicationController
     photo = Photo.find(photo_id)
     ap_used = photo.f_number.to_f
     h_ap = l_ap = r_ap = 0
-    critiques = get_critiques(photo)
+    critiques = photo.get_critiques(photo.fid)
     critiques.each do |c|
       sugg_ap = c.sugg_ap.to_f
       if sugg_ap == ap_used
@@ -78,7 +78,7 @@ class ApiController < ApplicationController
     photo = Photo.find(photo_id)
     sh_used = clean_shutter(photo.exposure_time)
     h_sh = l_sh = r_sh = 0
-    critiques = get_critiques(photo)
+    critiques = photo.get_critiques(photo.fid)
     critiques.each do |c|
       sugg_sh = clean_shutter(c.sugg_sh)
       if sugg_sh == sh_used
@@ -117,7 +117,7 @@ class ApiController < ApplicationController
     photo = Photo.find(photo_id)
     iso_used = photo.iso.to_i
     h_iso = l_iso = r_iso = 0
-    critiques = get_critiques(photo)
+    critiques = photo.get_critiques(photo.fid)
     critiques.each do |c|
       sugg_iso = c.sugg_iso.to_i
       if sugg_iso == iso_used
@@ -176,14 +176,14 @@ class ApiController < ApplicationController
     photos = User.find(user_id).photos
     critiques = []
     photos.each do |photo|
-      critiques.push (get_critiques(photo))
+      critiques.push (photo.get_critiques(photo.fid))
     end
     critiques = critiques.flatten
   end
 
-  def self.get_critiques(photo)
-    Critique.where(fid: photo.fid)
-  end
+  #def self.get_critiques(photo)
+  #  Critique.where(fid: photo.fid)
+  #end
 
   def self.critiques_given(user_id)
     Critique.where(author: user_id)

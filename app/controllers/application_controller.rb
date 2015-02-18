@@ -25,9 +25,9 @@ class ApplicationController < ActionController::Base
     Critique.where(author: session[:user_id], fid: fid).first  
   end
 
-  def get_critiques (photo) # returns all critiques for a photo
-    Critique.where(fid: photo.fid)
-  end
+  #def get_critiques (photo) # returns all critiques for a photo
+  #  Critique.where(fid: photo.fid)
+  #end
 
   def get_avg_aperture_sugg (photo)
     apertures = array_of_critique_vals(photo, "sugg_ap")
@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
   end
 
   def array_of_critique_vals (photo, name_of_val)
-    critiques = get_critiques(photo)
+    critiques = photo.get_critiques(photo.fid)
     suggestions = []
     name_of_val = name_of_val.to_sym
     critiques.each do |critique|
@@ -141,7 +141,7 @@ class ApplicationController < ActionController::Base
     photos = []
     user_photos = User.find(user_id).photos
     user_photos.each do |photo|
-      if get_critiques(photo).size<1
+      if photo.get_critiques(photo.fid).size<1
         photos.push(photo)
       end
     end
@@ -153,5 +153,5 @@ class ApplicationController < ActionController::Base
     avg
   end
 
-  helper_method :current_user, :has_critiqued?, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg, :get_avg_shutter_sugg, :has_critiques?, :array_avg 
+  helper_method :current_user, :get_critiques, :setting_options, :find_nearest, :clean_shutter, :percent, :get_photos_wo_critiques, :get_critique, :array_of_critique_vals, :get_avg_aperture_sugg, :get_avg_iso_sugg, :get_avg_shutter_sugg, :has_critiques?, :array_avg 
 end
