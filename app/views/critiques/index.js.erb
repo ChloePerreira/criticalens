@@ -1,0 +1,7 @@
+$('#photos-to-critique').append('<%= j render @photos %>');
+<% if @photos.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @photos %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

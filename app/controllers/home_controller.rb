@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   def dashboard
     if session[:user_id]
       @photo_hash = Flickr.get_photos(current_user.fid)
-      @photo_hash.paginate(page: params[:page], per_page: 15)
+      #@photo_hash.paginate(page: params[:page], per_page: 15)
     end
   end
 
