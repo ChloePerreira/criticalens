@@ -252,5 +252,8 @@
     </div> 
 </div>                                                                                                                                                                                            
 <!--END OUTERMOST CONTAINERS-->
-
-<%= will_paginate @photos %>
+<div class = "row show-grid">
+  <div class = "col-md-2"></div>
+  <div class = "col-md-8 pagination-col"><%= will_paginate @photos %></div>
+  <div class = "col-md-2"></div>
+</div>

@@ -28,6 +28,29 @@
   max-height: 48px;
 }
 
+.pagination li.active a {
+  background-color: #333;
+  border-color: #333;
+  color: white;
+}
+
+
+.pagination li.active a:hover {
+  background-color: #45B29D;
+  border-color: #45B29D;
+}
+
+.pagination li a{
+  color: #333;
+}
+
+.pagination li a:hover{
+  color: #333;
+}
+
+.pagination-col {
+  text-align: right;
+}
 /*navbar*/
 .avatar-menu {
   border-radius: 50%;
