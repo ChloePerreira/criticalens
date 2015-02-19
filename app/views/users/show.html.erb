@@ -49,5 +49,4 @@
   </div><!--end photo home container-->
 </div> <!--end container-->
 
-
-<div id = 'populate-div'><%=render '/home/photos', :photos => @photos %></div>
+<div id = 'populate-div'><%= render('/home/photos', :photos => @photos) if @photos.any? %></div>

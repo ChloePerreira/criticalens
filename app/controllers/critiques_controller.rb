@@ -1,8 +1,8 @@
 class CritiquesController < ApplicationController
 
   def index
-    @photos = Photo.all
-    #@photos = Photo.paginate(page: params[:page], per_page: 15)
+    #@photos = Photo.all
+    @photos = Photo.paginate(page: params[:page], per_page: 15)
     #respond_to do |format|
     #  format.html
     #  format.js
