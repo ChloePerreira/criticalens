@@ -2,10 +2,11 @@
 <html>
 <head>
   <%= favicon_link_tag "camera.png"%>
-  <title>Criticalens</title>
+  <title>criticalens</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -25,7 +26,7 @@
       </button>
         <ul class="nav navbar-nav">
           <li><a class = "navbar-brand" href="/"><%= image_tag "camera_white.png", class: "camera-brand-img" %></a></li>
-          <li><a class="navbar-brand navbar-brand-logo" href="/">Criticalens</a></li>
+          <li><a class="navbar-brand navbar-brand-logo" href="/"><b>criticalens</b></a></li>
         </ul>
     </div>
 
@@ -34,17 +35,17 @@
       <ul class="nav navbar-nav">
         <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learn <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle nav-lower" data-toggle="dropdown" role="button" aria-expanded="false">Learn <span class="caret"></span></a>
           <ul class="dropdown-menu drop-menu"role="menu">
             <li class = "drop-text"><a href="#">Getting started</a></li>
             <li class= "drop-text"><a href="#">Exposure 101</a></li>
           </ul>
         </li>
-        <li><a href="/critique">Critique</a></li>
+        <li><a class = "nav-lower" href="/critique">Critique</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
-          <li><%= link_to "Login with Flickr", "/auth/flickr" %></li>
+          <li><%= link_to "Login with Flickr", "/auth/flickr", class: "nav-lower" %></li>
         <% else %>
         <li class="dropdown drop-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

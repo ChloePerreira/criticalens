@@ -56,6 +56,9 @@
   text-align: right;
 }
 /*navbar*/
+.navbar-fixed-top {
+  font-family: 'Montserrat', sans-serif;
+}
 .avatar-menu {
   border-radius: 50%;
   height: 40px;
@@ -64,8 +67,13 @@
   line-height: 50px;
 }
 
+.navbar-nav li a:hover {
+  color: #45B29D !important;
+}
+
 .navbar-brand {
   height: 80px !important;
+  font-size: 32px!important;
 }
 
 .navbar a {
@@ -103,7 +111,6 @@
   }
 
   .navbar-brand-logo {
-    font-size: 35px;
     padding: 0px !important;
     padding-top: 10px !important;
   }
@@ -117,9 +124,18 @@
   }
 }
 
+.navbar-nav {
+  font-size: 20px;
+}
+
 .navbar-bottom {
   margin-bottom: 0px;
   margin-top: 15px;
+  position: fixed;
+}
+
+.nav-lower {
+  padding-top: 17px !important;
 }
 
 /* end navbar  */
