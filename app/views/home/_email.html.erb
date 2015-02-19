@@ -1,5 +1,21 @@
 <% if !current_user.email %>
-  Form
+<div class = "email-modal">
+<div class='modal-header'>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <div class='modal-title'>Sign up for a daily summary of critiques received</div>
+</div>
+
+<div class = "modal-body">
+      <div class = 'form-group'>
+        <label for='subscribeEmail'>Email</label>
+        <input type='text' class='form-control' placeholder='you@somewhere.com' id='subscribeEmail'/>
+      </div>
+</div>
+
+<div class = "modal-footer">
+    <input type='submit' id = 'emailSubmit' userid = <%=current_user.id%> class='btn btn-default'/>
+</div>
+</div>
 <% else %>
   Delete record
 <% end %>

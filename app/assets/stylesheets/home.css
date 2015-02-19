@@ -2,10 +2,20 @@ body {
   font-size: 16px;
 }
 
+.modal-header {
+  text-align: center;
+  font-size: 18px;
+}
+
 .btn {
   font-size: 16px;
 }
 
+.btn:hover {
+  background-color: #45B29D; 
+  color: white;
+  border-color: #45B29D;
+}
 .photo-home {
   width: 100%;
 }
