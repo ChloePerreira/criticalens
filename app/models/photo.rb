@@ -12,21 +12,21 @@ class Photo < ActiveRecord::Base
     end
   end
 
-  def get_critiques(fid)
-    Critique.where(fid: fid)
+  def get_critiques #
+    Critique.where(fid: self.fid)
   end
 
                                                                                             
-  def get_avg_aperture_sugg (photo)                                                           
-    apertures = array_of_critique_vals(photo, "sugg_ap")                                      
+  def get_avg_aperture_sugg #                                                           
+    apertures = array_of_critique_vals("sugg_ap")                                      
     apertures = apertures.map(&:to_f)                                                         
     avg = apertures.sum/apertures.length                                                      
     avg = setting_options("aperture")[find_nearest(setting_options("aperture"), avg)]         
     avg                                                                                       
   end                                                                                         
                                                                                             
-  def get_avg_shutter_sugg (photo)                                                            
-    shutters = array_of_critique_vals(photo, "sugg_sh")                                       
+  def get_avg_shutter_sugg #                                                           
+    shutters = array_of_critique_vals("sugg_sh")                                       
     shutters.each_with_index do |val, index|                                                  
       shutters[index] = clean_shutter(val).to_f                                               
     end                                                                                       
@@ -37,16 +37,16 @@ class Photo < ActiveRecord::Base
     avg                                                                                       
   end                                                                                         
                                                                                             
-  def get_avg_iso_sugg (photo)                                                                
-    isos = array_of_critique_vals(photo, "sugg_iso")                                          
+  def get_avg_iso_sugg #                                                                
+    isos = array_of_critique_vals("sugg_iso")                                          
     isos = isos.map(&:to_i)                                                                   
     avg = isos.sum/isos.length                                                                
     avg = setting_options("iso")[find_nearest(setting_options("iso"), avg)]                   
     avg                                                                                       
   end                                                                                         
                                                                                             
-  def array_of_critique_vals (photo, name_of_val)                                             
-    critiques = photo.get_critiques(photo.fid)                                                
+  def array_of_critique_vals (name_of_val) #                                            
+    critiques = self.get_critiques                                                
     suggestions = []                                                                          
     name_of_val = name_of_val.to_sym                                                          
     critiques.each do |critique|                                                              

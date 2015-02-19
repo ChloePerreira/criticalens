@@ -34,7 +34,7 @@
         </div><!--end col-6-->
 
         <div class="col-md-6 recommended-settings">
-          <% if @photo.get_critiques(@photo.fid).size > 0 %>
+          <% if @photo.get_critiques.size > 0 %>
           <div class="col-md-12">
             <%= image_tag 'gears.png', class: "avatar"%> &nbsp; Users recommend these settings on average:
           </div>
@@ -44,11 +44,11 @@
               <div class = "col-md-8">
                 <div class = "row show-grid">
                   <%= image_tag "aperture_symbol.png", class: "settings-img"%>
-                  <div class="settings-text">ƒ/<%=@photo.get_avg_aperture_sugg(@photo)%></div>
+                  <div class="settings-text">ƒ/<%=@photo.get_avg_aperture_sugg%></div>
                   <%= image_tag "shutter_symbol.png", class: "settings-img"%>
-                  <div class="settings-text"><%=@photo.get_avg_shutter_sugg(@photo)%></div>
+                  <div class="settings-text"><%=@photo.get_avg_shutter_sugg%></div>
                   <%= image_tag "iso_symbol.png", class: "settings-img"%>
-                  <div class="settings-text"><%=@photo.get_avg_iso_sugg(@photo)%></div>
+                  <div class="settings-text"><%=@photo.get_avg_iso_sugg%></div>
                 </div>
               </div><!--end 8 col-->
               <div class = "col-md-2"></div>
@@ -63,7 +63,7 @@
        
 
         <!--start graphs-->
-        <% if @photo.get_critiques(@photo.fid).size > 0 %>
+        <% if @photo.get_critiques.size > 0 %>
         <div class = "col-md-12 stats-box">
           <div class = "row show-grid">
             <div class = "col-md-4 show-photo-stats-col">
@@ -80,14 +80,14 @@
         <% end %>
 
       
-        <% if @photo.get_critiques(@photo.fid).size > 0 %>
+        <% if @photo.get_critiques.size > 0 %>
           <div class = "col-md-12 display-critiques-button-div">
             <div class = "btn btn-default display-critiques-button">Show critiques</div> 
           </div>
         <% end %>
 
-        <% if @photo.get_critiques(@photo.fid).size > 0 %>
-        <% @photo.get_critiques(@photo.fid).each do |critique| %>
+        <% if @photo.get_critiques.size > 0 %>
+        <% @photo.get_critiques.each do |critique| %>
 
           <div class = "col-md-12 each-critique-display hidden">
             <div class = "row show-grid">

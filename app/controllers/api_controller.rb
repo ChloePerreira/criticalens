@@ -23,7 +23,7 @@ class ApiController < ApplicationController
     too_narrow = []
     just_right = []
     user_photos.each do |photo|
-      if photo.has_critiques?(photo.fid)
+      if photo.has_critiques?
         tally = aperture_tally_data(photo.id)
         too_wide.push(tally[:too_wide])
         too_narrow.push(tally[:too_narrow])
@@ -40,7 +40,7 @@ class ApiController < ApplicationController
     photo = Photo.find(photo_id)
     ap_used = photo.f_number.to_f
     h_ap = l_ap = r_ap = 0
-    critiques = photo.get_critiques(photo.fid)
+    critiques = photo.get_critiques
     critiques.each do |c|
       sugg_ap = c.sugg_ap.to_f
       if sugg_ap == ap_used
@@ -61,7 +61,7 @@ class ApiController < ApplicationController
     too_slow = []
     just_right = []
     user_photos.each do |photo|
-      if photo.has_critiques?(photo.fid)
+      if photo.has_critiques?
         tally = shutter_tally_data(photo.id)
         too_fast.push(tally[:too_fast])
         too_slow.push(tally[:too_slow])
@@ -78,7 +78,7 @@ class ApiController < ApplicationController
     photo = Photo.find(photo_id)
     sh_used = clean_shutter(photo.exposure_time)
     h_sh = l_sh = r_sh = 0
-    critiques = photo.get_critiques(photo.fid)
+    critiques = photo.get_critiques
     critiques.each do |c|
       sugg_sh = clean_shutter(c.sugg_sh)
       if sugg_sh == sh_used
@@ -100,7 +100,7 @@ class ApiController < ApplicationController
     too_low = []
     just_right = []
     user_photos.each do |photo|
-      if photo.has_critiques?(photo.fid)
+      if photo.has_critiques?
         tally = iso_tally_data(photo.id)
         too_high.push(tally[:too_high])
         too_low.push(tally[:too_low])
@@ -117,7 +117,7 @@ class ApiController < ApplicationController
     photo = Photo.find(photo_id)
     iso_used = photo.iso.to_i
     h_iso = l_iso = r_iso = 0
-    critiques = photo.get_critiques(photo.fid)
+    critiques = photo.get_critiques
     critiques.each do |c|
       sugg_iso = c.sugg_iso.to_i
       if sugg_iso == iso_used
@@ -176,7 +176,7 @@ class ApiController < ApplicationController
     photos = User.find(user_id).photos
     critiques = []
     photos.each do |photo|
-      critiques.push (photo.get_critiques(photo.fid))
+      critiques.push (photo.get_critiques)
     end
     critiques = critiques.flatten
   end

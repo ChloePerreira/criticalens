@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     photos = []
     user_photos = User.find(user_id).photos
     user_photos.each do |photo|
-      if photo.get_critiques(photo.fid).size<1
+      if photo.get_critiques.size<1
         photos.push(photo)
       end
     end
