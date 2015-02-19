@@ -117,6 +117,11 @@
   }
 }
 
+.navbar-bottom {
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+
 /* end navbar  */
 
 .dots{
