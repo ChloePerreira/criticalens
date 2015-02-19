@@ -8,6 +8,16 @@
   font-size: 20px;
 }
 
+.email-suggest {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#email-label {
+  padding-top: 1px;
+  margin:0px;
+}
+
 .photo-holder {
   border-top: 1.5px dotted #e6e6e6;
   padding-top: 15px;
@@ -18,3 +28,4 @@
 .photo-box {
   padding-bottom: 20px;
 }
+
