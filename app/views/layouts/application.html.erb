@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 </head>
-<div>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -25,7 +24,7 @@
         <span class="icon-bar"></span>
       </button>
         <ul class="nav navbar-nav">
-          <li><a class = "navbar-brand" href="/"><%= image_tag "camera_white.png", class: "camera-brand-img" %></a></li>
+          <li><a class = "navbar-brand" href="/"><%= image_tag "camera_white.png", onMouseover: "this.src='#{asset_path('camera_blue.png')}'", onMouseout: "this.src='#{asset_path('camera_white.png')}'",class: "camera-brand-img" %></a></li>
           <li><a class="navbar-brand navbar-brand-logo" href="/"><b>criticalens</b></a></li>
         </ul>
     </div>
@@ -70,10 +69,4 @@
 
 </body>
 
-<footer class = "footer">
-  <div class = "cotainer">
-    <nav class="navbar navbar-bottom navbar-inverse">
-    </nav>
-  </div>
-</footer>
 </html>
