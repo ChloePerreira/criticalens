@@ -1,3 +1,4 @@
+<% if session[:user_id] %>
 <% if !current_user.email %>
 <div class = "email-modal">
 <div class='modal-header'>
@@ -19,4 +20,5 @@
 <% else %>
   Delete record
   <%= current_user.email %>
+<% end %>
 <% end %>
