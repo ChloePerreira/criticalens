@@ -7,9 +7,9 @@
           <div class = "col-md-12 profile-img"><%= image_tag @user.avatar, class: "avatar" %> &nbsp;
             <div class = "username"><b><%=@user.name%></b></div></div>
           <div class = "col-md-12">Member since <%=@user.created_at.strftime("%B %d, %Y")%></div>
-          <div class = "col-md-12"><%= @user.photos.size %> photos submitted</div>
-          <div class = "col-md-12"><%= Critique.where(author: @user.id).size %> critiques given</div>
-          <div class = "col-md-12"><%= @user.critiques_received %> critiques received</div>
+          <div class = "col-md-12">Photos submitted: <%= @user.photos.size %></div>
+          <div class = "col-md-12">Critiques received: <%= @user.critiques_received %></div>
+          <div class = "col-md-12">Critiques given: <%= Critique.where(author: @user.id).size %></div>
           <div class = "col-md-12"><a href=<%="https://www.flickr.com/photos/"+@user.fid%> target="_blank"><%=@user.name%> on Flickr</a></div>
         </div><!--end 8 col-->
         

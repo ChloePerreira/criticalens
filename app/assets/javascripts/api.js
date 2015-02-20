@@ -224,6 +224,7 @@ $(document).ready(function(){
               },
               vAxis: {
                 viewWindowMode: "explicit", 
+                format: '#',
                 viewWindow:{ 
                   min: 0 
                 }
