@@ -222,6 +222,12 @@ $(document).ready(function(){
                 gridlines: {color: 'none', count: 9}
                 //slantedText: true
               },
+              vAxis: {
+                viewWindowMode: "explicit", 
+                viewWindow:{ 
+                  min: 0 
+                }
+              },
               colors: ['#E27A3F', '#45B29D']
             };
 

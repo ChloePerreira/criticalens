@@ -18,6 +18,7 @@
 
       </div><!--end row-->
     
+<% if @user.photos > 0 %>
       <div class = "col-md-12 col-xs-12 stats-div">
         <div class = "col-md-12">
           Critique averages for <%=@user.name%>'s photos
@@ -34,14 +35,19 @@
           </div>
         </div>
       </div>
+<% end %>
 
       <div class = "row show-grid">
         <div class = "col-md-2"></div>
           <div class = "col-md-8">
+<% if @user.photos > 0 %>
             <div class = "col-md-12 show-photos-buttons">
               <%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), class: "btn btn-default", :remote => true %>
               <%= link_to "Photos with no critiques", show_user_path(:id=>@user.id, :show_diff_data => "no critiques"), class: "btn btn-default", :remote => true %>
             </div>
+<% else %>
+            <div class = "col-md-12 profile-info">This user has submitted no photos</div>
+<% end %>
           </div>
         <div class = "col-md-2"></div>
       </div>
