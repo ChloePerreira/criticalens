@@ -219,7 +219,7 @@ $(document).ready(function(){
               height: 300,
               hAxis: {
                 format: 'M/d/yy',
-                gridlines: {color: 'none', count: 9}
+                gridlines: {color: 'none', count: 10}
                 //slantedText: true
               },
               vAxis: {
