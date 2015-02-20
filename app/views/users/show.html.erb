@@ -9,6 +9,7 @@
           <div class = "col-md-12">Member since <%=@user.created_at.strftime("%B %d, %Y")%></div>
           <div class = "col-md-12"><%= @user.photos.size %> photos submitted</div>
           <div class = "col-md-12"><%= Critique.where(author: @user.id).size %> critiques given</div>
+          <div class = "col-md-12"><%= @user.critiques_received %> critiques received</div>
           <div class = "col-md-12"><a href=<%="https://www.flickr.com/photos/"+@user.fid%> target="_blank"><%=@user.name%> on Flickr</a></div>
         </div><!--end 8 col-->
         
@@ -18,11 +19,10 @@
 
       </div><!--end row-->
     
-<% if @user.photos.length > 0 %>
+<% if @user.photos.length > 0 && @user.critiques_received > 0 %>
       <div class = "col-md-12 col-xs-12 stats-div">
         <div class = "col-md-12">
           Critique averages for <%=@user.name%>'s photos
-          <%= @user.photos.length %>
         </div>
         <div class = "row show-grid">
           <div class = "col-md-4 col-xs-12">
