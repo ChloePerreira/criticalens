@@ -10,6 +10,8 @@ function submitEmail(button_clicked, id) {
       },
       success: function (data) {
         button_clicked.addClass("disabled")
+        $(".modal-body-email").html("You have been successfully subscribed!");
+        $(".modal-body-email").css("text-align", "center");
       }
     });
   };

@@ -165,7 +165,7 @@ body {
     /*border-radius: 5px;*/
     display: block;
     position: absolute;
-    top: 2px;
+    top: 3px;
     border-radius: 50%;
     border-color: black !important;
 }

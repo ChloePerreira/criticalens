@@ -52,7 +52,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href=<%="/user/"+current_user.id.to_s%>>Profile</a></li>
             <li><%= link_to "Dashboard", dashboard_path %></li>
-            <li><a href='javascript:void(0)' data-toggle="modal" data-target="#email-modal">Email updates</a></li>
+            <li><a href='#' data-toggle="modal" data-target="#email-modal">Email updates</a></li>
             <li class="divider"></li>
             <li><%= link_to "Logout", destroy_session_path%></li>
           </ul>
