@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get "/logout", to: "session#destroy", as: :destroy_session
 
   post "/submit-photo", to: "photos#submit_photo", as: :submit_photo
+
+  post "/submit-email", to: "users#submit_email"
   
   get "/photo/:id", to: "photos#show", as: :show_photo
 

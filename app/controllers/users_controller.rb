@@ -10,5 +10,16 @@ class UsersController < ApplicationController
       @photos = []
     end
   end
+  
+  def submit_email
+    #check that id actually matches current user
+    if params[:id].to_i == current_user.id
+      user = User.find(params[:id])
+      user.email = params[:email]
+      user.save
+    end
+    render :nothing => true
+  end
+
 
 end
