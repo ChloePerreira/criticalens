@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 
   def index
+    CritiqueMailer.critique_notification(1).deliver
+    Resque.enqueue(EmailJob, 15)
   end
 
   def dashboard

@@ -66,6 +66,10 @@ gem 'typhoeus'
 gem 'carrierwave'
 gem 'fog'
 
+gem 'resque'
+
 group :development, :test do
   gem 'rspec-rails'
 end
+
+gem 'aws-ses'
