@@ -40,7 +40,7 @@
       <div class = "row show-grid">
         <div class = "col-md-2"></div>
           <div class = "col-md-8">
-<% if @user.photos > 0 %>
+<% if @user.photos.length > 0 %>
             <div class = "col-md-12 show-photos-buttons">
               <%= link_to "All photos", show_user_path(:id=>@user.id, :show_diff_data => "all"), class: "btn btn-default", :remote => true %>
               <%= link_to "Photos with no critiques", show_user_path(:id=>@user.id, :show_diff_data => "no critiques"), class: "btn btn-default", :remote => true %>
