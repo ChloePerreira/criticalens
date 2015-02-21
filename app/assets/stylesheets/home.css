@@ -137,6 +137,10 @@ body {
     margin-left: 15px;
   }
 
+  .photo-box img {
+    width: 100px;
+  }
+
   .navbar-brand-logo {
     padding: 0px !important;
     font-size: 26px !important;
