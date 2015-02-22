@@ -3,12 +3,23 @@ body {
 }
 
 .home-header {
-  background-color: #E27A3F;
+  background-image: url("blue_landscape.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   color: white;
-  font-size: 50px !important;
+  font-family: 'Arial Narrow';
+  font-weight: bold;
+  font-size: 150px !important;
+  line-height: 130px;
+  padding-top: 140px;
   height: 500px;
-  padding: 200px;
   text-align: center;
+}
+
+.orange-div {
+  background-color: #EFC94C;
+  height: 300px;
 }
 
 .modal-header {
@@ -95,7 +106,7 @@ body {
 }
 
 .navbar-nav li a:hover {
-  color: #45B29D !important;
+  color: #E27A3F !important;
 }
 
 .navbar-brand {
