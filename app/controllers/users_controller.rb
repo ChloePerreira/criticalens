@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if params[:show_diff_data] == "all"
-      @photos = @user.photos.paginate(page: params[:page], per_page: 15)
+      @photos = @user.photos.paginate(page: params[:page], per_page: 15).order('created_at DESC')
     elsif params[:show_diff_data] == "no critiques"
-      @photos = get_photos_wo_critiques(params[:id]).paginate(page: params[:page], per_page: 15)
+      @photos = get_photos_wo_critiques(params[:id]).paginate(page: params[:page], per_page: 15).order('created_at DESC')
     else
       @photos = []
     end
