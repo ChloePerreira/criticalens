@@ -21,7 +21,7 @@ body {
 
 @media screen and (max-width: 768px) {
   .home-header {
-    padding-top: 130px;
+    padding-top: 110px;
     font-size: 60px !important;
     line-height: 60px;
   }
