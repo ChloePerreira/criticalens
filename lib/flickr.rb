@@ -4,7 +4,7 @@ class Flickr
 
   def self.get_photos(fid)
     # append to endpoint to get urls of the photos
-    extras = "&extras=url_q,url_m,url_n,url_z,url_c"
+    extras = "&per_page=200&extras=url_q,url_m,url_n,url_z,url_c"
     # get users public photos
     response = self.response("flickr.people.getPublicPhotos", "user_id", fid, extras)
     # photos are buried in hash
