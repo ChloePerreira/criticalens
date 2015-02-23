@@ -14,7 +14,6 @@
 }
 
 .learn-header {
-  width: 100%;
   text-align: center;
   display: inline-block;
   padding-top: 15px;
@@ -33,4 +32,8 @@
 
 .learn-text {
   font-size: 18px;
+}
+
+.top-learn {
+  margin-top: 25px;
 }
