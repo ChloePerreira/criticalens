@@ -12,14 +12,37 @@ body {
   font-weight: bold;
   font-size: 150px !important;
   line-height: 130px;
-  padding-top: 140px;
+  padding-top: 130px;
   height: 500px;
   text-align: center;
 }
 
+@media screen and (max-width: 1200px) {
+  .home-header {
+    font-size: 120px !important;
+    line-height: 100px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home-header {
+    font-size: 120px !important;
+    padding-top: 120px;
+    line-height: 100px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .home-header {
+    padding-top: 140px;
     font-size: 90px !important;
+    line-height: 80px;
+  }
+}
+@media screen and (max-width: 468px) {
+  .home-header {
+    padding-top: 120px;
+    font-size: 80px !important;
     line-height: 70px;
   }
 }
