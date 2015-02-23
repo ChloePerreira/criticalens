@@ -124,17 +124,25 @@ body {
   margin-bottom: 50px;
 }
 
+.right-bord {
+  border-right: 1.5px dotted #e6e6e6;  
+}
+
 @media screen and (max-width: 999px) {
 
-.orange-phrase {
-  color: white;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
-  font-size: 10vw; /* 60px !important;*/
-  margin-top: 15px;
-  margin-bottom: 25px;
-  border-bottom: 1px white;
-  border-bottom: 1.5px dotted #e6e6e6;  
+  .orange-phrase {
+    color: white;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 10vw; /* 60px !important;*/
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px white;
+    border-bottom: 1.5px dotted #e6e6e6;  
+  }
+
+  .right-bord {
+    border-right: 0px;  
 }
 
 }
