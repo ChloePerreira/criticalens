@@ -159,7 +159,7 @@
 
                 <div class="col-md-12 post-critique-sugg"> 
                   <hr>
-                  <a href=<%="/user/#{current_user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; On <%=Date.today.strftime("%B %d, %Y")%> you suggested these settings:
+                  <a href=<%="/user/#{current_user.id.to_s}"%>><%= image_tag current_user.avatar, class: "avatar"%></a> &nbsp; On <%=Date.today.strftime("%B %d, %Y")%> you suggested these settings:
                 </div>
 
 
@@ -220,7 +220,7 @@
 
                 <div class="col-md-12 post-critique-sugg"> 
                   <hr>
-                  <a href=<%="/user/#{current_user.id.to_s}"%>><%= image_tag photo_object.user.avatar, class: "avatar"%></a> &nbsp; On <%=get_critique(photo_object.fid).created_at.to_date.strftime("%B %d, %Y")%> you suggested these settings:
+                  <a href=<%="/user/#{current_user.id.to_s}"%>><%= image_tag current_user.avatar, class: "avatar"%></a> &nbsp; On <%=get_critique(photo_object.fid).created_at.to_date.strftime("%B %d, %Y")%> you suggested these settings:
                 </div>
 
 
