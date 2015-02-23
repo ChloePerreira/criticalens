@@ -3,7 +3,7 @@ body {
 }
 
 .home-header {
-  background-image: url("blue_landscape.png");
+  /*background-image: url("blue_landscape.png");*/
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

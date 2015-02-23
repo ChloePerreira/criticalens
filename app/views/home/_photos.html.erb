@@ -1,5 +1,4 @@
 <div class = "container">
-
       <div class="photo-home-container">
 
 <!--START LOOP FOR DISPLAYING PHOTOS---------->
@@ -62,7 +61,15 @@
 
                   <div class = <%="col-md-12 "+photo_object[:fid]+"-sugg-settings-col"%>>
 
-                    <div class = "col-md-12 slider-title-bar">Aperture</div>
+                    <div class = "col-md-12 slider-title-bar">
+                      Aperture
+                      <a tabindex="0" role="button" 
+                      data-toggle="popover" data-trigger="focus" 
+                      title="Dismissible popover"
+                      data-content="And here's some amazing content. It's very engaging. Right?">
+                      <%= image_tag "question_mark.png", class: "aperture-q question" %>
+                      </a>
+                    </div>
                     <div class = "col-md-12">
                       <div class = "col-md-2"></div>
                       <div class= "col-md-8 dot-fixer">
@@ -75,7 +82,10 @@
                       </div>
                     </div>
 
-                    <div class = "col-md-12 slider-title-bar">Shutter speed</div>
+                    <div class = "col-md-12 slider-title-bar">
+                      Shutter speed
+                      <%= image_tag "question_mark.png", class: "shutter-q question" %>
+                    </div>
                     <div class= "col-md-12">
                       <div class = "col-md-2"></div>
                       <div class= "col-md-8 dot-fixer">
@@ -88,7 +98,10 @@
                       </div>
                     </div>
 
-                  <div class = "col-md-12 slider-title-bar">ISO</div>
+                  <div class = "col-md-12 slider-title-bar">
+                    ISO
+                    <%= image_tag "question_mark.png", class: "iso-q question" %>
+                  </div>
                   <div class = "col-md-12">
                     <div class= "col-md-2"></div>
                     <div class = "col-md-8 dot-fixer">
