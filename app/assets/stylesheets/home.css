@@ -19,6 +19,35 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .home-header {
+    padding-top: 140px;
+    font-size: 90px !important;
+    line-height: 80px;
+  }
+}
+
+/*.white-bar {
+  padding-top: 1px;
+  display: inline-block;
+  background-color: white;
+  color: white !important;
+  width: 100%;
+}*/
+
+.comm-div {
+  display: inline-block;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #E27A3F;
+  font-family: 'Arial Narrow';
+  font-weight: bold;
+  font-size: 6vh;
+  line-height: 6vh;
+  text-align: center;
+  color: white;
+}
+
 /*@media screen and (max-width: 1200px) {
   .home-header {
     font-size: 120px !important;
@@ -68,7 +97,7 @@ body {
   font-weight: bold;
   font-size: 3vw; /* 60px !important;*/
   margin-top: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 999px) {
