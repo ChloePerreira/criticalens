@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   mount Resque::Server, :at => "/resque"
 
   get "/", to: "home#index", as: :root
+  
+  get "/learn", to: "home#learn"
 
   get "/test_api", to: "api#test_api"
   

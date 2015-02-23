@@ -12,4 +12,7 @@ class HomeController < ApplicationController
     end
   end
 
+  def learn
+  end
+
 end

@@ -1,0 +1,36 @@
+@media screen and (max-width: 769px) {
+  .top-learn {
+    margin-top: 26px !important;
+  }
+
+  .learn-header {
+    font-size: 4vh !important;
+  }
+
+  .learn-text {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+}
+
+.learn-header {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  color: #334D5C;
+  font-size: 6vh;
+  font-weight: bold;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  /*background-color: #EFC94C;*/
+}
+
+.top-marg {
+  margin-top: 25px;
+}
+
+.learn-text {
+  font-size: 18px;
+}
