@@ -17,9 +17,22 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .home-header {
+    font-size: 90px !important;
+    line-height: 70px;
+  }
+}
+
 .orange-div {
   background-color: #EFC94C;
   height: 300px;
+  text-align: center;
+}
+
+.submit-grab {
+  width: 100%;
+  border-radius: 50%;
 }
 
 .modal-header {
@@ -149,7 +162,7 @@ body {
   }
 
   .photo-box img {
-    width: 100px;
+    width: 150px;
   }
 
   .navbar-brand-logo {
