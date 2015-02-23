@@ -22,8 +22,24 @@ body {
 @media screen and (max-width: 768px) {
   .home-header {
     padding-top: 140px;
-    font-size: 90px !important;
-    line-height: 80px;
+    font-size: 60px !important;
+    line-height: 60px;
+  }
+
+}
+
+@media screen and (max-width: 769px) {
+
+  .comm-div {
+    display: inline-block;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #E27A3F;
+    font-family: 'Arial Narrow';
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: white;
   }
 }
 
