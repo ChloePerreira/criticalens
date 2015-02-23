@@ -48,14 +48,26 @@ body {
 }
 
 .orange-div {
-  background-color: #EFC94C;
-  height: 300px;
+  background-color: #EFC94C !important;
   text-align: center;
+  display: inline-block;
 }
 
-.submit-grab {
-  width: 100%;
-  border-radius: 50%;
+.orange-div img {
+  background-color: #EFC94C;
+  max-width: 70%;
+  display: inline-block;
+  padding-top: 50px;
+}
+
+.orange-phrase {
+  color: white;
+  font-family: 'Arial Narrow';
+  font-weight: bold;
+  font-size: 60px !important;
+  line-height: 70px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .modal-header {
