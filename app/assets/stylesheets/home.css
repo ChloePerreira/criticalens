@@ -10,14 +10,16 @@ body {
   color: white;
   font-family: 'Arial Narrow';
   font-weight: bold;
-  font-size: 150px !important;
-  line-height: 130px;
-  padding-top: 130px;
+  font-size: 15vh;
+  line-height: 13vh;
+  /*font-size: 150px !important;
+  line-height: 130px;*/
+  padding-top: 140px;
   height: 500px;
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+/*@media screen and (max-width: 1200px) {
   .home-header {
     font-size: 120px !important;
     line-height: 100px;
@@ -46,7 +48,7 @@ body {
     line-height: 70px;
   }
 }
-
+*/
 .orange-div {
   background-color: #EFC94C !important;
   text-align: center;
@@ -64,10 +66,24 @@ body {
   color: white;
   font-family: 'Arial Narrow';
   font-weight: bold;
-  font-size: 60px !important;
-  line-height: 70px;
+  font-size: 3vw; /* 60px !important;*/
   margin-top: 15px;
   margin-bottom: 25px;
+}
+
+@media screen and (max-width: 999px) {
+
+.orange-phrase {
+  color: white;
+  font-family: 'Arial Narrow';
+  font-weight: bold;
+  font-size: 10vw; /* 60px !important;*/
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px white;
+  border-bottom: 1.5px dotted #e6e6e6;  
+}
+
 }
 
 .modal-header {
