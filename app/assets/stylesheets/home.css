@@ -351,4 +351,6 @@ body {
   padding: 0px !important;
 }
 
-
+.navbar-toggle.collapsed {
+  margin-top: 26px;
+}
