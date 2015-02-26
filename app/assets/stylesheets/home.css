@@ -354,3 +354,7 @@ body {
 .navbar-toggle {
   margin-top: 26px;
 }
+
+.unsub-body {
+  text-align: center;
+}

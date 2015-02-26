@@ -18,15 +18,17 @@
     </div>
   </div>
   <% else %>
-    <%= current_user.email %>
     <div class = "email-modal">
       <div class='modal-header'>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <div class='modal-title'>Unsubscribe from email updates</div>
       </div>
 
-      <div class = "modal-body modal-body-email">
-        <!-- put in a button that links to ajax request to delete email -->
+      <div class = "modal-body modal-body-email unsub-body">
+        <div class = "btn btn-default">Unsubscribe</div>
+      </div>
+
+      <div class = "modal-footer">
       </div>
     </div>
   <% end %>
