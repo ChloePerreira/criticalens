@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   post "/submit-photo", to: "photos#submit_photo", as: :submit_photo
 
   post "/submit-email", to: "users#submit_email"
+
+  delete "/delete-email", to: "users#delete_email"
   
   get "/photo/:id", to: "photos#show", as: :show_photo
 

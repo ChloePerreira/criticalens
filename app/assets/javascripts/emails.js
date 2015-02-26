@@ -20,4 +20,27 @@ function submitEmail(button_clicked, id) {
     submitEmail($(this), $(this).attr('userid'));
   });
 
+
+  function deleteEmail(button_clicked, id) {
+    $.ajax("/delete-email", {
+      type: "DELETE",
+      data: {
+        id: id,
+      },
+      success: function (data) {
+        button_clicked.addClass("disabled")
+        $(".unsub-body").html("You have been successfully unsubscribed!");
+      }
+    });
+  };
+
+  $("body").on("click", "#emailSubmit", function(){
+    submitEmail($(this), $(this).attr('userid'));
+  });
+
+
+  $("body").on("click", "#emailDelete", function(){
+    deleteEmail($(this), $(this).attr('userid'));
+  });
+
 });

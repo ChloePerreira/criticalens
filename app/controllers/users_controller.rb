@@ -21,5 +21,13 @@ class UsersController < ApplicationController
     render :nothing => true
   end
 
+  def delete_email
+    if params[:id].to_i == current_user.id
+      user = User.find(params[:id])
+      user.email = nil
+      user.save
+    end
+    render :nothing => true
+  end
 
 end
