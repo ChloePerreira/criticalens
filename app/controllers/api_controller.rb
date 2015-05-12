@@ -182,7 +182,7 @@ class ApiController < ApplicationController
   end
 
   def self.critiques_given(user_id)
-    Critique.where(author: user_id)
+    User.find(user_id).critiques
   end
 
   def percent(val, sum)

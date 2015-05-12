@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :name, presence: :true
   #validates_format_of :email, :with => /@/
   has_many :photos
+  has_many :critiques
 
   def critiques_received
     qty = 0

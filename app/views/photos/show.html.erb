@@ -95,7 +95,7 @@
             
               <div class = "col-md-6">
                 <div class="col-md-12">
-                  <a href=<%="/user/#{critique.author.to_s}"%>><%= image_tag User.find(critique.author).avatar, class: "avatar"%></a> &nbsp; On <%= critique.created_at.strftime("%B %d, %Y")%> <%=User.find(critique.author).name%> suggested these settings:
+                  <a href=<%="/user/#{critique.user_id.to_s}"%>><%= image_tag User.find(critique.user_id).avatar, class: "avatar"%></a> &nbsp; On <%= critique.created_at.strftime("%B %d, %Y")%> <%=User.find(critique.user_id).name%> suggested these settings:
                 </div>
                 <div class="col-md-12">
                   <div class="row show-grid">
@@ -125,9 +125,4 @@
     </div> <!--end outer form and photo thing-->
   </div> <!--end photo-home container -->
 </div> <!--end outer container-->
-
-
-
-
-
 

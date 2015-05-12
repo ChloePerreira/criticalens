@@ -111,7 +111,7 @@ $(document).ready(function () {
       type: "POST",
       data: {
         fid: id,
-        author: button_clicked.attr('session'),
+        user_id: button_clicked.attr('session'),
         sugg_ap:  $("#"+id+"-aperture-hint").html(),  
         sugg_sh:  $("#"+id+"-exposure-hint").html(),  
         sugg_iso: $("#"+id+"-iso-hint").html(),

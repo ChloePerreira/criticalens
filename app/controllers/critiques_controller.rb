@@ -10,10 +10,11 @@ class CritiquesController < ApplicationController
   end
   
   def submit_critique
-    if Critique.where(fid: params[:fid], author: params[:author]).size < 1
+    # Check if critique exists first
+    if Critique.where(fid: params[:fid], user_id: params[:user_id]).size < 1
       @critique = Critique.create(
         fid: params[:fid],
-        author: params[:author],
+        user_id: params[:user_id],
         sugg_ap: params[:sugg_ap],
         sugg_sh: params[:sugg_sh],
         sugg_iso: params[:sugg_iso]

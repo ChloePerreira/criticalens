@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_critiqued? (fid)
-    critiques_authored = Critique.where(author: session[:user_id])
+    critiques_authored = current_user.critiques #Critique.where(author: session[:user_id])
     if critiques_authored.where(fid: fid).size > 0
       return true
     else
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_critique (fid) # returns current user's critique of a photo
-    Critique.where(author: session[:user_id], fid: fid).first  
+    current_user.critiques.where(fid: fid).first #Critique.where(author: session[:user_id], fid: fid).first  
   end
 
   def get_photos_wo_critiques(user_id) 
