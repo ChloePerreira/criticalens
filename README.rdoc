@@ -4,5 +4,5 @@ http://criticalens.com
 
 Criticalens is a web app for DSLR photographers to give and receive feedback on photos based on the image's Exif data.
 
-Built with Ruby on Rails and JavaScript as a final project for Ada Developers Academy[adadevelopersacademy.org]. Relies on Google Charts and Flickr APIs.
+Built with Ruby on Rails and JavaScript as a final project for {Ada Developers Academy}[adadevelopersacademy.org]. Relies on Google Charts and Flickr APIs.
 
