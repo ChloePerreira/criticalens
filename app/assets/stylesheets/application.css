@@ -15,7 +15,7 @@
  */
 
 
-body { padding-top: 70px; }
+body { padding-top: 70px; overflow-x:hidden; }
 @media screen and (max-width: 768px) {
     body { padding-top: 70px; }
 }
