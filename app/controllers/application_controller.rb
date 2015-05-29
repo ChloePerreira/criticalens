@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_critiqued? (fid)
-    if @current_user
+    if session[:user_id] 
       critiques_authored = current_user.critiques #Critique.where(author: session[:user_id])
       if critiques_authored.where(fid: fid).size > 0
         return true
