@@ -15,4 +15,7 @@ class HomeController < ApplicationController
   def learn
   end
 
+  def getting_started
+  end
+
 end

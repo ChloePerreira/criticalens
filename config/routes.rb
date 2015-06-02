@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   
   get "/learn", to: "home#learn"
 
+  get "/getting_started", to:"home#getting_started"
+
   get "/test_api", to: "api#test_api"
   
   get "/aperture_tally/:id", to: "api#aperture_tally"
