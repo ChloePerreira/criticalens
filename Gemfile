@@ -73,3 +73,8 @@ group :development, :test do
 end
 
 gem 'aws-ses'
+
+group :production, :staging do
+      gem 'pg'
+      gem 'rails_12factor'
+end
