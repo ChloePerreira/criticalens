@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get "/dashboard", to: "home#dashboard", as: :dashboard
 
   get "/auth/flickr/callback", to: "session#create", as: :connect
+
+  get "/auth/flickr/failure", to: "home#error"
   
   get "/logout", to: "session#destroy", as: :destroy_session
 

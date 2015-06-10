@@ -1,0 +1,17 @@
+.error-text {
+  font-size: 32px;
+}
+
+.bug {
+  padding-top: 30px;
+  max-width: 20%;
+  text-align: middle;
+}
+
+.bug-box {
+  text-align: center !important;
+}
+
+.error-row {
+  margin-bottom: 25px;
+}
