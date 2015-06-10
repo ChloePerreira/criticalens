@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   get "/auth/flickr/callback", to: "session#create", as: :connect
 
-  get "/auth/flickr/failure", to: "home#error"
+  get "/auth/failure", to: "home#error"
   
   get "/logout", to: "session#destroy", as: :destroy_session
 
